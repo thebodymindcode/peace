@@ -46,10 +46,11 @@ body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;pointe
 .hero h1{font-family:var(--serif);font-size:clamp(40px,7vw,80px);font-weight:900;color:var(--text-bright);line-height:1.08;margin-bottom:32px;opacity:0;animation:fadeUp .8s .4s forwards}
 .hero h1 em{font-style:italic;color:var(--accent);display:inline-block}
 .hero-sub{font-size:clamp(16px,2vw,20px);color:var(--text-dim);max-width:600px;margin:0 auto;line-height:1.7;font-weight:300;opacity:0;animation:fadeUp .8s .6s forwards}
-.scroll-cta{position:absolute;bottom:50px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:12px;opacity:0;animation:fadeUp .8s 1.2s forwards}
+.scroll-cta{position:absolute;bottom:50px;left:0;right:0;display:flex;flex-direction:column;align-items:center;gap:12px;opacity:0;animation:fadeIn .8s 1.2s forwards}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
 .scroll-cta span{font-size:11px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--text-dim)}
 .scroll-line{width:1px;height:50px;background:linear-gradient(to bottom,var(--accent),transparent);animation:scrollPulse 2.5s ease-in-out infinite}
-@keyframes scrollPulse{0%,100%{opacity:.3;transform:scaleY(1)}50%{opacity:1;transform:scaleY(1.2)}}
+@keyframes scrollPulse{0%,100%{opacity:.3}50%{opacity:1}}
 
 /* ===== WIDE CONTAINER ===== */
 .wide{max-width:1100px;margin:0 auto;padding:0 40px}
