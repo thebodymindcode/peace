@@ -4,554 +4,664 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Почему твой мозг никогда не замолкает</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Onest:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --bg: #0C0C14;
-    --bg-card: #13131F;
-    --bg-accent: #1A1A2E;
-    --text: #C8C8D4;
-    --text-bright: #EEEEF4;
-    --text-dim: #6E6E82;
-    --accent: #6C63FF;
-    --accent2: #00D2FF;
-    --accent-glow: rgba(108, 99, 255, 0.15);
-    --green: #4ADE80;
-    --serif: 'Cormorant Garamond', Georgia, serif;
-    --sans: 'Onest', sans-serif;
-  }
+:root {
+  --bg: #06060C;
+  --bg2: #0A0A16;
+  --bg3: #0E0E1A;
+  --surface: #141422;
+  --surface2: #1A1A2E;
+  --text: #B8B8CC;
+  --text-bright: #EEEEF6;
+  --text-dim: #5A5A72;
+  --accent: #7B6FFF;
+  --accent2: #00E5CC;
+  --accent3: #FF6B9D;
+  --glow: rgba(123,111,255,0.15);
+  --glow2: rgba(0,229,204,0.1);
+  --serif: 'Playfair Display', Georgia, serif;
+  --sans: 'Manrope', system-ui, sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:18px;line-height:1.8;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 
-  * { margin: 0; padding: 0; box-sizing: border-box; }
+/* ===== NOISE OVERLAY ===== */
+body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:9999;opacity:0.025;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
 
-  html { scroll-behavior: smooth; }
+/* ===== HERO ===== */
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:80px 40px;position:relative;overflow:hidden}
+.hero-bg{position:absolute;inset:0;z-index:0}
+.hero-bg svg{width:100%;height:100%;opacity:0.4}
+.hero-orb{position:absolute;border-radius:50%;filter:blur(80px);pointer-events:none;animation:orbFloat 8s ease-in-out infinite}
+.hero-orb-1{width:500px;height:500px;background:radial-gradient(circle,rgba(123,111,255,0.12),transparent 70%);top:-10%;left:20%;animation-delay:0s}
+.hero-orb-2{width:400px;height:400px;background:radial-gradient(circle,rgba(0,229,204,0.08),transparent 70%);bottom:10%;right:10%;animation-delay:-3s}
+.hero-orb-3{width:300px;height:300px;background:radial-gradient(circle,rgba(255,107,157,0.06),transparent 70%);top:40%;left:-5%;animation-delay:-5s}
+@keyframes orbFloat{0%,100%{transform:translate(0,0)}50%{transform:translate(30px,-20px)}}
 
-  body {
-    background: var(--bg);
-    color: var(--text);
-    font-family: var(--sans);
-    font-size: 17px;
-    line-height: 1.75;
-    -webkit-font-smoothing: antialiased;
-  }
+.hero-content{position:relative;z-index:1;max-width:900px}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;padding:8px 20px;border:1px solid rgba(123,111,255,0.3);border-radius:40px;font-size:12px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--accent);margin-bottom:40px;backdrop-filter:blur(10px);background:rgba(123,111,255,0.05);opacity:0;animation:fadeUp .8s .2s forwards}
+.hero-badge .dot{width:6px;height:6px;border-radius:50%;background:var(--accent);animation:pulse 2s infinite}
+.hero h1{font-family:var(--serif);font-size:clamp(40px,7vw,80px);font-weight:900;color:var(--text-bright);line-height:1.08;margin-bottom:32px;opacity:0;animation:fadeUp .8s .4s forwards}
+.hero h1 em{font-style:italic;color:var(--accent);display:inline-block}
+.hero-sub{font-size:clamp(16px,2vw,20px);color:var(--text-dim);max-width:600px;margin:0 auto;line-height:1.7;font-weight:300;opacity:0;animation:fadeUp .8s .6s forwards}
+.scroll-cta{position:absolute;bottom:50px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:12px;opacity:0;animation:fadeUp .8s 1.2s forwards}
+.scroll-cta span{font-size:11px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--text-dim)}
+.scroll-line{width:1px;height:50px;background:linear-gradient(to bottom,var(--accent),transparent);animation:scrollPulse 2.5s ease-in-out infinite}
+@keyframes scrollPulse{0%,100%{opacity:.3;transform:scaleY(1)}50%{opacity:1;transform:scaleY(1.2)}}
 
-  /* === HERO === */
-  .hero {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 60px 24px;
-    position: relative;
-    overflow: hidden;
-  }
+/* ===== WIDE CONTAINER ===== */
+.wide{max-width:1100px;margin:0 auto;padding:0 40px}
+.narrow{max-width:720px;margin:0 auto;padding:0 40px}
 
-  .hero::before {
-    content: '';
-    position: absolute;
-    top: -30%;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 600px;
-    height: 600px;
-    background: radial-gradient(circle, rgba(108,99,255,0.12) 0%, transparent 70%);
-    border-radius: 50%;
-    pointer-events: none;
-  }
+/* ===== SECTION INTRO ===== */
+.section-intro{padding:100px 40px 60px;text-align:center}
+.section-intro p{max-width:640px;margin:0 auto;font-size:19px;line-height:1.8}
 
-  .hero-label {
-    font-family: var(--sans);
-    font-size: 12px;
-    font-weight: 500;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: var(--accent);
-    margin-bottom: 32px;
-    opacity: 0;
-    animation: fadeUp 0.8s 0.2s forwards;
-  }
+/* ===== FACT CARDS ===== */
+.fact{padding:80px 0;position:relative}
+.fact-inner{max-width:1100px;margin:0 auto;padding:0 40px;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.fact-inner.reverse{direction:rtl}
+.fact-inner.reverse > *{direction:ltr}
+.fact-text{padding:20px 0}
+.fact-num{font-family:var(--serif);font-size:14px;font-weight:700;color:var(--accent);letter-spacing:4px;text-transform:uppercase;margin-bottom:16px;display:flex;align-items:center;gap:12px}
+.fact-num::after{content:'';flex:1;height:1px;background:linear-gradient(to right,rgba(123,111,255,0.3),transparent)}
+.fact-title{font-family:var(--serif);font-size:clamp(26px,3.5vw,36px);font-weight:700;color:var(--text-bright);line-height:1.2;margin-bottom:20px}
+.fact-body p{margin-bottom:16px;font-size:17px;line-height:1.8}
+.fact-body strong{color:var(--text-bright);font-weight:600}
 
-  .hero h1 {
-    font-family: var(--serif);
-    font-size: clamp(36px, 6vw, 64px);
-    font-weight: 700;
-    color: var(--text-bright);
-    line-height: 1.15;
-    max-width: 700px;
-    margin-bottom: 28px;
-    opacity: 0;
-    animation: fadeUp 0.8s 0.4s forwards;
-  }
+.fact-visual{position:relative;display:flex;align-items:center;justify-content:center;min-height:320px}
 
-  .hero-sub {
-    font-size: 18px;
-    color: var(--text-dim);
-    max-width: 500px;
-    line-height: 1.6;
-    opacity: 0;
-    animation: fadeUp 0.8s 0.6s forwards;
-  }
+/* ===== SVG INFOGRAPHIC CARDS ===== */
+.info-card{background:var(--surface);border:1px solid rgba(123,111,255,0.1);border-radius:20px;padding:40px;width:100%;position:relative;overflow:hidden}
+.info-card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--accent),transparent)}
+.info-card .big-stat{font-family:var(--serif);font-size:72px;font-weight:900;line-height:1;margin-bottom:8px;background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.info-card .stat-label{font-size:15px;color:var(--text-dim);font-weight:500;letter-spacing:1px}
+.info-card .stat-source{font-size:12px;color:var(--text-dim);margin-top:16px;padding-top:16px;border-top:1px solid rgba(255,255,255,0.05)}
 
-  .scroll-hint {
-    position: absolute;
-    bottom: 40px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
-    opacity: 0;
-    animation: fadeUp 0.8s 1s forwards;
-  }
+/* ===== SVG BRAIN ===== */
+.brain-svg{width:100%;max-width:400px}
+.brain-svg .brain-path{fill:none;stroke:var(--accent);stroke-width:1;stroke-dasharray:1000;stroke-dashoffset:1000;opacity:0.6}
+.brain-svg .brain-dot{fill:var(--accent);opacity:0;r:3}
+.brain-svg .brain-glow{fill:var(--accent2);opacity:0;r:6;filter:url(#glow)}
+.visible .brain-path{animation:drawBrain 3s ease forwards}
+.visible .brain-dot{animation:dotAppear .5s forwards}
+.visible .brain-glow{animation:glowPulse 2s ease-in-out infinite}
+@keyframes drawBrain{to{stroke-dashoffset:0}}
+@keyframes dotAppear{to{opacity:0.8}}
+@keyframes glowPulse{0%,100%{opacity:0.3;r:4}50%{opacity:0.7;r:8}}
 
-  .scroll-hint span {
-    font-size: 11px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--text-dim);
-  }
+/* ===== PROGRESS BAR INFOGRAPHIC ===== */
+.progress-bars{width:100%}
+.pbar{margin-bottom:24px}
+.pbar-label{display:flex;justify-content:space-between;margin-bottom:8px;font-size:14px;font-weight:500}
+.pbar-label span:last-child{color:var(--accent);font-weight:700}
+.pbar-track{height:6px;background:rgba(123,111,255,0.08);border-radius:6px;overflow:hidden;position:relative}
+.pbar-fill{height:100%;border-radius:6px;width:0%;transition:width 1.5s cubic-bezier(0.22,1,0.36,1)}
+.pbar-fill.purple{background:linear-gradient(90deg,var(--accent),#9B8FFF)}
+.pbar-fill.cyan{background:linear-gradient(90deg,var(--accent2),#4DFFD8)}
+.pbar-fill.pink{background:linear-gradient(90deg,var(--accent3),#FF9EC0)}
+.visible .pbar-fill{width:var(--w)}
 
-  .scroll-line {
-    width: 1px;
-    height: 40px;
-    background: linear-gradient(to bottom, var(--accent), transparent);
-    animation: pulse 2s ease-in-out infinite;
-  }
+/* ===== CIRCULAR CHART ===== */
+.circle-chart{position:relative;width:220px;height:220px;margin:0 auto}
+.circle-chart svg{transform:rotate(-90deg)}
+.circle-chart .track{fill:none;stroke:rgba(123,111,255,0.08);stroke-width:8}
+.circle-chart .fill{fill:none;stroke:url(#circGrad);stroke-width:8;stroke-linecap:round;stroke-dasharray:628;stroke-dashoffset:628;transition:stroke-dashoffset 2s cubic-bezier(0.22,1,0.36,1)}
+.visible .circle-chart .fill{stroke-dashoffset:var(--offset)}
+.circle-center{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.circle-center .num{font-family:var(--serif);font-size:52px;font-weight:900;color:var(--text-bright)}
+.circle-center .unit{font-size:13px;color:var(--text-dim);margin-top:-4px}
 
-  /* === CONTENT === */
-  .content {
-    max-width: 640px;
-    margin: 0 auto;
-    padding: 0 24px 80px;
-  }
+/* ===== HIGHLIGHT QUOTE ===== */
+.highlight{background:var(--surface);border-left:3px solid var(--accent);padding:28px 32px;margin:32px 0;border-radius:0 16px 16px 0;position:relative}
+.highlight::before{content:'';position:absolute;top:0;left:-3px;bottom:0;width:3px;background:linear-gradient(to bottom,var(--accent),var(--accent2));border-radius:3px}
+.highlight p{font-family:var(--serif);font-size:22px;font-weight:400;font-style:italic;color:var(--text-bright);line-height:1.5;margin:0}
 
-  .content p {
-    margin-bottom: 22px;
-    color: var(--text);
-  }
+/* ===== CHECKLIST ===== */
+.checklist{list-style:none;margin:28px 0}
+.checklist li{padding:16px 0 16px 40px;position:relative;border-bottom:1px solid rgba(123,111,255,0.06);font-size:17px}
+.checklist li::before{content:'';position:absolute;left:0;top:50%;transform:translateY(-50%);width:24px;height:24px;border-radius:50%;border:2px solid var(--accent2);background:rgba(0,229,204,0.08)}
+.checklist li::after{content:'✓';position:absolute;left:6px;top:50%;transform:translateY(-50%);color:var(--accent2);font-size:13px;font-weight:700}
 
-  .content p strong {
-    color: var(--text-bright);
-    font-weight: 600;
-  }
+/* ===== NEURAL NETWORK SVG ===== */
+.neural-bg{position:absolute;inset:0;overflow:hidden;pointer-events:none;opacity:0.15}
+.neural-bg svg{width:100%;height:100%}
+.neural-line{stroke:var(--accent);stroke-width:0.5;opacity:0}
+.visible .neural-line{animation:lineIn 1s forwards}
+@keyframes lineIn{to{opacity:0.4}}
 
-  .content p em {
-    color: var(--accent2);
-    font-style: normal;
-    font-weight: 500;
-  }
+/* ===== SECTION DIVIDER ===== */
+.divider{height:120px;display:flex;align-items:center;justify-content:center;position:relative}
+.divider svg{width:200px;height:2px}
+.divider line{stroke:url(#divGrad);stroke-width:2}
 
-  /* === SECTION DIVIDERS === */
-  .section-break {
-    text-align: center;
-    padding: 60px 0;
-  }
+/* ===== BRIDGE SECTION ===== */
+.bridge{padding:100px 40px;text-align:center;position:relative}
+.bridge-inner{max-width:800px;margin:0 auto}
+.bridge h2{font-family:var(--serif);font-size:clamp(28px,4vw,42px);font-weight:700;color:var(--text-bright);line-height:1.2;margin-bottom:32px}
+.bridge p{font-size:18px;margin-bottom:20px;line-height:1.8}
+.bridge strong{color:var(--text-bright)}
 
-  .section-break .dot {
-    display: inline-block;
-    width: 4px;
-    height: 4px;
-    background: var(--accent);
-    border-radius: 50%;
-    margin: 0 6px;
-  }
+/* ===== CTA SECTION ===== */
+.cta-section{padding:120px 40px;text-align:center;position:relative;overflow:hidden}
+.cta-section::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:600px;background:radial-gradient(circle,rgba(123,111,255,0.08),transparent 60%);border-radius:50%;pointer-events:none}
+.cta-card{max-width:600px;margin:0 auto;background:var(--surface);border:1px solid rgba(123,111,255,0.15);border-radius:24px;padding:60px 48px;position:relative;z-index:1}
+.cta-card::before{content:'';position:absolute;top:-1px;left:20%;right:20%;height:1px;background:linear-gradient(90deg,transparent,var(--accent),transparent)}
+.cta-card h2{font-family:var(--serif);font-size:clamp(28px,4vw,38px);font-weight:700;color:var(--text-bright);line-height:1.2;margin-bottom:16px}
+.cta-card p{color:var(--text-dim);font-size:17px;margin-bottom:36px;line-height:1.7}
+.cta-btn{display:inline-flex;align-items:center;gap:10px;padding:18px 44px;background:linear-gradient(135deg,var(--accent),#5B52E0);color:#fff;font-family:var(--sans);font-size:16px;font-weight:600;letter-spacing:0.3px;text-decoration:none;border-radius:60px;transition:all .4s cubic-bezier(0.22,1,0.36,1);position:relative;overflow:hidden}
+.cta-btn::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,#5B52E0,var(--accent));opacity:0;transition:opacity .4s}
+.cta-btn:hover{transform:translateY(-3px);box-shadow:0 20px 60px rgba(123,111,255,0.3)}
+.cta-btn:hover::before{opacity:1}
+.cta-btn span{position:relative;z-index:1}
+.cta-btn svg{position:relative;z-index:1;transition:transform .3s}
+.cta-btn:hover svg{transform:translateX(4px)}
+.cta-price{font-size:14px;color:var(--text-dim);margin-top:20px;font-weight:500}
+.cta-features{display:flex;gap:24px;justify-content:center;margin-top:28px;flex-wrap:wrap}
+.cta-feat{display:flex;align-items:center;gap:6px;font-size:13px;color:var(--text-dim)}
+.cta-feat svg{color:var(--accent2);flex-shrink:0}
 
-  /* === FACT BLOCKS === */
-  .fact {
-    margin: 50px 0;
-    padding: 0;
-    position: relative;
-  }
+/* ===== FOOTER ===== */
+.footer{text-align:center;padding:50px 40px;border-top:1px solid rgba(255,255,255,0.03);font-size:13px;color:var(--text-dim)}
+.footer a{color:var(--accent);text-decoration:none}
 
-  .fact-number {
-    font-family: var(--serif);
-    font-size: 80px;
-    font-weight: 700;
-    color: var(--accent);
-    opacity: 0.12;
-    line-height: 1;
-    margin-bottom: -20px;
-    position: relative;
-    z-index: 0;
-  }
+/* ===== ANIMATIONS ===== */
+@keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+@keyframes pulse{0%,100%{opacity:.5}50%{opacity:1}}
 
-  .fact-title {
-    font-family: var(--serif);
-    font-size: clamp(24px, 4vw, 32px);
-    font-weight: 600;
-    color: var(--text-bright);
-    line-height: 1.3;
-    margin-bottom: 20px;
-    position: relative;
-    z-index: 1;
-  }
+.reveal{opacity:0;transform:translateY(40px);transition:opacity .8s cubic-bezier(0.22,1,0.36,1),transform .8s cubic-bezier(0.22,1,0.36,1)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-delay-1{transition-delay:.15s}
+.reveal-delay-2{transition-delay:.3s}
 
-  .fact p {
-    color: var(--text);
-    margin-bottom: 18px;
-  }
+/* ===== COUNTER ANIMATION ===== */
+.counter{font-family:var(--serif);font-variant-numeric:tabular-nums}
 
-  /* === HIGHLIGHT BOX === */
-  .highlight {
-    background: var(--bg-card);
-    border-left: 3px solid var(--accent);
-    padding: 24px 28px;
-    margin: 30px 0;
-    border-radius: 0 8px 8px 0;
-  }
-
-  .highlight p {
-    font-family: var(--serif);
-    font-size: 21px;
-    font-weight: 600;
-    color: var(--text-bright);
-    line-height: 1.5;
-    margin-bottom: 0;
-  }
-
-  /* === STAT LINE === */
-  .stat-line {
-    display: flex;
-    align-items: baseline;
-    gap: 14px;
-    margin: 28px 0;
-  }
-
-  .stat-num {
-    font-family: var(--serif);
-    font-size: 48px;
-    font-weight: 700;
-    color: var(--accent);
-    line-height: 1;
-    flex-shrink: 0;
-  }
-
-  .stat-text {
-    font-size: 16px;
-    color: var(--text);
-    line-height: 1.5;
-  }
-
-  /* === CHECK LIST === */
-  .checklist {
-    list-style: none;
-    margin: 28px 0;
-  }
-
-  .checklist li {
-    padding: 12px 0 12px 32px;
-    position: relative;
-    border-bottom: 1px solid rgba(108,99,255,0.08);
-  }
-
-  .checklist li::before {
-    content: '✓';
-    position: absolute;
-    left: 0;
-    color: var(--green);
-    font-weight: 600;
-  }
-
-  /* === CTA SECTION === */
-  .cta-section {
-    text-align: center;
-    padding: 80px 24px 100px;
-    position: relative;
-  }
-
-  .cta-section::before {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 500px;
-    height: 500px;
-    background: radial-gradient(circle, rgba(108,99,255,0.08) 0%, transparent 70%);
-    border-radius: 50%;
-    pointer-events: none;
-  }
-
-  .cta-section h2 {
-    font-family: var(--serif);
-    font-size: clamp(28px, 4vw, 40px);
-    font-weight: 700;
-    color: var(--text-bright);
-    line-height: 1.2;
-    margin-bottom: 20px;
-  }
-
-  .cta-section p {
-    color: var(--text-dim);
-    max-width: 480px;
-    margin: 0 auto 36px;
-    font-size: 17px;
-  }
-
-  .cta-btn {
-    display: inline-block;
-    padding: 18px 48px;
-    background: var(--accent);
-    color: #fff;
-    font-family: var(--sans);
-    font-size: 16px;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-    text-decoration: none;
-    border-radius: 60px;
-    transition: all 0.3s ease;
-    position: relative;
-    z-index: 1;
-  }
-
-  .cta-btn:hover {
-    background: #5B52E0;
-    transform: translateY(-2px);
-    box-shadow: 0 12px 40px rgba(108,99,255,0.3);
-  }
-
-  .cta-sub {
-    font-size: 13px;
-    color: var(--text-dim);
-    margin-top: 16px;
-  }
-
-  /* === FOOTER === */
-  .footer {
-    text-align: center;
-    padding: 40px 24px;
-    border-top: 1px solid rgba(255,255,255,0.04);
-    font-size: 13px;
-    color: var(--text-dim);
-  }
-
-  .footer a {
-    color: var(--accent);
-    text-decoration: none;
-  }
-
-  /* === ANIMATIONS === */
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  @keyframes pulse {
-    0%, 100% { opacity: 0.3; }
-    50% { opacity: 1; }
-  }
-
-  .reveal {
-    opacity: 0;
-    transform: translateY(24px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
-  }
-
-  .reveal.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  /* === RESPONSIVE === */
-  @media (max-width: 600px) {
-    body { font-size: 16px; }
-    .fact-number { font-size: 56px; }
-    .stat-line { flex-direction: column; gap: 4px; }
-    .highlight { padding: 20px 22px; }
-    .cta-btn { padding: 16px 40px; }
-  }
+/* ===== RESPONSIVE ===== */
+@media(max-width:900px){
+  .fact-inner,.fact-inner.reverse{grid-template-columns:1fr;direction:ltr;gap:40px}
+  .fact-inner.reverse>*{direction:ltr}
+  .fact-visual{min-height:240px}
+  .hero{padding:60px 24px}
+  .wide,.narrow{padding:0 24px}
+  .section-intro{padding:60px 24px 40px}
+  .fact{padding:50px 0}
+  .fact-inner{padding:0 24px}
+  .bridge{padding:60px 24px}
+  .cta-section{padding:80px 24px}
+  .cta-card{padding:40px 28px}
+  .info-card{padding:28px}
+  .info-card .big-stat{font-size:52px}
+  .cta-features{flex-direction:column;align-items:center;gap:12px}
+}
 </style>
 </head>
 <body>
 
+<!-- SVG DEFS -->
+<svg style="position:absolute;width:0;height:0">
+  <defs>
+    <linearGradient id="circGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#7B6FFF"/>
+      <stop offset="100%" stop-color="#00E5CC"/>
+    </linearGradient>
+    <linearGradient id="divGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="transparent"/>
+      <stop offset="50%" stop-color="#7B6FFF"/>
+      <stop offset="100%" stop-color="transparent"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <linearGradient id="brainGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#7B6FFF"/>
+      <stop offset="100%" stop-color="#00E5CC"/>
+    </linearGradient>
+  </defs>
+</svg>
+
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-label">Архитектура Сознания</div>
-  <h1>Почему твой мозг никогда не замолкает</h1>
-  <p class="hero-sub">И что с этим делают нейробиологи Гарварда, Navy SEALs и те, кто устал просыпаться уставшим</p>
-  <div class="scroll-hint">
-    <span>читать</span>
+  <div class="hero-orb hero-orb-1"></div>
+  <div class="hero-orb hero-orb-2"></div>
+  <div class="hero-orb hero-orb-3"></div>
+  <div class="hero-content">
+    <div class="hero-badge"><span class="dot"></span> Архитектура Сознания</div>
+    <h1>Почему твой мозг <em>никогда</em> не замолкает</h1>
+    <p class="hero-sub">И что с этим делают нейробиологи Гарварда, Navy SEALs и те, кто устал просыпаться уставшим</p>
+  </div>
+  <div class="scroll-cta">
+    <span>Читать</span>
     <div class="scroll-line"></div>
   </div>
 </section>
 
 <!-- INTRO -->
-<div class="content">
-
-  <div class="reveal">
-    <p>Ты можешь быть успешным, продуктивным, всё успевать. Но если вечером, когда ложишься спать, голова не выключается — значит, внутри работает система, которую ты не контролируешь.</p>
-
-    <p>Это не лень. Не слабая воля. Не «много думаешь».</p>
-
-    <p>Это нейробиология. И сейчас ты узнаешь, как она работает.</p>
-  </div>
-
-  <div class="section-break"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
-
-  <!-- FACT 1 -->
-  <div class="fact reveal">
-    <div class="fact-number">01</div>
-    <div class="fact-title">Твой мозг тратит 20% всей энергии тела. Не на решения. На шум.</div>
-    <p>Мозг весит 2% от массы тела, но потребляет пятую часть всей энергии. Большая часть этой энергии уходит не на мышление, не на решение задач, не на творчество.</p>
-    <p>Она уходит на <strong>Default Mode Network</strong> — сеть пассивного режима. Это система, которая включается, когда ты «ничего не делаешь». Она генерирует внутренний диалог, пережёвывание прошлого, тревогу о будущем, фантазии и сценарии.</p>
-    <p>Ты думаешь, что отдыхаешь. А мозг работает на полную мощность.</p>
-
-    <div class="highlight">
-      <p>DMN — это не баг. Это система выживания. Но в современном мире она работает без остановки, потому что никто не научил тебя её выключать.</p>
-    </div>
-  </div>
-
-  <!-- FACT 2 -->
-  <div class="fact reveal">
-    <div class="fact-number">02</div>
-    <div class="fact-title">47% времени твой ум — не здесь</div>
-
-    <div class="stat-line">
-      <div class="stat-num">47%</div>
-      <div class="stat-text">времени бодрствования мозг блуждает. Это не твоя оценка — это данные Гарварда. Исследование Killingsworth & Gilbert, 2010.</div>
-    </div>
-
-    <p>Почти половину жизни ты не присутствуешь в моменте. Ты физически здесь, но ментально — в вчерашнем разговоре, в завтрашней встрече, в сценарии, который никогда не произойдёт.</p>
-    <p>И вот главное открытие: <strong>блуждание ума напрямую коррелирует с уровнем несчастья</strong>. Не наоборот. Не «тебе плохо, поэтому думаешь». А «думаешь — поэтому плохо».</p>
-
-    <div class="highlight">
-      <p>Ум блуждает не потому, что тебе плохо. Тебе плохо, потому что ум блуждает.</p>
-    </div>
-  </div>
-
-  <!-- FACT 3 -->
-  <div class="fact reveal">
-    <div class="fact-number">03</div>
-    <div class="fact-title">6 000 мыслей в день. 95% — повтор.</div>
-
-    <div class="stat-line">
-      <div class="stat-num">95%</div>
-      <div class="stat-text">мыслей сегодня — те же, что вчера. Исследование Queen's University, 2020.</div>
-    </div>
-
-    <p>Твой мозг не генерирует новые идеи. Он крутит одни и те же мысли по кругу. Как заевшая пластинка.</p>
-    <p>Это не особенность характера. Это <strong>нейронная привычка</strong>. Мозг идёт по самым протоптанным путям, потому что они требуют меньше энергии.</p>
-    <p>Результат: одни и те же тревоги, одни и те же реакции, одни и те же решения. Год за годом.</p>
-
-    <div class="highlight">
-      <p>Чтобы думать по-новому, нужно буквально проложить новые нейронные пути. Это не метафора. Это физика мозга.</p>
-    </div>
-  </div>
-
-  <!-- FACT 4 -->
-  <div class="fact reveal">
-    <div class="fact-number">04</div>
-    <div class="fact-title">Тревога — не характер. Это гиперактивная миндалина.</div>
-
-    <p>Миндалевидное тело (amygdala) — структура размером с миндаль в глубине мозга. Она отвечает за реакцию «бей или беги».</p>
-    <p>У людей с хронической тревогой миндалина <strong>физически увеличена</strong> и постоянно активна. Она сканирует окружение на угрозы 24/7 — даже когда угроз нет.</p>
-    <p>Ты не «тревожный человек». У тебя миндалина, которая не может остановиться. Она работает так, как её натренировали годы стресса, информационного шума и недосыпа.</p>
-    <p>И вот что важно: <strong>это обратимо</strong>.</p>
-
-    <div class="highlight">
-      <p>Тревога — не приговор. Это состояние конкретной структуры мозга, которое можно изменить. Видно на МРТ.</p>
-    </div>
-  </div>
-
-  <!-- FACT 5 -->
-  <div class="fact reveal">
-    <div class="fact-number">05</div>
-    <div class="fact-title">Миндалина уменьшается за 4 недели. Гарвард это доказал.</div>
-
-    <p>В 2011 году Sara Lazar и команда Harvard Medical School провели исследование. Участники 8 недель выполняли структурированную практику осознанности. МРТ до и после показало:</p>
-
-    <ul class="checklist">
-      <li>Плотность серого вещества в миндалине <strong>уменьшилась</strong> — снижение тревожности</li>
-      <li>Плотность серого вещества в префронтальной коре <strong>увеличилась</strong> — улучшение самоконтроля</li>
-      <li>Плотность в гиппокампе <strong>увеличилась</strong> — улучшение памяти и обучения</li>
-    </ul>
-
-    <p>Причём заметные изменения начались уже через <em>4 недели</em>.</p>
-    <p>Это не эзотерика. Не аффирмации. Не «думай позитивно». Это <strong>структурное изменение мозга</strong>, зафиксированное на снимках.</p>
-
-    <div class="highlight">
-      <p>Мозг перестраивается. Буквально. Физически. За 28 дней. Если знаешь, что делать.</p>
-    </div>
-  </div>
-
-  <!-- FACT 6 -->
-  <div class="fact reveal">
-    <div class="fact-number">06</div>
-    <div class="fact-title">Просыпаешься разбитым? DMN работала всю ночь.</div>
-
-    <p>Ты лёг вовремя. Спал 7–8 часов. Но утром чувствуешь себя так, будто не отдыхал.</p>
-    <p>Причина: <strong>Default Mode Network не выключается во сне</strong>. Если днём ум привык крутить мысли без остановки, ночью он продолжает. Мозг не переходит в глубокий восстановительный сон — он застревает в поверхностных фазах.</p>
-    <p>Результат: хронический недосып при формально нормальном количестве сна. Кофе утром. Энергетики днём. Раздражительность вечером. И так по кругу.</p>
-
-    <div class="highlight">
-      <p>Проблема не в количестве сна. Проблема в том, что мозг не умеет выключаться.</p>
-    </div>
-  </div>
-
-  <!-- FACT 7 -->
-  <div class="fact reveal">
-    <div class="fact-number">07</div>
-    <div class="fact-title">Navy SEALs тренируют префронтальную кору. Чтобы в момент X голова была пустой.</div>
-
-    <p>Американские военные тратят миллионы долларов на программы ментальной подготовки. Не на мотивацию. На нейробиологию.</p>
-    <p>Они тренируют <strong>префронтальную кору</strong> — часть мозга, которая отвечает за осознанные решения, фокус и подавление импульсов. Чем она сильнее — тем тише внутренний шум и тем точнее решения под давлением.</p>
-    <p>Это не секрет. Об этом публикуют в научных журналах. Просто мало кто применяет.</p>
-
-    <div class="highlight">
-      <p>Элита не «умеет не думать». Они тренируют мозг так же системно, как тело.</p>
-    </div>
-  </div>
-
-  <!-- FACT 8 -->
-  <div class="fact reveal">
-    <div class="fact-number">08</div>
-    <div class="fact-title">95% бросают медитацию за неделю. Потому что нет системы.</div>
-
-    <p>Ты, возможно, пробовал медитировать. Скачал приложение. Посидел 10 минут. Ничего не почувствовал. Бросил.</p>
-    <p>Это нормально. Проблема не в тебе. Проблема в формате.</p>
-    <p><strong>Медитация без структуры — как тренажёрный зал без программы.</strong> Ты приходишь, делаешь случайные упражнения, не видишь результата и уходишь.</p>
-    <p>Мозг меняется не от «просто сиди и дыши». Он меняется от <strong>конкретных упражнений в конкретной последовательности</strong>, которые нагружают нужные области мозга и создают новые нейронные связи.</p>
-
-    <div class="highlight">
-      <p>Медитация — это не цель. Это инструмент. И как любой инструмент, он работает только в системе.</p>
-    </div>
-  </div>
-
-  <!-- FACT 9 -->
-  <div class="fact reveal">
-    <div class="fact-number">09</div>
-    <div class="fact-title">Нейропластичность — суперсила, о которой тебе не рассказали.</div>
-
-    <p>До конца XX века учёные считали, что мозг взрослого человека не меняется. Что нейронные связи фиксируются к 25 годам и дальше только деградируют.</p>
-    <p><strong>Это оказалось неправдой.</strong></p>
-    <p>Мозг перестраивается всю жизнь. Лондонские таксисты увеличивают гиппокамп, запоминая карту города. Музыканты утолщают моторную кору. А люди, которые практикуют осознанность — уменьшают миндалину и усиливают префронтальную кору.</p>
-    <p>Нейропластичность — это не концепция. Это <strong>механизм</strong>. И он работает в обе стороны: мозг можно как разрушить хроническим стрессом, так и перестроить целенаправленно.</p>
-
-    <div class="highlight">
-      <p>Твой мозг сейчас — это результат того, чем ты его кормил последние годы. Но это не приговор. Это отправная точка.</p>
-    </div>
-  </div>
-
-  <div class="section-break"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
-
-  <!-- BRIDGE -->
-  <div class="reveal">
-    <p>Подведём итог. Вот что происходит прямо сейчас:</p>
-    <p>Твой мозг тратит огромное количество энергии на внутренний шум. Почти половину времени ты не присутствуешь в собственной жизни. Мысли крутятся по кругу — одни и те же, каждый день. Миндалина держит тело в режиме тревоги. Сон не восстанавливает.</p>
-    <p>И при этом ты знаешь, что всё это <strong>можно изменить за 4 недели</strong>. Это доказано в Гарварде. Это используют Navy SEALs. Это не требует часов медитации или лет терапии.</p>
-    <p><strong>Нужна система. Конкретная. Пошаговая. Основанная на нейробиологии.</strong></p>
-  </div>
-
+<div class="section-intro reveal">
+  <p>Ты можешь быть успешным, продуктивным, всё успевать. Но если вечером, когда ложишься спать, голова не выключается — значит, внутри работает система, которую ты не контролируешь.</p>
+  <br>
+  <p>Это не лень. Не слабая воля. Не «много думаешь».</p>
+  <br>
+  <p style="color:var(--text-bright);font-weight:500">Это нейробиология. И сейчас ты узнаешь, как она работает.</p>
 </div>
 
-<!-- CTA SECTION -->
+<!-- DIVIDER -->
+<div class="divider"><svg viewBox="0 0 200 2"><line x1="0" y1="1" x2="200" y2="1"/></svg></div>
+
+<!-- FACT 1: ENERGY -->
+<section class="fact reveal">
+  <div class="fact-inner">
+    <div class="fact-text">
+      <div class="fact-num">Факт 01</div>
+      <div class="fact-title">Твой мозг тратит 20% всей энергии тела. Не на решения. На шум.</div>
+      <div class="fact-body">
+        <p>Мозг весит 2% от массы тела, но потребляет пятую часть всей энергии. Большая часть уходит не на мышление и не на творчество.</p>
+        <p>Она уходит на <strong>Default Mode Network</strong> — сеть пассивного режима. Эта система включается, когда ты «ничего не делаешь». Она генерирует внутренний диалог, пережёвывание прошлого, тревогу о будущем.</p>
+      </div>
+      <div class="highlight">
+        <p>DMN — система выживания. Но в современном мире она работает без остановки, потому что никто не научил тебя её выключать.</p>
+      </div>
+    </div>
+    <div class="fact-visual">
+      <div class="info-card">
+        <div class="progress-bars">
+          <div class="pbar">
+            <div class="pbar-label"><span>Мозг (2% массы тела)</span><span>20%</span></div>
+            <div class="pbar-track"><div class="pbar-fill purple" style="--w:20%"></div></div>
+          </div>
+          <div class="pbar">
+            <div class="pbar-label"><span>Из них на DMN (шум)</span><span>60–80%</span></div>
+            <div class="pbar-track"><div class="pbar-fill cyan" style="--w:70%"></div></div>
+          </div>
+          <div class="pbar">
+            <div class="pbar-label"><span>На осознанные решения</span><span>5%</span></div>
+            <div class="pbar-track"><div class="pbar-fill pink" style="--w:5%"></div></div>
+          </div>
+        </div>
+        <div class="stat-source">Raichle et al., PNAS, 2001 · Shulman et al., 2004</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FACT 2: 47% -->
+<section class="fact reveal">
+  <div class="fact-inner reverse">
+    <div class="fact-text">
+      <div class="fact-num">Факт 02</div>
+      <div class="fact-title">47% времени твой ум — не здесь</div>
+      <div class="fact-body">
+        <p>Почти половину жизни ты не присутствуешь в моменте. Ты физически здесь, но ментально — в вчерашнем разговоре, в завтрашней встрече, в сценарии, который никогда не произойдёт.</p>
+        <p>И вот главное открытие: <strong>блуждание ума напрямую коррелирует с уровнем несчастья</strong>. Не «тебе плохо, поэтому думаешь». А «думаешь — поэтому плохо».</p>
+      </div>
+      <div class="highlight">
+        <p>Ум блуждает не потому, что тебе плохо. Тебе плохо, потому что ум блуждает.</p>
+      </div>
+    </div>
+    <div class="fact-visual">
+      <div class="info-card" style="text-align:center">
+        <div class="circle-chart">
+          <svg width="220" height="220" viewBox="0 0 220 220">
+            <circle class="track" cx="110" cy="110" r="100"/>
+            <circle class="fill" cx="110" cy="110" r="100" style="--offset:332"/>
+          </svg>
+          <div class="circle-center">
+            <div class="num counter" data-target="47">0</div>
+            <div class="unit">% времени</div>
+          </div>
+        </div>
+        <p style="margin-top:20px;font-size:14px;color:var(--text-dim)">Мозг блуждает. Ты — отсутствуешь.</p>
+        <div class="stat-source">Killingsworth & Gilbert, Harvard, 2010</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FACT 3: 6000 thoughts -->
+<section class="fact reveal">
+  <div class="fact-inner">
+    <div class="fact-text">
+      <div class="fact-num">Факт 03</div>
+      <div class="fact-title">6 200 мыслей в день. 95% — повтор.</div>
+      <div class="fact-body">
+        <p>Твой мозг не генерирует новые идеи. Он крутит одни и те же мысли по кругу. Как заевшая пластинка.</p>
+        <p>Это не особенность характера. Это <strong>нейронная привычка</strong>. Мозг идёт по самым протоптанным путям, потому что они требуют меньше энергии.</p>
+        <p>Результат: одни и те же тревоги, одни и те же реакции, одни и те же решения. Год за годом.</p>
+      </div>
+      <div class="highlight">
+        <p>Чтобы думать по-новому, нужно буквально проложить новые нейронные пути. Это не метафора. Это физика мозга.</p>
+      </div>
+    </div>
+    <div class="fact-visual">
+      <div class="info-card">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;text-align:center">
+          <div>
+            <div class="big-stat counter" data-target="6200" style="font-size:48px">0</div>
+            <div class="stat-label">мыслей в день</div>
+          </div>
+          <div>
+            <div class="big-stat counter" data-target="95" style="font-size:48px">0</div>
+            <div class="stat-label">% повторяются</div>
+          </div>
+        </div>
+        <div style="margin-top:24px;padding-top:20px;border-top:1px solid rgba(255,255,255,0.05)">
+          <svg width="100%" height="60" viewBox="0 0 400 60">
+            <g class="thought-circles">
+              <circle cx="30" cy="30" r="25" fill="rgba(123,111,255,0.12)" stroke="rgba(123,111,255,0.3)" stroke-width="1"/>
+              <circle cx="90" cy="30" r="25" fill="rgba(123,111,255,0.12)" stroke="rgba(123,111,255,0.3)" stroke-width="1"/>
+              <circle cx="150" cy="30" r="25" fill="rgba(123,111,255,0.12)" stroke="rgba(123,111,255,0.3)" stroke-width="1"/>
+              <circle cx="210" cy="30" r="25" fill="rgba(123,111,255,0.12)" stroke="rgba(123,111,255,0.3)" stroke-width="1"/>
+              <circle cx="270" cy="30" r="25" fill="rgba(123,111,255,0.12)" stroke="rgba(123,111,255,0.3)" stroke-width="1"/>
+              <circle cx="330" cy="30" r="25" fill="rgba(0,229,204,0.08)" stroke="rgba(0,229,204,0.3)" stroke-width="1"/>
+              <text x="30" y="34" text-anchor="middle" fill="rgba(123,111,255,0.5)" font-size="10" font-family="var(--sans)">то же</text>
+              <text x="90" y="34" text-anchor="middle" fill="rgba(123,111,255,0.5)" font-size="10" font-family="var(--sans)">то же</text>
+              <text x="150" y="34" text-anchor="middle" fill="rgba(123,111,255,0.5)" font-size="10" font-family="var(--sans)">то же</text>
+              <text x="210" y="34" text-anchor="middle" fill="rgba(123,111,255,0.5)" font-size="10" font-family="var(--sans)">то же</text>
+              <text x="270" y="34" text-anchor="middle" fill="rgba(123,111,255,0.5)" font-size="10" font-family="var(--sans)">то же</text>
+              <text x="330" y="34" text-anchor="middle" fill="rgba(0,229,204,0.6)" font-size="10" font-weight="600" font-family="var(--sans)">новая</text>
+            </g>
+          </svg>
+          <p style="font-size:12px;color:var(--text-dim);text-align:center;margin-top:4px">Только 5% мыслей — новые</p>
+        </div>
+        <div class="stat-source">Queen's University, 2020</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FACT 4: AMYGDALA -->
+<section class="fact reveal">
+  <div class="fact-inner reverse">
+    <div class="fact-text">
+      <div class="fact-num">Факт 04</div>
+      <div class="fact-title">Тревога — не характер. Это гиперактивная миндалина.</div>
+      <div class="fact-body">
+        <p>Миндалевидное тело (amygdala) — структура размером с миндаль в глубине мозга. Она отвечает за реакцию «бей или беги».</p>
+        <p>У людей с хронической тревогой миндалина <strong>физически увеличена</strong> и постоянно активна. Она сканирует окружение на угрозы 24/7 — даже когда угроз нет.</p>
+      </div>
+      <div class="highlight">
+        <p>Тревога — не приговор. Это состояние конкретной структуры мозга, которое можно изменить.</p>
+      </div>
+    </div>
+    <div class="fact-visual">
+      <div class="info-card" style="text-align:center">
+        <svg width="280" height="200" viewBox="0 0 280 200" style="margin:0 auto;display:block">
+          <!-- Brain outline -->
+          <ellipse cx="140" cy="90" rx="110" ry="80" fill="none" stroke="rgba(123,111,255,0.15)" stroke-width="1"/>
+          <!-- Amygdala - stressed -->
+          <circle cx="105" cy="105" r="22" fill="rgba(255,107,157,0.15)" stroke="rgba(255,107,157,0.5)" stroke-width="1.5">
+            <animate attributeName="r" values="20;24;20" dur="2s" repeatCount="indefinite"/>
+          </circle>
+          <circle cx="175" cy="105" r="22" fill="rgba(255,107,157,0.15)" stroke="rgba(255,107,157,0.5)" stroke-width="1.5">
+            <animate attributeName="r" values="20;24;20" dur="2s" repeatCount="indefinite" begin="0.3s"/>
+          </circle>
+          <text x="105" y="109" text-anchor="middle" fill="var(--accent3)" font-size="11" font-weight="600" font-family="var(--sans)">L</text>
+          <text x="175" y="109" text-anchor="middle" fill="var(--accent3)" font-size="11" font-weight="600" font-family="var(--sans)">R</text>
+          <!-- Prefrontal -->
+          <ellipse cx="140" cy="40" rx="50" ry="25" fill="rgba(123,111,255,0.06)" stroke="rgba(123,111,255,0.2)" stroke-width="1" stroke-dasharray="4"/>
+          <text x="140" y="44" text-anchor="middle" fill="rgba(123,111,255,0.5)" font-size="10" font-family="var(--sans)">Префронтальная кора</text>
+          <!-- Labels -->
+          <text x="140" y="145" text-anchor="middle" fill="rgba(255,107,157,0.7)" font-size="10" font-family="var(--sans)">Миндалины (amygdala) · пульсируют от тревоги</text>
+          <!-- Signal lines -->
+          <line x1="110" y1="82" x2="130" y2="60" stroke="rgba(255,107,157,0.3)" stroke-width="1" stroke-dasharray="3">
+            <animate attributeName="stroke-opacity" values="0.1;0.5;0.1" dur="1.5s" repeatCount="indefinite"/>
+          </line>
+          <line x1="170" y1="82" x2="150" y2="60" stroke="rgba(255,107,157,0.3)" stroke-width="1" stroke-dasharray="3">
+            <animate attributeName="stroke-opacity" values="0.1;0.5;0.1" dur="1.5s" repeatCount="indefinite" begin="0.5s"/>
+          </line>
+        </svg>
+        <div class="stat-source" style="margin-top:12px">Tawakol et al., The Lancet, 2017</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FACT 5: 4 WEEKS -->
+<section class="fact reveal">
+  <div class="fact-inner">
+    <div class="fact-text">
+      <div class="fact-num">Факт 05</div>
+      <div class="fact-title">Миндалина уменьшается за 4 недели. Гарвард доказал.</div>
+      <div class="fact-body">
+        <p>Sara Lazar и команда Harvard Medical School провели исследование. Участники 8 недель выполняли структурированную практику. МРТ до и после:</p>
+        <ul class="checklist">
+          <li>Плотность серого вещества в миндалине <strong>уменьшилась</strong></li>
+          <li>Префронтальная кора <strong>стала плотнее</strong> — лучше самоконтроль</li>
+          <li>Гиппокамп <strong>вырос</strong> — лучше память и обучение</li>
+        </ul>
+      </div>
+      <div class="highlight">
+        <p>Мозг перестраивается. Буквально. Физически. За 28 дней. Если знаешь, что делать.</p>
+      </div>
+    </div>
+    <div class="fact-visual">
+      <div class="info-card">
+        <div style="text-align:center;margin-bottom:24px">
+          <div class="big-stat" style="font-size:64px">28</div>
+          <div class="stat-label">дней до видимых изменений на МРТ</div>
+        </div>
+        <div class="progress-bars">
+          <div class="pbar">
+            <div class="pbar-label"><span>Миндалина (тревога)</span><span>↓ уменьшилась</span></div>
+            <div class="pbar-track"><div class="pbar-fill pink" style="--w:35%"></div></div>
+          </div>
+          <div class="pbar">
+            <div class="pbar-label"><span>Префронтальная кора (контроль)</span><span>↑ выросла</span></div>
+            <div class="pbar-track"><div class="pbar-fill purple" style="--w:65%"></div></div>
+          </div>
+          <div class="pbar">
+            <div class="pbar-label"><span>Гиппокамп (память)</span><span>↑ вырос</span></div>
+            <div class="pbar-track"><div class="pbar-fill cyan" style="--w:55%"></div></div>
+          </div>
+        </div>
+        <div class="stat-source">Lazar et al., Harvard Medical School, 2011</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FACT 6: SLEEP -->
+<section class="fact reveal">
+  <div class="fact-inner reverse">
+    <div class="fact-text">
+      <div class="fact-num">Факт 06</div>
+      <div class="fact-title">Просыпаешься разбитым? DMN работала всю ночь.</div>
+      <div class="fact-body">
+        <p>Ты лёг вовремя. Спал 7–8 часов. Но утром — как не отдыхал.</p>
+        <p><strong>Default Mode Network не выключается во сне.</strong> Если днём ум привык крутить мысли, ночью он продолжает. Мозг застревает в поверхностных фазах сна.</p>
+        <p>Результат: хронический недосып при нормальном количестве сна. Кофе утром. Раздражительность вечером. И так по кругу.</p>
+      </div>
+      <div class="highlight">
+        <p>Проблема не в количестве сна. Проблема — мозг не умеет выключаться.</p>
+      </div>
+    </div>
+    <div class="fact-visual">
+      <div class="info-card" style="text-align:center">
+        <svg width="100%" height="140" viewBox="0 0 360 140" style="margin-bottom:16px">
+          <!-- Sleep wave normal -->
+          <text x="10" y="16" fill="var(--accent2)" font-size="11" font-weight="600" font-family="var(--sans)">Здоровый сон</text>
+          <path d="M10,55 Q50,20 90,55 Q130,90 170,55 Q210,20 250,55 Q290,90 330,55 Q350,40 360,55" fill="none" stroke="var(--accent2)" stroke-width="2" opacity="0.7"/>
+          <!-- Sleep wave broken -->
+          <text x="10" y="96" fill="var(--accent3)" font-size="11" font-weight="600" font-family="var(--sans)">Сон с активной DMN</text>
+          <path d="M10,125 Q30,115 50,125 Q70,135 90,120 Q110,110 130,125 Q150,132 170,122 Q190,115 210,125 Q230,130 250,120 Q270,112 290,125 Q310,132 330,122 Q345,118 360,125" fill="none" stroke="var(--accent3)" stroke-width="2" opacity="0.7"/>
+          <!-- Labels -->
+          <text x="365" y="59" fill="rgba(0,229,204,0.5)" font-size="9" font-family="var(--sans)" text-anchor="end">глубокие фазы</text>
+          <text x="365" y="129" fill="rgba(255,107,157,0.5)" font-size="9" font-family="var(--sans)" text-anchor="end">поверхностный</text>
+        </svg>
+        <p style="font-size:14px;color:var(--text-dim)">Глубина сна при активной DMN не достигает восстановительных фаз</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FACT 7: NAVY SEALS -->
+<section class="fact reveal">
+  <div class="fact-inner">
+    <div class="fact-text">
+      <div class="fact-num">Факт 07</div>
+      <div class="fact-title">Navy SEALs тренируют префронтальную кору. Чтобы голова была пустой.</div>
+      <div class="fact-body">
+        <p>Американские военные тратят миллионы долларов на программы ментальной подготовки. Не на мотивацию. На нейробиологию.</p>
+        <p>Они тренируют <strong>префронтальную кору</strong> — часть мозга, отвечающую за осознанные решения, фокус и подавление импульсов.</p>
+      </div>
+      <div class="highlight">
+        <p>Элита не «умеет не думать». Они тренируют мозг так же системно, как тело.</p>
+      </div>
+    </div>
+    <div class="fact-visual">
+      <div class="info-card">
+        <svg width="100%" height="200" viewBox="0 0 360 200">
+          <!-- Pyramid -->
+          <polygon points="180,20 320,170 40,170" fill="none" stroke="rgba(123,111,255,0.2)" stroke-width="1"/>
+          <line x1="70" y1="130" x2="290" y2="130" stroke="rgba(123,111,255,0.1)" stroke-width="1"/>
+          <line x1="105" y1="90" x2="255" y2="90" stroke="rgba(123,111,255,0.1)" stroke-width="1"/>
+          <!-- Labels -->
+          <text x="180" y="60" text-anchor="middle" fill="var(--accent)" font-size="12" font-weight="700" font-family="var(--sans)">Navy SEALs</text>
+          <text x="180" y="76" text-anchor="middle" fill="var(--text-dim)" font-size="10" font-family="var(--sans)">Ежедневная практика</text>
+          <text x="180" y="115" text-anchor="middle" fill="rgba(123,111,255,0.6)" font-size="12" font-weight="600" font-family="var(--sans)">CEO, топ-атлеты</text>
+          <text x="180" y="131" text-anchor="middle" fill="var(--text-dim)" font-size="10" font-family="var(--sans)">Регулярная практика</text>
+          <text x="180" y="155" text-anchor="middle" fill="rgba(123,111,255,0.4)" font-size="12" font-weight="500" font-family="var(--sans)">95% людей</text>
+          <text x="180" y="170" text-anchor="middle" fill="var(--text-dim)" font-size="10" font-family="var(--sans)">Бросают за неделю</text>
+          <!-- Glow at top -->
+          <circle cx="180" cy="45" r="30" fill="rgba(123,111,255,0.06)">
+            <animate attributeName="r" values="25;35;25" dur="3s" repeatCount="indefinite"/>
+          </circle>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FACT 8: 95% QUIT -->
+<section class="fact reveal">
+  <div class="fact-inner reverse">
+    <div class="fact-text">
+      <div class="fact-num">Факт 08</div>
+      <div class="fact-title">95% бросают медитацию за неделю. Нет системы.</div>
+      <div class="fact-body">
+        <p>Ты, возможно, пробовал. Скачал приложение. Посидел 10 минут. Ничего не почувствовал. Бросил.</p>
+        <p><strong>Медитация без структуры — как тренажёрный зал без программы.</strong> Случайные упражнения, нет результата, уходишь.</p>
+        <p>Мозг меняется не от «просто сиди и дыши». Он меняется от <strong>конкретных упражнений в конкретной последовательности</strong>.</p>
+      </div>
+      <div class="highlight">
+        <p>Медитация — не цель. Это инструмент. И как любой инструмент, он работает только в системе.</p>
+      </div>
+    </div>
+    <div class="fact-visual">
+      <div class="info-card" style="text-align:center">
+        <div class="circle-chart">
+          <svg width="220" height="220" viewBox="0 0 220 220">
+            <circle class="track" cx="110" cy="110" r="100"/>
+            <circle class="fill" cx="110" cy="110" r="100" style="--offset:31;stroke:url(#nope)" stroke="var(--accent3)"/>
+          </svg>
+          <div class="circle-center">
+            <div class="num counter" data-target="95">0</div>
+            <div class="unit">% бросают</div>
+          </div>
+        </div>
+        <p style="margin-top:16px;font-size:14px;color:var(--text-dim)">Без системы медитация не работает</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FACT 9: NEUROPLASTICITY -->
+<section class="fact reveal">
+  <div class="fact-inner">
+    <div class="fact-text">
+      <div class="fact-num">Факт 09</div>
+      <div class="fact-title">Нейропластичность — суперсила, о которой тебе не рассказали.</div>
+      <div class="fact-body">
+        <p>До конца XX века считали: мозг взрослого не меняется. Нейронные связи фиксируются к 25 годам.</p>
+        <p><strong>Это оказалось неправдой.</strong></p>
+        <p>Лондонские таксисты увеличивают гиппокамп, запоминая карту города. Музыканты утолщают моторную кору. А люди, практикующие осознанность — уменьшают миндалину и усиливают префронтальную кору.</p>
+      </div>
+      <div class="highlight">
+        <p>Твой мозг сейчас — результат того, чем ты его кормил последние годы. Но это не приговор. Это отправная точка.</p>
+      </div>
+    </div>
+    <div class="fact-visual">
+      <div class="info-card" style="text-align:center">
+        <svg width="100%" height="200" viewBox="0 0 360 200">
+          <!-- Old connections -->
+          <text x="90" y="20" text-anchor="middle" fill="var(--text-dim)" font-size="11" font-weight="600" font-family="var(--sans)">Было</text>
+          <circle cx="50" cy="80" r="8" fill="rgba(123,111,255,0.2)" stroke="rgba(123,111,255,0.4)" stroke-width="1"/>
+          <circle cx="90" cy="50" r="8" fill="rgba(123,111,255,0.2)" stroke="rgba(123,111,255,0.4)" stroke-width="1"/>
+          <circle cx="130" cy="90" r="8" fill="rgba(123,111,255,0.2)" stroke="rgba(123,111,255,0.4)" stroke-width="1"/>
+          <circle cx="70" cy="120" r="8" fill="rgba(123,111,255,0.2)" stroke="rgba(123,111,255,0.4)" stroke-width="1"/>
+          <circle cx="110" cy="140" r="8" fill="rgba(123,111,255,0.2)" stroke="rgba(123,111,255,0.4)" stroke-width="1"/>
+          <line x1="50" y1="80" x2="90" y2="50" stroke="rgba(123,111,255,0.2)" stroke-width="1"/>
+          <line x1="90" y1="50" x2="130" y2="90" stroke="rgba(123,111,255,0.2)" stroke-width="1"/>
+          <!-- Arrow -->
+          <text x="180" y="100" text-anchor="middle" fill="var(--accent)" font-size="24" font-family="var(--sans)">→</text>
+          <!-- New connections -->
+          <text x="270" y="20" text-anchor="middle" fill="var(--accent2)" font-size="11" font-weight="600" font-family="var(--sans)">Стало (28 дней)</text>
+          <circle cx="230" cy="80" r="8" fill="rgba(0,229,204,0.2)" stroke="rgba(0,229,204,0.5)" stroke-width="1.5"/>
+          <circle cx="270" cy="50" r="10" fill="rgba(0,229,204,0.2)" stroke="rgba(0,229,204,0.5)" stroke-width="1.5"/>
+          <circle cx="310" cy="90" r="9" fill="rgba(0,229,204,0.2)" stroke="rgba(0,229,204,0.5)" stroke-width="1.5"/>
+          <circle cx="250" cy="120" r="8" fill="rgba(0,229,204,0.2)" stroke="rgba(0,229,204,0.5)" stroke-width="1.5"/>
+          <circle cx="290" cy="140" r="10" fill="rgba(0,229,204,0.2)" stroke="rgba(0,229,204,0.5)" stroke-width="1.5"/>
+          <circle cx="330" cy="60" r="7" fill="rgba(0,229,204,0.2)" stroke="rgba(0,229,204,0.5)" stroke-width="1.5"/>
+          <line x1="230" y1="80" x2="270" y2="50" stroke="rgba(0,229,204,0.3)" stroke-width="1.5"/>
+          <line x1="270" y1="50" x2="310" y2="90" stroke="rgba(0,229,204,0.3)" stroke-width="1.5"/>
+          <line x1="310" y1="90" x2="290" y2="140" stroke="rgba(0,229,204,0.3)" stroke-width="1.5"/>
+          <line x1="290" y1="140" x2="250" y2="120" stroke="rgba(0,229,204,0.3)" stroke-width="1.5"/>
+          <line x1="250" y1="120" x2="230" y2="80" stroke="rgba(0,229,204,0.3)" stroke-width="1.5"/>
+          <line x1="270" y1="50" x2="330" y2="60" stroke="rgba(0,229,204,0.3)" stroke-width="1.5"/>
+          <line x1="330" y1="60" x2="310" y2="90" stroke="rgba(0,229,204,0.3)" stroke-width="1.5"/>
+          <line x1="230" y1="80" x2="250" y2="120" stroke="rgba(0,229,204,0.3)" stroke-width="1.5"/>
+          <!-- Labels -->
+          <text x="90" y="175" text-anchor="middle" fill="var(--text-dim)" font-size="10" font-family="var(--sans)">Мало связей</text>
+          <text x="270" y="175" text-anchor="middle" fill="var(--text-dim)" font-size="10" font-family="var(--sans)">Новые нейронные пути</text>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BRIDGE -->
+<section class="bridge reveal">
+  <div class="bridge-inner">
+    <div class="divider" style="margin-bottom:40px"><svg viewBox="0 0 200 2"><line x1="0" y1="1" x2="200" y2="1"/></svg></div>
+    <h2>Подведём итог</h2>
+    <p>Твой мозг тратит огромное количество энергии на внутренний шум. Почти половину времени ты не присутствуешь в собственной жизни. Мысли крутятся по кругу. Миндалина держит тело в режиме тревоги. Сон не восстанавливает.</p>
+    <p>И при этом ты знаешь, что всё это <strong>можно изменить за 4 недели</strong>. Это доказано в Гарварде. Это используют Navy SEALs. Это не требует часов медитации.</p>
+    <p style="color:var(--text-bright);font-size:20px;font-weight:600">Нужна система. Конкретная. Пошаговая. Основанная на нейробиологии.</p>
+  </div>
+</section>
+
+<!-- CTA -->
 <section class="cta-section reveal">
-  <h2>Протокол остановки ума</h2>
-  <p>28 дней. 16 минут в день. 7 видео-практик, научный мануал, трекер и закрытый чат. Не эзотерика — нейробиология.</p>
-  <a href="https://thebodymindcode.github.io/protocol/" class="cta-btn">Узнать подробности</a>
-  <div class="cta-sub">2 990 ₽ · Доступ навсегда</div>
+  <div class="cta-card">
+    <h2>Протокол остановки ума</h2>
+    <p>28 дней. 16 минут в день. Научный метод перестройки мозга — не эзотерика, а нейробиология с доказательной базой.</p>
+    <a href="https://thebodymindcode.github.io/protocol/" class="cta-btn">
+      <span>Узнать подробности</span>
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+    <div class="cta-price">2 990 ₽ · Доступ навсегда</div>
+    <div class="cta-features">
+      <div class="cta-feat">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+        7 видео-практик
+      </div>
+      <div class="cta-feat">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+        Научный мануал
+      </div>
+      <div class="cta-feat">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+        Трекер на 28 дней
+      </div>
+      <div class="cta-feat">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+        Закрытый чат
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- FOOTER -->
@@ -559,17 +669,36 @@
   <p>Архитектура Сознания · <a href="https://instagram.com/thebodymindcode" target="_blank">@thebodymindcode</a></p>
 </div>
 
-<!-- SCROLL REVEAL -->
 <script>
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-      }
-    });
-  }, { threshold: 0.15 });
+// Scroll reveal
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      // Animate counters
+      entry.target.querySelectorAll('.counter').forEach(animateCounter);
+    }
+  });
+}, { threshold: 0.15 });
 
-  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// Counter animation
+function animateCounter(el) {
+  if (el.dataset.animated) return;
+  el.dataset.animated = true;
+  const target = parseInt(el.dataset.target);
+  const duration = 2000;
+  const start = performance.now();
+  function update(now) {
+    const elapsed = now - start;
+    const progress = Math.min(elapsed / duration, 1);
+    const eased = 1 - Math.pow(1 - progress, 3);
+    el.textContent = Math.round(eased * target).toLocaleString('ru-RU');
+    if (progress < 1) requestAnimationFrame(update);
+  }
+  requestAnimationFrame(update);
+}
 </script>
 
 </body>
