@@ -35,7 +35,7 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;o
 #particles{position:fixed;inset:0;pointer-events:none;z-index:0;opacity:0.5}
 
 /* ===== HERO ===== */
-.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:80px 40px;position:relative;overflow:hidden}
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:80px 40px 120px;position:relative;overflow:hidden}
 .hero-orb{position:absolute;border-radius:50%;filter:blur(100px);pointer-events:none}
 .hero-orb-1{width:600px;height:600px;background:radial-gradient(circle,rgba(123,111,255,0.15),transparent 70%);top:-15%;left:15%;animation:orb1 12s ease-in-out infinite}
 .hero-orb-2{width:500px;height:500px;background:radial-gradient(circle,rgba(0,229,204,0.1),transparent 70%);bottom:5%;right:5%;animation:orb2 15s ease-in-out infinite}
@@ -59,9 +59,9 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;o
 .hero-stat .val{font-family:var(--serif);font-size:2.6rem;font-weight:900;color:var(--text-bright)}
 .hero-stat .lbl{font-size:12px;color:var(--text-dim);margin-top:2px;font-weight:500}
 
-.scroll-cta{position:absolute;bottom:40px;left:0;right:0;display:flex;flex-direction:column;align-items:center;gap:10px;opacity:0;animation:fadeIn .6s 1.4s forwards}
+.scroll-cta{position:absolute;bottom:20px;left:0;right:0;display:flex;flex-direction:column;align-items:center;gap:10px;opacity:0;animation:fadeIn .6s 1.4s forwards}
 .scroll-cta span{font-size:10px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--text-dim)}
-.scroll-line{width:1px;height:50px;background:linear-gradient(to bottom,var(--accent),transparent);animation:scrollPulse 2.5s ease-in-out infinite}
+.scroll-line{width:1px;height:32px;background:linear-gradient(to bottom,var(--accent),transparent);animation:scrollPulse 2.5s ease-in-out infinite}
 
 /* ===== CONTAINERS ===== */
 .wide{max-width:1140px;margin:0 auto;padding:0 40px}
@@ -235,7 +235,7 @@ footer a:hover{color:var(--accent-light)}
   .fact-inner,.fact-inner.reverse{grid-template-columns:1fr;direction:ltr;gap:40px}
   .fact-inner.reverse>*{direction:ltr}
   .fact-visual{min-height:auto}
-  .hero{padding:80px 24px}
+  .hero{padding:80px 24px 130px}
   .wide,.narrow{padding:0 24px}
   .section-intro{padding:80px 24px 50px}
   .fact{padding:60px 0}
