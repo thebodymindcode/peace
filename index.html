@@ -4,928 +4,525 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Почему твой мозг никогда не замолкает — Архитектура Сознания</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Raleway:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
-:root {
-  --bg: #06060C;
-  --bg2: #0A0A16;
-  --bg3: #0E0E1A;
-  --surface: #141422;
-  --surface2: #1A1A2E;
-  --text: #C0C0D4;
-  --text-bright: #F0F0FA;
-  --text-dim: #5A5A72;
-  --accent: #7B6FFF;
-  --accent-light: #9B8FFF;
-  --accent2: #00E5CC;
-  --accent3: #FF6B9D;
-  --glow: rgba(123,111,255,0.15);
-  --glow2: rgba(0,229,204,0.1);
-  --serif: 'Playfair Display', Georgia, serif;
-  --sans: 'Manrope', system-ui, sans-serif;
+:root{
+  --bg:#FAF7F2;
+  --bg2:#F2ECE2;
+  --bg3:#EAE3D7;
+  --card:#FFFFFF;
+  --teal:#0B7D72;
+  --teal-l:#14A899;
+  --teal-d:#06655B;
+  --teal-v:#1EC4B0;
+  --amber:#8B6B14;
+  --amber-l:#A88420;
+  --amber-v:#C49A2E;
+  --amber-pale:rgba(139,107,20,.05);
+  --rose:#B84D44;
+  --rose-l:#D06058;
+  --teal-pale:rgba(11,125,114,.04);
+  --teal-brd:rgba(11,125,114,.14);
+  --amber-brd:rgba(139,107,20,.16);
+  --text:#1F1C17;
+  --body:#36322B;
+  --muted:#56524A;
+  --dim:#7A7670;
+  --border:rgba(11,125,114,.1);
+  --S:'Cormorant Garamond',Georgia,serif;
+  --R:'Raleway',system-ui,sans-serif;
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:18px;line-height:1.8;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body{font-family:var(--R);background:var(--bg);color:var(--body);font-size:18px;line-height:1.8;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+h1,h2,h3{font-family:var(--S);font-weight:500;line-height:1.15;color:var(--text)}
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");opacity:.015;pointer-events:none;z-index:10000}
 
-/* Noise */
-body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:0.02;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+nav{padding:20px 0}
+.nav-i{max-width:1100px;margin:0 auto;padding:0 32px}
+.nav-logo{font-family:var(--S);font-size:1.05rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--text);text-decoration:none}
 
-/* ===== PARTICLES ===== */
-#particles{position:fixed;inset:0;pointer-events:none;z-index:0;opacity:0.5}
+/* ═══ HERO ═══ */
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:40px 32px 100px;position:relative;background:linear-gradient(180deg,var(--bg) 0%,var(--bg2) 100%);overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 50% 30%,rgba(11,125,114,.07),transparent 55%),radial-gradient(ellipse 40% 40% at 70% 60%,rgba(139,107,20,.04),transparent 50%),radial-gradient(circle at 25% 75%,rgba(139,107,20,.03),transparent 40%);pointer-events:none}
 
-/* ===== HERO ===== */
-.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:80px 40px 120px;position:relative;overflow:hidden}
-.hero-orb{position:absolute;border-radius:50%;filter:blur(100px);pointer-events:none}
-.hero-orb-1{width:600px;height:600px;background:radial-gradient(circle,rgba(123,111,255,0.15),transparent 70%);top:-15%;left:15%;animation:orb1 12s ease-in-out infinite}
-.hero-orb-2{width:500px;height:500px;background:radial-gradient(circle,rgba(0,229,204,0.1),transparent 70%);bottom:5%;right:5%;animation:orb2 15s ease-in-out infinite}
-.hero-orb-3{width:350px;height:350px;background:radial-gradient(circle,rgba(255,107,157,0.07),transparent 70%);top:35%;left:-8%;animation:orb3 18s ease-in-out infinite}
-.hero-orb-4{width:200px;height:200px;background:radial-gradient(circle,rgba(123,111,255,0.12),transparent 70%);top:20%;right:20%;animation:orb4 10s ease-in-out infinite}
-@keyframes orb1{0%,100%{transform:translate(0,0) scale(1)}25%{transform:translate(40px,-30px) scale(1.1)}50%{transform:translate(20px,20px) scale(0.95)}75%{transform:translate(-20px,-10px) scale(1.05)}}
-@keyframes orb2{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(-30px,20px) scale(1.15)}66%{transform:translate(20px,-25px) scale(0.9)}}
-@keyframes orb3{0%,100%{transform:translate(0,0)}50%{transform:translate(25px,-15px)}}
-@keyframes orb4{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(-15px,20px) scale(1.2)}}
+/* Breathing rings */
+.breath{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none}
+.br{border-radius:50%;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);animation:breathe 7s ease-in-out infinite}
+.br1{width:280px;height:280px;border:1.5px solid rgba(11,125,114,.1);box-shadow:0 0 30px rgba(11,125,114,.03)}
+.br2{width:400px;height:400px;border:1px solid rgba(139,107,20,.06);animation-delay:-2.3s}
+.br3{width:520px;height:520px;border:1px solid rgba(139,107,20,.04);animation-delay:-4.6s}
+@keyframes breathe{0%,100%{transform:translate(-50%,-50%) scale(.88);opacity:.15}50%{transform:translate(-50%,-50%) scale(1.12);opacity:.7}}
 
-.hero-content{position:relative;z-index:2;max-width:960px}
-.hero-badge{display:inline-flex;align-items:center;gap:10px;padding:10px 24px;border:1px solid rgba(123,111,255,0.25);border-radius:40px;font-size:11px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--accent);margin-bottom:44px;backdrop-filter:blur(12px);background:rgba(123,111,255,0.05);opacity:0;animation:fadeUp .8s .3s forwards}
-.hero-badge .dot{width:7px;height:7px;border-radius:50%;background:var(--accent);box-shadow:0 0 12px var(--accent);animation:pulse 2s infinite}
-.hero h1{font-family:var(--serif);font-size:clamp(42px,8vw,88px);font-weight:900;color:var(--text-bright);line-height:1.05;margin-bottom:36px;opacity:0;animation:fadeUp .8s .5s forwards;letter-spacing:-0.02em}
-.hero h1 em{font-style:italic;background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;position:relative}
-.hero h1 em::after{content:'';position:absolute;bottom:-4px;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--accent),var(--accent2));border-radius:2px;opacity:0.4}
-.hero-sub{font-size:clamp(17px,2.2vw,21px);color:var(--text);max-width:640px;margin:0 auto;line-height:1.75;font-weight:300;opacity:0;animation:fadeUp .8s .7s forwards}
-.hero-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:560px;margin:52px auto 0;opacity:0;animation:fadeUp .8s .9s forwards}
-.hero-stat{padding:24px 16px;border:1px solid rgba(123,111,255,0.12);border-radius:12px;background:rgba(123,111,255,0.04);backdrop-filter:blur(8px);transition:all .4s}
-.hero-stat:hover{border-color:rgba(123,111,255,0.3);background:rgba(123,111,255,0.08);transform:translateY(-4px)}
-.hero-stat .val{font-family:var(--serif);font-size:2.6rem;font-weight:900;color:var(--text-bright)}
-.hero-stat .lbl{font-size:12px;color:var(--text-dim);margin-top:2px;font-weight:500}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;font-size:.7rem;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:var(--teal);padding:10px 26px;border:1px solid var(--teal-brd);margin-bottom:44px;background:rgba(11,125,114,.03);opacity:0;animation:fadeUp .8s .2s forwards}
+.hero-badge .dot{width:6px;height:6px;border-radius:50%;background:var(--teal-l);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:.4;transform:scale(1)}50%{opacity:1;transform:scale(1.4)}}
 
-.scroll-cta{position:absolute;bottom:20px;left:0;right:0;display:flex;flex-direction:column;align-items:center;gap:10px;opacity:0;animation:fadeIn .6s 1.4s forwards}
-.scroll-cta span{font-size:10px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--text-dim)}
-.scroll-line{width:1px;height:32px;background:linear-gradient(to bottom,var(--accent),transparent);animation:scrollPulse 2.5s ease-in-out infinite}
+.hero h1{font-size:clamp(2.8rem,7.5vw,5.5rem);font-weight:400;color:var(--text);margin-bottom:18px;letter-spacing:-.02em;opacity:0;animation:fadeUp .8s .4s forwards}
+.hero h1 em{font-style:italic;background:linear-gradient(135deg,var(--teal-l),var(--teal));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;position:relative}
+.hero h1 em::after{content:'';position:absolute;bottom:-6px;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--teal),var(--amber));border-radius:2px;opacity:.45}
 
-/* ===== CONTAINERS ===== */
-.wide{max-width:1140px;margin:0 auto;padding:0 40px}
-.narrow{max-width:740px;margin:0 auto;padding:0 40px}
+.hero-sub{font-size:clamp(1.1rem,2.2vw,1.32rem);color:var(--muted);max-width:660px;margin:24px auto 0;line-height:1.85;font-weight:400;opacity:0;animation:fadeUp .8s .6s forwards}
 
-/* ===== INTRO ===== */
-.section-intro{padding:120px 40px 80px;text-align:center}
-.section-intro p{max-width:660px;margin:0 auto;font-size:20px;line-height:1.85;color:var(--text)}
-.section-intro .bright{color:var(--text-bright);font-weight:600;font-size:21px}
+/* Stats */
+.hero-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;max-width:520px;margin:48px auto 0;opacity:0;animation:fadeUp .8s .8s forwards}
+.hero-stat{padding:24px 16px;border:1px solid var(--teal-brd);background:rgba(11,125,114,.02);text-align:center;border-radius:4px}
+.hero-stat .val{font-family:var(--S);font-size:2.8rem;font-weight:600;background:linear-gradient(135deg,var(--teal),var(--amber));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-stat .lbl{font-size:.8rem;color:var(--dim);margin-top:2px}
 
-/* ===== DIVIDER ===== */
-.divider{height:100px;display:flex;align-items:center;justify-content:center;position:relative}
-.divider-line{width:200px;height:1px;background:linear-gradient(90deg,transparent,var(--accent),transparent);position:relative}
-.divider-dot{width:6px;height:6px;border-radius:50%;background:var(--accent);position:absolute;top:-2.5px;left:50%;transform:translateX(-50%);box-shadow:0 0 12px var(--accent)}
+.scroll-h{position:absolute;bottom:28px;left:0;right:0;display:flex;flex-direction:column;align-items:center;gap:8px;opacity:0;animation:fadeUp .8s 1.2s forwards}
+.scroll-h span{font-size:.62rem;letter-spacing:.25em;text-transform:uppercase;color:var(--dim)}
+.scroll-l{width:1px;height:30px;background:linear-gradient(to bottom,var(--teal),transparent);animation:sp 2.5s ease infinite}
+@keyframes sp{0%,100%{opacity:.2}50%{opacity:.8}}
 
-/* ===== FACTS ===== */
-.fact{padding:90px 0;position:relative}
-.fact-inner{max-width:1140px;margin:0 auto;padding:0 40px;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
-.fact-inner.reverse{direction:rtl}
-.fact-inner.reverse > *{direction:ltr}
-.fact-text{padding:20px 0}
-.fact-num{font-family:var(--sans);font-size:12px;font-weight:800;color:var(--accent);letter-spacing:5px;text-transform:uppercase;margin-bottom:18px;display:flex;align-items:center;gap:14px}
-.fact-num::after{content:'';flex:1;height:1px;background:linear-gradient(to right,rgba(123,111,255,0.3),transparent)}
-.fact-title{font-family:var(--serif);font-size:clamp(28px,3.5vw,38px);font-weight:700;color:var(--text-bright);line-height:1.18;margin-bottom:22px;letter-spacing:-0.01em}
-.fact-body p{margin-bottom:16px;font-size:17px;line-height:1.85;color:var(--text)}
-.fact-body strong{color:var(--text-bright);font-weight:700}
-.fact-visual{position:relative;display:flex;align-items:center;justify-content:center;min-height:340px}
+/* ═══ INTRO ═══ */
+.intro{padding:110px 32px 70px;text-align:center}
+.intro p{max-width:660px;margin:0 auto;font-size:1.18rem;line-height:1.9;color:var(--body)}
+.intro .bright{color:var(--text);font-weight:600;font-size:1.25rem}
 
-/* ===== INFO CARDS ===== */
-.info-card{background:linear-gradient(145deg,var(--surface),rgba(20,20,34,0.8));border:1px solid rgba(123,111,255,0.12);border-radius:20px;padding:40px;width:100%;position:relative;overflow:hidden;backdrop-filter:blur(10px)}
-.info-card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(123,111,255,0.5),transparent)}
-.info-card::after{content:'';position:absolute;bottom:0;left:20%;right:20%;height:1px;background:linear-gradient(90deg,transparent,rgba(0,229,204,0.15),transparent)}
-.big-stat{font-family:var(--serif);font-size:72px;font-weight:900;line-height:1;margin-bottom:8px;background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.stat-label{font-size:14px;color:var(--text-dim);font-weight:500;letter-spacing:0.5px}
-.stat-source{font-size:11px;color:var(--text-dim);margin-top:20px;padding-top:16px;border-top:1px solid rgba(255,255,255,0.04);font-weight:500}
+/* ═══ DIVIDER ═══ */
+.dv{width:100%;max-width:260px;height:1px;margin:0 auto;background:linear-gradient(90deg,transparent,var(--teal-brd),transparent);position:relative}
+.dv::after{content:'✦';position:absolute;top:-9px;left:50%;transform:translateX(-50%);font-size:11px;color:var(--teal);background:var(--bg);padding:0 14px}
+.dv.b2::after{background:var(--bg2)}
 
-/* ===== PROGRESS BARS ===== */
-.pbar{margin-bottom:22px}
-.pbar-label{display:flex;justify-content:space-between;margin-bottom:8px;font-size:13px;font-weight:600;color:var(--text)}
-.pbar-label span:last-child{color:var(--accent-light);font-weight:700}
-.pbar-track{height:6px;background:rgba(123,111,255,0.06);border-radius:6px;overflow:hidden;position:relative}
-.pbar-fill{height:100%;border-radius:6px;width:0%;transition:width 1.8s cubic-bezier(0.22,1,0.36,1);position:relative}
-.pbar-fill::after{content:'';position:absolute;right:0;top:-1px;width:8px;height:8px;border-radius:50%;background:inherit;filter:blur(3px);opacity:0.8}
-.pbar-fill.purple{background:linear-gradient(90deg,var(--accent),#9B8FFF)}
-.pbar-fill.cyan{background:linear-gradient(90deg,var(--accent2),#4DFFD8)}
-.pbar-fill.pink{background:linear-gradient(90deg,var(--accent3),#FF9EC0)}
-.visible .pbar-fill{width:var(--w)}
+/* ═══ FACTS ═══ */
+.fact{padding:100px 0;position:relative}
+.fi{max-width:1100px;margin:0 auto;padding:0 32px;display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
+.fi.rev{direction:rtl}.fi.rev>*{direction:ltr}
+.fn{font-size:.7rem;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:var(--teal);margin-bottom:18px;display:flex;align-items:center;gap:14px}
+.fn::after{content:'';flex:1;height:1px;background:linear-gradient(to right,var(--teal-brd),transparent)}
+.ft{font-family:var(--S);font-size:clamp(1.8rem,3.5vw,2.5rem);font-weight:500;color:var(--text);line-height:1.22;margin-bottom:24px}
+.fb{font-size:1.05rem;line-height:1.85;color:var(--body)}
+.fb p{margin-bottom:16px}
+.fb strong{color:var(--text);font-weight:600}
 
-/* ===== CIRCLE CHART ===== */
-.circle-chart{position:relative;width:220px;height:220px;margin:0 auto}
-.circle-chart svg{transform:rotate(-90deg)}
-.circle-chart .track{fill:none;stroke:rgba(123,111,255,0.06);stroke-width:8}
-.circle-chart .fill{fill:none;stroke:url(#circGrad);stroke-width:8;stroke-linecap:round;stroke-dasharray:628;stroke-dashoffset:628;transition:stroke-dashoffset 2.2s cubic-bezier(0.22,1,0.36,1)}
-.visible .circle-chart .fill{stroke-dashoffset:var(--offset)}
-.circle-center{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
-.circle-center .num{font-family:var(--serif);font-size:56px;font-weight:900;color:var(--text-bright)}
-.circle-center .unit{font-size:13px;color:var(--text-dim);margin-top:-2px;font-weight:500}
+/* Highlight quote */
+.hl{border-left:3px solid;border-image:linear-gradient(to bottom,var(--teal),var(--amber)) 1;padding:24px 30px;margin:28px 0;background:linear-gradient(135deg,var(--teal-pale),var(--amber-pale));border-radius:0 10px 10px 0}
+.hl p{font-family:var(--S);font-size:1.35rem;font-style:italic;color:var(--text);line-height:1.55;margin:0}
 
-/* ===== HIGHLIGHT QUOTE ===== */
-.highlight{background:linear-gradient(135deg,rgba(123,111,255,0.06),rgba(0,229,204,0.03));border-left:3px solid;border-image:linear-gradient(to bottom,var(--accent),var(--accent2)) 1;padding:28px 32px;margin:28px 0;border-radius:0 16px 16px 0;position:relative}
-.highlight p{font-family:var(--serif);font-size:21px;font-weight:400;font-style:italic;color:var(--text-bright);line-height:1.5;margin:0}
+/* Info card */
+.ic{background:var(--card);border:1px solid var(--teal-brd);padding:40px;position:relative;overflow:hidden;border-radius:4px;box-shadow:0 8px 40px rgba(11,125,114,.04)}
+.ic::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--teal),var(--amber));opacity:.6}
 
-/* ===== CHECKLIST ===== */
-.checklist{list-style:none;margin:24px 0}
-.checklist li{padding:14px 0 14px 44px;position:relative;border-bottom:1px solid rgba(123,111,255,0.06);font-size:17px;color:var(--text)}
-.checklist li::before{content:'';position:absolute;left:0;top:50%;transform:translateY(-50%);width:26px;height:26px;border-radius:50%;border:2px solid var(--accent2);background:rgba(0,229,204,0.06)}
-.checklist li::after{content:'✓';position:absolute;left:7px;top:50%;transform:translateY(-50%);color:var(--accent2);font-size:13px;font-weight:700}
+/* Big gradient number */
+.bn{font-family:var(--S);font-size:4.5rem;font-weight:600;background:linear-gradient(135deg,var(--teal),var(--amber));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1}
+.sl2{font-size:.95rem;color:var(--dim);margin-top:6px;font-weight:500}
+.ss{font-size:.78rem;color:var(--dim);margin-top:20px;padding-top:16px;border-top:1px solid var(--border);font-weight:500}
 
-/* ===== BRIDGE ===== */
-.bridge{padding:120px 40px;text-align:center;position:relative}
-.bridge-inner{max-width:800px;margin:0 auto}
-.bridge-label{font-size:11px;font-weight:800;letter-spacing:5px;text-transform:uppercase;color:var(--accent);margin-bottom:20px}
-.bridge h2{font-family:var(--serif);font-size:clamp(30px,5vw,48px);font-weight:700;color:var(--text-bright);line-height:1.15;margin-bottom:36px}
-.bridge h2 em{font-style:italic;color:var(--accent);display:inline}
-.bridge p{font-size:19px;margin-bottom:20px;line-height:1.85;color:var(--text)}
-.bridge strong{color:var(--text-bright)}
-.bridge .final-line{color:var(--text-bright);font-size:22px;font-weight:700;margin-top:8px}
+/* Progress bars */
+.pb{margin-bottom:22px}
+.pb-l{display:flex;justify-content:space-between;margin-bottom:7px;font-size:.9rem;font-weight:600;color:var(--body)}
+.pb-l span:last-child{font-weight:700}
+.pb-l .tc{color:var(--teal)}.pb-l .pc{color:var(--amber)}.pb-l .rc{color:var(--rose)}.pb-l .gc{color:var(--amber)}
+.pb-t{height:7px;background:rgba(11,125,114,.06);border-radius:7px;overflow:hidden}
+.pb-f{height:100%;border-radius:7px;width:0%;transition:width 1.8s cubic-bezier(.22,1,.36,1)}
+.pb-f.tl{background:linear-gradient(90deg,var(--teal),var(--teal-l))}
+.pb-f.pr{background:linear-gradient(90deg,var(--amber),var(--amber-l))}
+.pb-f.rs{background:linear-gradient(90deg,var(--rose),var(--rose-l))}
+.pb-f.gd{background:linear-gradient(90deg,var(--amber),var(--amber-v))}
+.pb-f.dm{background:linear-gradient(90deg,#A0A8B0,#C0C8D0)}
+.visible .pb-f{width:var(--w)}
 
-/* ===== PROTOCOL SECTION ===== */
-.protocol{padding:120px 0;position:relative;overflow:hidden}
-.protocol::before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,var(--bg),var(--bg2),var(--bg))}
-.protocol-label{font-size:11px;font-weight:800;letter-spacing:5px;text-transform:uppercase;color:var(--accent2);margin-bottom:16px;text-align:center;position:relative;z-index:1}
-.protocol-title{font-family:var(--serif);font-size:clamp(30px,5vw,48px);font-weight:700;color:var(--text-bright);line-height:1.15;text-align:center;margin-bottom:16px;position:relative;z-index:1}
-.protocol-sub{font-size:18px;color:var(--text);text-align:center;max-width:640px;margin:0 auto 20px;position:relative;z-index:1;line-height:1.75}
-.protocol-desc{font-size:16px;color:var(--text-dim);text-align:center;max-width:580px;margin:0 auto 56px;position:relative;z-index:1;line-height:1.7}
+/* Circle chart */
+.cc{position:relative;width:210px;height:210px;margin:0 auto}
+.cc svg{transform:rotate(-90deg)}
+.cc .trk{fill:none;stroke:rgba(11,125,114,.08);stroke-width:9}
+.cc .fl{fill:none;stroke:url(#cG);stroke-width:9;stroke-linecap:round;stroke-dasharray:565;stroke-dashoffset:565;transition:stroke-dashoffset 2.2s cubic-bezier(.22,1,.36,1)}
+.visible .cc .fl{stroke-dashoffset:var(--off)}
+.cc-c{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.cc-c .n{font-family:var(--S);font-size:3.5rem;font-weight:600;background:linear-gradient(135deg,var(--teal),var(--amber));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.cc-c .u{font-size:.9rem;color:var(--dim);margin-top:-2px}
 
-.proto-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;position:relative;z-index:1;margin-bottom:56px}
-.proto-card{background:linear-gradient(145deg,var(--surface),rgba(20,20,34,0.6));border:1px solid rgba(123,111,255,0.1);border-radius:20px;padding:36px 28px;text-align:center;position:relative;overflow:hidden;transition:all .5s cubic-bezier(0.22,1,0.36,1)}
-.proto-card::before{content:'';position:absolute;top:0;left:20%;right:20%;height:1px;background:linear-gradient(90deg,transparent,var(--accent),transparent);opacity:0;transition:opacity .5s}
-.proto-card:hover{transform:translateY(-10px);border-color:rgba(123,111,255,0.25);box-shadow:0 20px 60px rgba(123,111,255,0.1)}
-.proto-card:hover::before{opacity:1}
-.proto-icon{width:56px;height:56px;border-radius:14px;background:rgba(123,111,255,0.08);border:1px solid rgba(123,111,255,0.12);display:flex;align-items:center;justify-content:center;margin:0 auto 18px;transition:all .4s}
-.proto-card:hover .proto-icon{background:rgba(123,111,255,0.15);border-color:rgba(123,111,255,0.3);transform:scale(1.1)}
-.proto-card h3{font-family:var(--serif);font-size:18px;font-weight:700;color:var(--text-bright);margin-bottom:10px}
-.proto-card p{font-size:14px;color:var(--text-dim);line-height:1.7}
+/* Bridge */
+.bridge{padding:130px 32px;text-align:center;background:var(--bg2)}
+.bridge-i{max-width:780px;margin:0 auto}
+.bridge-lb{font-size:.7rem;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:var(--teal);margin-bottom:22px}
+.bridge h2{font-family:var(--S);font-size:clamp(2rem,5vw,3.2rem);font-weight:400;color:var(--text);line-height:1.2;margin-bottom:36px}
+.bridge h2 em{background:linear-gradient(135deg,var(--teal-l),var(--teal));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-style:italic}
+.bridge p{font-size:1.15rem;margin-bottom:20px;line-height:1.85}
+.bridge strong{color:var(--text)}
+.bridge .fin{color:var(--text);font-size:1.3rem;font-weight:600;margin-top:10px}
 
-/* Protocol features list */
-.proto-features{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;position:relative;z-index:1;max-width:900px;margin:0 auto 56px}
-.proto-feat{display:flex;align-items:flex-start;gap:14px;padding:24px;border-radius:16px;background:rgba(123,111,255,0.03);border:1px solid rgba(123,111,255,0.06);transition:all .3s}
-.proto-feat:hover{border-color:rgba(123,111,255,0.15);background:rgba(123,111,255,0.06)}
-.proto-feat-icon{width:40px;height:40px;min-width:40px;border-radius:10px;background:rgba(0,229,204,0.08);border:1px solid rgba(0,229,204,0.15);display:flex;align-items:center;justify-content:center}
-.proto-feat h4{font-size:15px;font-weight:700;color:var(--text-bright);margin-bottom:4px}
-.proto-feat p{font-size:13px;color:var(--text-dim);line-height:1.6}
+/* CTA */
+.cta-w{padding:110px 32px;text-align:center;background:linear-gradient(180deg,var(--bg2),var(--bg))}
+.cta-c{max-width:580px;margin:0 auto;background:var(--card);border:1px solid var(--teal-brd);padding:60px 48px;position:relative;border-radius:4px;box-shadow:0 20px 60px rgba(11,125,114,.06)}
+.cta-c::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--teal),var(--amber))}
+.cta-c h2{font-family:var(--S);font-size:clamp(1.8rem,4vw,2.5rem);font-weight:500;color:var(--text);margin-bottom:16px}
+.cta-c .sub{font-size:1.08rem;color:var(--muted);margin-bottom:36px;line-height:1.8}
+.btn{display:inline-block;padding:20px 52px;background:linear-gradient(135deg,var(--teal),var(--teal-d));color:#fff;font-size:.8rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;text-decoration:none;font-family:var(--R);transition:all .4s cubic-bezier(.16,1,.3,1);position:relative;overflow:hidden;border-radius:2px}
+.btn::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.2),transparent);transition:left .6s}
+.btn:hover::before{left:100%}
+.btn:hover{transform:translateY(-3px);box-shadow:0 18px 44px rgba(11,125,114,.25)}
+.cta-meta{font-size:.95rem;color:var(--dim);margin-top:22px;font-weight:500}
+.cta-ff{display:flex;gap:22px;justify-content:center;margin-top:28px;flex-wrap:wrap}
+.cta-f{display:flex;align-items:center;gap:7px;font-size:.9rem;color:var(--muted);font-weight:500}
+.cta-f svg{color:var(--teal);flex-shrink:0}
 
-/* ===== CTA ===== */
-.cta-section{padding:100px 40px;text-align:center;position:relative;overflow:hidden}
-.cta-section::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:700px;height:700px;background:radial-gradient(circle,rgba(123,111,255,0.08),transparent 60%);border-radius:50%;pointer-events:none}
-.cta-btn{display:inline-flex;align-items:center;gap:10px;padding:20px 52px;background:linear-gradient(135deg,var(--accent),#5B52E0);color:#fff;font-family:var(--sans);font-size:17px;font-weight:700;letter-spacing:0.3px;text-decoration:none;border-radius:60px;transition:all .4s cubic-bezier(0.22,1,0.36,1);position:relative;overflow:hidden;box-shadow:0 4px 30px rgba(123,111,255,0.2)}
-.cta-btn::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,#5B52E0,var(--accent));opacity:0;transition:opacity .4s}
-.cta-btn:hover{transform:translateY(-4px);box-shadow:0 20px 60px rgba(123,111,255,0.35)}
-.cta-btn:hover::before{opacity:1}
-.cta-btn span{position:relative;z-index:1}
-.cta-btn svg{position:relative;z-index:1;transition:transform .3s}
-.cta-btn:hover svg{transform:translateX(5px)}
-.cta-meta{font-size:14px;color:var(--text-dim);margin-top:20px;font-weight:500}
+footer{text-align:center;padding:50px 32px;border-top:1px solid var(--border);font-size:.85rem;color:var(--dim)}
+footer a{color:var(--teal);text-decoration:none}
 
-/* ===== FAQ ===== */
-.faq{padding:100px 0}
-.faq-label{font-size:11px;font-weight:800;letter-spacing:5px;text-transform:uppercase;color:var(--accent);margin-bottom:16px;text-align:center}
-.faq-title{font-family:var(--serif);font-size:clamp(28px,4vw,40px);font-weight:700;color:var(--text-bright);text-align:center;margin-bottom:48px}
-.faq-list{max-width:700px;margin:0 auto}
-.faq-item{border-bottom:1px solid rgba(123,111,255,0.08);overflow:hidden}
-.faq-q{padding:22px 0;cursor:pointer;font-family:var(--serif);font-size:19px;font-weight:400;color:var(--text-bright);display:flex;justify-content:space-between;align-items:center;transition:color .3s;user-select:none}
-.faq-q:hover{color:var(--accent)}
-.faq-arrow{font-size:20px;color:var(--accent);transition:transform .4s cubic-bezier(0.22,1,0.36,1);flex-shrink:0;margin-left:16px}
-.faq-item.open .faq-arrow{transform:rotate(180deg)}
-.faq-a{max-height:0;overflow:hidden;transition:max-height .5s cubic-bezier(0.22,1,0.36,1)}
-.faq-a p{font-size:16px;color:var(--text);line-height:1.8;padding-bottom:22px}
-.faq-item.open .faq-a{max-height:400px}
-
-/* ===== FINAL CTA ===== */
-.final-cta{text-align:center;padding:120px 40px;position:relative;overflow:hidden}
-.final-cta::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:800px;height:800px;background:radial-gradient(circle,rgba(123,111,255,0.06),transparent 55%);border-radius:50%}
-.final-cta .label{font-size:11px;font-weight:800;letter-spacing:5px;text-transform:uppercase;color:var(--accent2);margin-bottom:20px;position:relative;z-index:1}
-.final-cta h2{font-family:var(--serif);font-size:clamp(30px,5vw,48px);font-weight:700;color:var(--text-bright);line-height:1.15;margin-bottom:20px;position:relative;z-index:1}
-.final-cta h2 em{font-style:italic;color:var(--accent)}
-.final-cta .sub{font-size:18px;color:var(--text);margin-bottom:40px;position:relative;z-index:1;max-width:600px;margin-left:auto;margin-right:auto;line-height:1.75}
-
-/* ===== FOOTER ===== */
-footer{text-align:center;padding:50px 40px;border-top:1px solid rgba(255,255,255,0.03);font-size:13px;color:var(--text-dim)}
-footer a{color:var(--accent);text-decoration:none;transition:color .3s}
-footer a:hover{color:var(--accent-light)}
-
-/* ===== ANIMATIONS ===== */
-@keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
-@keyframes fadeIn{from{opacity:0}to{opacity:1}}
-@keyframes scrollPulse{0%,100%{opacity:.2}50%{opacity:1}}
-@keyframes pulse{0%,100%{opacity:.4;transform:scale(1)}50%{opacity:1;transform:scale(1.3)}}
-@keyframes float1{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
-@keyframes float2{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
-@keyframes shimmer{0%{background-position:-200% 0}100%{background-position:200% 0}}
-@keyframes glowPulse{0%,100%{box-shadow:0 0 20px rgba(123,111,255,0.1)}50%{box-shadow:0 0 40px rgba(123,111,255,0.2)}}
-
-/* Reveal */
-.reveal{opacity:0;transform:translateY(44px);transition:opacity .9s cubic-bezier(0.22,1,0.36,1),transform .9s cubic-bezier(0.22,1,0.36,1)}
-.reveal.visible{opacity:1;transform:translateY(0)}
-.reveal-d1{transition-delay:.1s}
-.reveal-d2{transition-delay:.2s}
-.reveal-d3{transition-delay:.3s}
-.reveal-d4{transition-delay:.4s}
-
-/* Counter */
+/* Animations */
+@keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+@keyframes glowPulse{0%,100%{box-shadow:0 8px 40px rgba(11,125,114,.04)}50%{box-shadow:0 8px 50px rgba(11,125,114,.12),0 0 20px rgba(45,212,191,.06)}}
+@keyframes floatY{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+.rv{opacity:0;transform:translateY(30px);transition:all .8s cubic-bezier(.16,1,.3,1)}
+.rv.visible{opacity:1;transform:translateY(0)}
 .counter{font-variant-numeric:tabular-nums}
+.glow{animation:glowPulse 4s ease-in-out infinite}
+.float{animation:floatY 6s ease-in-out infinite}
 
-/* ===== RESPONSIVE ===== */
-@media(max-width:1024px){
-  .proto-grid{grid-template-columns:repeat(2,1fr)}
-  .proto-features{grid-template-columns:1fr}
-}
-@media(max-width:900px){
-  .fact-inner,.fact-inner.reverse{grid-template-columns:1fr;direction:ltr;gap:40px}
-  .fact-inner.reverse>*{direction:ltr}
-  .fact-visual{min-height:auto}
-  .hero{padding:80px 24px 130px}
-  .wide,.narrow{padding:0 24px}
-  .section-intro{padding:80px 24px 50px}
-  .fact{padding:60px 0}
-  .fact-inner{padding:0 24px}
-  .bridge{padding:80px 24px}
-  .cta-section{padding:60px 24px}
-  .info-card{padding:28px 22px}
-  .big-stat{font-size:52px!important}
-  .hero-stats{grid-template-columns:1fr;max-width:280px}
-}
-@media(max-width:600px){
-  .proto-grid{grid-template-columns:1fr}
-  .proto-features{gap:12px}
-  .hero h1{font-size:clamp(36px,11vw,48px)!important}
-  body{font-size:16px}
-  .fact-title{font-size:26px!important}
-  .highlight p{font-size:18px}
-  .section-intro p{font-size:17px}
-}
+@media(max-width:900px){.fi,.fi.rev{grid-template-columns:1fr;direction:ltr;gap:40px}.fi.rev>*{direction:ltr}.hero-stats{grid-template-columns:1fr;max-width:260px}}
+@media(max-width:600px){.fact{padding:70px 0}.fi{padding:0 20px}.ic{padding:28px 22px}.cta-c{padding:44px 24px}.cta-ff{flex-direction:column;align-items:center;gap:10px}.bridge{padding:90px 20px}.hero{padding:30px 24px 80px}.hero h1{font-size:clamp(2.2rem,10vw,3.2rem)!important}body{font-size:17px}}
 </style>
 </head>
 <body>
 
-<canvas id="particles"></canvas>
+<svg style="position:absolute;width:0;height:0"><defs>
+  <linearGradient id="cG" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#0B7D72"/><stop offset="100%" stop-color="#8B6B14"/></linearGradient>
+  <linearGradient id="tP" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#14A899"/><stop offset="100%" stop-color="#A88420"/></linearGradient>
+  <linearGradient id="tG" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#0B7D72"/><stop offset="100%" stop-color="#8B6B14"/></linearGradient>
+</defs></svg>
 
-<!-- SVG DEFS -->
-<svg style="position:absolute;width:0;height:0">
-<defs>
-  <linearGradient id="circGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-    <stop offset="0%" stop-color="#7B6FFF"/>
-    <stop offset="100%" stop-color="#00E5CC"/>
-  </linearGradient>
-  <linearGradient id="pinkGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-    <stop offset="0%" stop-color="#FF6B9D"/>
-    <stop offset="100%" stop-color="#FF9EC0"/>
-  </linearGradient>
-  <filter id="glow">
-    <feGaussianBlur stdDeviation="4" result="blur"/>
-    <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
-  </filter>
-</defs>
-</svg>
+<nav><div class="nav-i"><a href="#" class="nav-logo">Архитектура Сознания</a></div></nav>
 
-<!-- ============ HERO ============ -->
+<!-- ═══ HERO ═══ -->
 <section class="hero">
-  <div class="hero-orb hero-orb-1"></div>
-  <div class="hero-orb hero-orb-2"></div>
-  <div class="hero-orb hero-orb-3"></div>
-  <div class="hero-orb hero-orb-4"></div>
-  <div class="hero-content">
-    <div class="hero-badge"><span class="dot"></span> Архитектура Сознания</div>
-    <h1>Почему твой мозг <em>никогда</em> не замолкает</h1>
-    <p class="hero-sub">И что с этим делают нейробиологи Гарварда, Navy SEALs и те, кто устал просыпаться уставшим</p>
-    <div class="hero-stats">
-      <div class="hero-stat"><div class="val counter" data-target="20">0</div><div class="lbl">% энергии → на шум</div></div>
-      <div class="hero-stat"><div class="val counter" data-target="47">0</div><div class="lbl">% жизни на автопилоте</div></div>
-      <div class="hero-stat"><div class="val counter" data-target="28">0</div><div class="lbl">дней до перемен</div></div>
-    </div>
+  <div class="breath"><div class="br br1"></div><div class="br br2"></div><div class="br br3"></div></div>
+  <div class="hero-badge"><span class="dot"></span> Нейробиология сознания</div>
+  <h1>Почему твой мозг<br><em>никогда</em> не замолкает</h1>
+  <p class="hero-sub">И что с этим делают нейробиологи Гарварда, Navy&nbsp;SEALs и&nbsp;те, кто&nbsp;устал просыпаться уставшим. 9&nbsp;фактов, после которых вы поймёте свой мозг лучше, чем&nbsp;95%&nbsp;людей.</p>
+  <div class="hero-stats">
+    <div class="hero-stat"><div class="val counter" data-target="20">0</div><div class="lbl">% энергии → на шум</div></div>
+    <div class="hero-stat"><div class="val counter" data-target="47">0</div><div class="lbl">% жизни на автопилоте</div></div>
+    <div class="hero-stat"><div class="val counter" data-target="28">0</div><div class="lbl">дней до перемен</div></div>
   </div>
-  <div class="scroll-cta">
-    <span>Читать</span>
-    <div class="scroll-line"></div>
-  </div>
+  <div class="scroll-h"><span>Читать</span><div class="scroll-l"></div></div>
 </section>
 
-<!-- ============ INTRO ============ -->
-<div class="section-intro reveal">
-  <p>Ты можешь быть успешным, продуктивным, всё успевать. Но если вечером, когда ложишься спать, голова не выключается — значит, внутри работает система, которую ты не контролируешь.</p>
+<!-- INTRO -->
+<div class="intro rv">
+  <p>Вы можете быть успешным, продуктивным, всё успевать. Но если вечером голова не выключается — значит, внутри работает система, которую вы не контролируете.</p>
   <br>
-  <p>Это не лень. Не слабая воля. Не «много думаешь».</p>
+  <p>Это не лень. Не слабая воля. Не «много думаете».</p>
   <br>
-  <p class="bright">Это нейробиология. И сейчас ты узнаешь, как она работает.</p>
+  <p class="bright">Это нейробиология. И вот 9 фактов, которые объяснят всё.</p>
 </div>
+<div class="dv"></div>
 
-<div class="divider"><div class="divider-line"><div class="divider-dot"></div></div></div>
-
-<!-- ============ ФАКТ 1 ============ -->
-<section class="fact reveal">
-  <div class="fact-inner">
-    <div class="fact-text">
-      <div class="fact-num">Факт 01</div>
-      <div class="fact-title">Твой мозг тратит 20% всей энергии тела. Не на решения. На шум.</div>
-      <div class="fact-body">
-        <p>Мозг весит 2% от массы тела, но потребляет пятую часть всей энергии. Большая часть уходит не на мышление и не на творчество.</p>
-        <p>Она уходит на <strong>Default Mode Network</strong> — сеть пассивного режима. Эта система включается, когда ты «ничего не делаешь». Она генерирует внутренний диалог, пережёвывание прошлого, тревогу о будущем.</p>
+<!-- ═══ ФАКТ 1 ═══ -->
+<section class="fact rv">
+  <div class="fi">
+    <div>
+      <div class="fn">Факт 01</div>
+      <div class="ft">Мозг никогда не молчит. Это его работа.</div>
+      <div class="fb">
+        <p>Мозг весит 2% от массы тела, но потребляет <strong>пятую часть всей энергии</strong>. Большая часть уходит не на мышление — а на <strong>Default Mode Network</strong>, сеть пассивного режима.</p>
+        <p>DMN включается, когда вы «ничего не делаете». Она генерирует внутренний диалог, пережёвывание прошлого, тревогу о будущем, фантазии и сценарии.</p>
       </div>
-      <div class="highlight">
-        <p>DMN — система выживания. Но в современном мире она работает без остановки, потому что никто не научил тебя её выключать.</p>
-      </div>
+      <div class="hl"><p>DMN — система выживания. Но в современном мире она работает без остановки, потому что никто не научил вас её выключать.</p></div>
     </div>
-    <div class="fact-visual">
-      <div class="info-card" style="animation:float1 8s ease-in-out infinite">
-        <div style="text-align:center;margin-bottom:24px">
-          <svg width="120" height="120" viewBox="0 0 120 120">
-            <circle cx="60" cy="60" r="54" fill="none" stroke="rgba(123,111,255,0.08)" stroke-width="1"/>
-            <circle cx="60" cy="60" r="54" fill="none" stroke="var(--accent)" stroke-width="3" stroke-dasharray="339" stroke-dashoffset="271" stroke-linecap="round" opacity=".7" transform="rotate(-90 60 60)">
-              <animate attributeName="stroke-dashoffset" values="339;271;339" dur="4s" repeatCount="indefinite"/>
-            </circle>
-            <text x="60" y="55" text-anchor="middle" font-family="var(--serif)" font-size="28" fill="var(--text-bright)" font-weight="900">20%</text>
-            <text x="60" y="74" text-anchor="middle" font-family="var(--sans)" font-size="10" fill="var(--text-dim)" font-weight="500">энергии тела</text>
-          </svg>
-        </div>
-        <div class="progress-bars">
-          <div class="pbar"><div class="pbar-label"><span>Мозг (2% массы)</span><span>20%</span></div><div class="pbar-track"><div class="pbar-fill purple" style="--w:20%"></div></div></div>
-          <div class="pbar"><div class="pbar-label"><span>Из них на DMN (шум)</span><span>60–80%</span></div><div class="pbar-track"><div class="pbar-fill cyan" style="--w:70%"></div></div></div>
-          <div class="pbar"><div class="pbar-label"><span>На осознанные решения</span><span>~5%</span></div><div class="pbar-track"><div class="pbar-fill pink" style="--w:5%"></div></div></div>
-        </div>
-        <div class="stat-source">Raichle et al., PNAS, 2001 · Shulman et al., 2004</div>
+    <div>
+      <div class="ic glow" style="text-align:center">
+        <svg width="120" height="120" viewBox="0 0 120 120" style="margin:0 auto 16px;display:block">
+          <circle cx="60" cy="60" r="52" fill="none" stroke="rgba(11,125,114,.08)" stroke-width="1.5"/>
+          <circle cx="60" cy="60" r="52" fill="none" stroke="url(#cG)" stroke-width="3" stroke-dasharray="327" stroke-dashoffset="261" stroke-linecap="round" transform="rotate(-90 60 60)" opacity=".7"/>
+          <text x="60" y="55" text-anchor="middle" font-family="var(--S)" font-size="28" font-weight="600" fill="var(--teal)">20%</text>
+          <text x="60" y="72" text-anchor="middle" font-family="var(--R)" font-size="9" fill="var(--dim)">энергии тела</text>
+        </svg>
+        <div class="pb"><div class="pb-l"><span>Мозг (2% массы)</span><span class="tc">20% энергии</span></div><div class="pb-t"><div class="pb-f tl" style="--w:20%"></div></div></div>
+        <div class="pb"><div class="pb-l"><span>Из них на DMN (шум)</span><span class="gc">60–80%</span></div><div class="pb-t"><div class="pb-f gd" style="--w:70%"></div></div></div>
+        <div class="pb"><div class="pb-l"><span>На осознанные решения</span><span class="rc">~5%</span></div><div class="pb-t"><div class="pb-f rs" style="--w:5%"></div></div></div>
+        <div class="ss">Raichle et al., PNAS, 2001 · Shulman et al., 2004</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============ ФАКТ 2 ============ -->
-<section class="fact reveal">
-  <div class="fact-inner reverse">
-    <div class="fact-text">
-      <div class="fact-num">Факт 02</div>
-      <div class="fact-title">47% времени твой ум — не здесь</div>
-      <div class="fact-body">
-        <p>Почти половину жизни ты не присутствуешь в моменте. Ты физически здесь, но ментально — в вчерашнем разговоре, в завтрашней встрече, в сценарии, который никогда не произойдёт.</p>
-        <p>И вот главное открытие: <strong>блуждание ума напрямую коррелирует с уровнем несчастья</strong>. Не «тебе плохо, поэтому думаешь». А «думаешь — поэтому плохо».</p>
+<!-- ═══ ФАКТ 2 ═══ -->
+<section class="fact rv" style="background:var(--bg2)">
+  <div class="fi rev">
+    <div>
+      <div class="fn">Факт 02</div>
+      <div class="ft">Половина жизни проходит на автопилоте.</div>
+      <div class="fb">
+        <p>Почти половину времени бодрствования вы не присутствуете в моменте. Физически здесь — ментально во вчерашнем разговоре или завтрашней встрече.</p>
+        <p>Главное открытие Гарварда: <strong>блуждание ума вызывает несчастье, а не наоборот</strong>. Не «вам плохо, поэтому думаете». А «думаете — поэтому плохо».</p>
       </div>
-      <div class="highlight">
-        <p>Ум блуждает не потому, что тебе плохо. Тебе плохо, потому что ум блуждает.</p>
-      </div>
+      <div class="hl"><p>Ум блуждает не потому, что вам плохо. Вам плохо, потому что ум блуждает.</p></div>
     </div>
-    <div class="fact-visual">
-      <div class="info-card" style="text-align:center;animation:float2 7s ease-in-out infinite">
-        <div class="circle-chart">
-          <svg width="220" height="220" viewBox="0 0 220 220">
-            <circle class="track" cx="110" cy="110" r="100"/>
-            <circle class="fill" cx="110" cy="110" r="100" style="--offset:332"/>
-          </svg>
-          <div class="circle-center">
-            <div class="num counter" data-target="47">0</div>
-            <div class="unit">% времени</div>
-          </div>
+    <div>
+      <div class="ic float" style="text-align:center">
+        <div class="cc">
+          <svg width="210" height="210" viewBox="0 0 210 210"><circle class="trk" cx="105" cy="105" r="90"/><circle class="fl" cx="105" cy="105" r="90" style="--off:266"/></svg>
+          <div class="cc-c"><div class="n counter" data-target="47">0</div><div class="u">% времени</div></div>
         </div>
-        <p style="margin-top:20px;font-size:15px;color:var(--text-dim)">Мозг блуждает. Ты — отсутствуешь.</p>
-        <div class="stat-source">Killingsworth & Gilbert, Harvard, 2010</div>
+        <p style="margin-top:18px;font-size:1rem;color:var(--muted)">Ваш мозг блуждает. Вы — отсутствуете.</p>
+        <div class="ss">Killingsworth & Gilbert, Harvard, 2010</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============ ФАКТ 3 ============ -->
-<section class="fact reveal">
-  <div class="fact-inner">
-    <div class="fact-text">
-      <div class="fact-num">Факт 03</div>
-      <div class="fact-title">6 200 мыслей в день. 95% — повтор.</div>
-      <div class="fact-body">
-        <p>Твой мозг не генерирует новые идеи. Он крутит одни и те же мысли по кругу. Как заевшая пластинка.</p>
-        <p>Это не особенность характера. Это <strong>нейронная привычка</strong>. Мозг идёт по протоптанным путям, потому что они требуют меньше энергии.</p>
-        <p>Результат: одни и те же тревоги, одни и те же реакции, одни и те же решения. Год за годом.</p>
+<!-- ═══ ФАКТ 3 ═══ -->
+<section class="fact rv">
+  <div class="fi">
+    <div>
+      <div class="fn">Факт 03</div>
+      <div class="ft">Мысли — это привычка. Не реальность.</div>
+      <div class="fb">
+        <p>Мозг генерирует около <strong>6 200 мыслей в день</strong>. 95% из них — повтор вчерашних. Те же тревоги, те же сценарии, те же выводы.</p>
+        <p>Это не особенность характера — это нейронная привычка. Мозг идёт по протоптанным путям, потому что они требуют меньше энергии.</p>
       </div>
-      <div class="highlight">
-        <p>Чтобы думать по-новому, нужно буквально проложить новые нейронные пути. Это не метафора. Это физика мозга.</p>
-      </div>
+      <div class="hl"><p>Чтобы думать по-новому, нужно буквально проложить новые нейронные пути. Это не метафора — это физика мозга.</p></div>
     </div>
-    <div class="fact-visual">
-      <div class="info-card" style="animation:float1 9s ease-in-out infinite">
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;text-align:center">
-          <div><div class="big-stat counter" data-target="6200" style="font-size:48px">0</div><div class="stat-label">мыслей в день</div></div>
-          <div><div class="big-stat counter" data-target="95" style="font-size:48px">0</div><div class="stat-label">% повторяются</div></div>
+    <div>
+      <div class="ic">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;text-align:center;margin-bottom:20px">
+          <div><div class="bn" style="font-size:2.8rem"><span class="counter" data-target="6200">0</span></div><div class="sl2">мыслей в день</div></div>
+          <div><div class="bn" style="font-size:2.8rem"><span class="counter" data-target="95">0</span>%</div><div class="sl2">повторяются</div></div>
         </div>
-        <div style="margin-top:24px;padding-top:20px;border-top:1px solid rgba(255,255,255,0.04)">
-          <svg width="100%" height="60" viewBox="0 0 400 60">
-            <circle cx="30" cy="30" r="25" fill="rgba(123,111,255,0.1)" stroke="rgba(123,111,255,0.25)" stroke-width="1"><animate attributeName="opacity" values=".5;1;.5" dur="3s" repeatCount="indefinite"/></circle>
-            <circle cx="90" cy="30" r="25" fill="rgba(123,111,255,0.1)" stroke="rgba(123,111,255,0.25)" stroke-width="1"><animate attributeName="opacity" values=".5;1;.5" dur="3s" repeatCount="indefinite" begin=".4s"/></circle>
-            <circle cx="150" cy="30" r="25" fill="rgba(123,111,255,0.1)" stroke="rgba(123,111,255,0.25)" stroke-width="1"><animate attributeName="opacity" values=".5;1;.5" dur="3s" repeatCount="indefinite" begin=".8s"/></circle>
-            <circle cx="210" cy="30" r="25" fill="rgba(123,111,255,0.1)" stroke="rgba(123,111,255,0.25)" stroke-width="1"><animate attributeName="opacity" values=".5;1;.5" dur="3s" repeatCount="indefinite" begin="1.2s"/></circle>
-            <circle cx="270" cy="30" r="25" fill="rgba(123,111,255,0.1)" stroke="rgba(123,111,255,0.25)" stroke-width="1"><animate attributeName="opacity" values=".5;1;.5" dur="3s" repeatCount="indefinite" begin="1.6s"/></circle>
-            <circle cx="340" cy="30" r="25" fill="rgba(0,229,204,0.08)" stroke="rgba(0,229,204,0.35)" stroke-width="1.5"><animate attributeName="r" values="23;27;23" dur="2s" repeatCount="indefinite"/></circle>
-            <text x="30" y="34" text-anchor="middle" fill="rgba(123,111,255,0.45)" font-size="10" font-family="var(--sans)">повтор</text>
-            <text x="90" y="34" text-anchor="middle" fill="rgba(123,111,255,0.45)" font-size="10" font-family="var(--sans)">повтор</text>
-            <text x="150" y="34" text-anchor="middle" fill="rgba(123,111,255,0.45)" font-size="10" font-family="var(--sans)">повтор</text>
-            <text x="210" y="34" text-anchor="middle" fill="rgba(123,111,255,0.45)" font-size="10" font-family="var(--sans)">повтор</text>
-            <text x="270" y="34" text-anchor="middle" fill="rgba(123,111,255,0.45)" font-size="10" font-family="var(--sans)">повтор</text>
-            <text x="340" y="34" text-anchor="middle" fill="rgba(0,229,204,0.7)" font-size="10" font-weight="700" font-family="var(--sans)">новая!</text>
+        <div style="padding-top:16px;border-top:1px solid var(--border)">
+          <svg width="100%" height="44" viewBox="0 0 340 44">
+            <circle cx="26" cy="22" r="17" fill="rgba(11,125,114,.04)" stroke="rgba(11,125,114,.15)" stroke-width="1"/><text x="26" y="25" text-anchor="middle" fill="rgba(11,125,114,.4)" font-size="7" font-family="var(--R)">повтор</text>
+            <circle cx="66" cy="22" r="17" fill="rgba(11,125,114,.04)" stroke="rgba(11,125,114,.15)" stroke-width="1"/><text x="66" y="25" text-anchor="middle" fill="rgba(11,125,114,.4)" font-size="7" font-family="var(--R)">повтор</text>
+            <circle cx="106" cy="22" r="17" fill="rgba(11,125,114,.04)" stroke="rgba(11,125,114,.15)" stroke-width="1"/><text x="106" y="25" text-anchor="middle" fill="rgba(11,125,114,.4)" font-size="7" font-family="var(--R)">повтор</text>
+            <circle cx="146" cy="22" r="17" fill="rgba(11,125,114,.04)" stroke="rgba(11,125,114,.15)" stroke-width="1"/><text x="146" y="25" text-anchor="middle" fill="rgba(11,125,114,.4)" font-size="7" font-family="var(--R)">повтор</text>
+            <circle cx="186" cy="22" r="17" fill="rgba(11,125,114,.04)" stroke="rgba(11,125,114,.15)" stroke-width="1"/><text x="186" y="25" text-anchor="middle" fill="rgba(11,125,114,.4)" font-size="7" font-family="var(--R)">повтор</text>
+            <circle cx="226" cy="22" r="17" fill="rgba(11,125,114,.04)" stroke="rgba(11,125,114,.15)" stroke-width="1"/><text x="226" y="25" text-anchor="middle" fill="rgba(11,125,114,.4)" font-size="7" font-family="var(--R)">повтор</text>
+            <text x="268" y="25" fill="var(--dim)" font-size="12" font-family="var(--R)">…</text>
+            <circle cx="312" cy="22" r="17" fill="rgba(139,107,20,.06)" stroke="rgba(139,107,20,.35)" stroke-width="1.5"><animate attributeName="r" values="15;20;15" dur="2.5s" repeatCount="indefinite"/></circle><text x="312" y="25" text-anchor="middle" fill="var(--amber)" font-size="7" font-weight="700" font-family="var(--R)">новая!</text>
           </svg>
         </div>
-        <div class="stat-source">Queen's University, 2020</div>
+        <div class="ss">Queen's University, 2020</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============ ФАКТ 4 ============ -->
-<section class="fact reveal">
-  <div class="fact-inner reverse">
-    <div class="fact-text">
-      <div class="fact-num">Факт 04</div>
-      <div class="fact-title">Тревога — не характер. Это гиперактивная миндалина.</div>
-      <div class="fact-body">
-        <p>Миндалевидное тело (amygdala) — структура размером с миндаль в глубине мозга. Она отвечает за реакцию «бей или беги».</p>
+<!-- ═══ ФАКТ 4 ═══ -->
+<section class="fact rv" style="background:var(--bg2)">
+  <div class="fi rev">
+    <div>
+      <div class="fn">Факт 04</div>
+      <div class="ft">Тревога — не характер. Это конкретный адрес в мозге.</div>
+      <div class="fb">
+        <p>Миндалевидное тело (amygdala) — структура размером с миндаль в глубине мозга. Отвечает за реакцию «бей или беги».</p>
         <p>У людей с хронической тревогой миндалина <strong>физически увеличена</strong> и постоянно активна. Она сканирует окружение на угрозы 24/7 — даже когда угроз нет.</p>
       </div>
-      <div class="highlight">
-        <p>Тревога — не приговор. Это состояние конкретной структуры мозга, которое можно изменить.</p>
-      </div>
+      <div class="hl"><p>Тревога — не приговор. Это состояние конкретной структуры мозга. Которое можно изменить.</p></div>
     </div>
-    <div class="fact-visual">
-      <div class="info-card" style="text-align:center;animation:float2 8s ease-in-out infinite">
-        <svg width="280" height="210" viewBox="0 0 280 210" style="margin:0 auto;display:block">
-          <ellipse cx="140" cy="90" rx="110" ry="80" fill="none" stroke="rgba(123,111,255,0.12)" stroke-width="1"/>
-          <!-- Amygdala pulsing -->
-          <circle cx="105" cy="108" r="22" fill="rgba(255,107,157,0.12)" stroke="rgba(255,107,157,0.45)" stroke-width="1.5">
-            <animate attributeName="r" values="18;26;18" dur="2s" repeatCount="indefinite"/>
-            <animate attributeName="fill-opacity" values=".08;.2;.08" dur="2s" repeatCount="indefinite"/>
-          </circle>
-          <circle cx="175" cy="108" r="22" fill="rgba(255,107,157,0.12)" stroke="rgba(255,107,157,0.45)" stroke-width="1.5">
-            <animate attributeName="r" values="18;26;18" dur="2s" repeatCount="indefinite" begin=".3s"/>
-            <animate attributeName="fill-opacity" values=".08;.2;.08" dur="2s" repeatCount="indefinite" begin=".3s"/>
-          </circle>
-          <text x="105" y="112" text-anchor="middle" fill="var(--accent3)" font-size="12" font-weight="700" font-family="var(--sans)">L</text>
-          <text x="175" y="112" text-anchor="middle" fill="var(--accent3)" font-size="12" font-weight="700" font-family="var(--sans)">R</text>
-          <ellipse cx="140" cy="40" rx="50" ry="25" fill="rgba(123,111,255,0.04)" stroke="rgba(123,111,255,0.15)" stroke-width="1" stroke-dasharray="4"/>
-          <text x="140" y="44" text-anchor="middle" fill="rgba(123,111,255,0.5)" font-size="10" font-family="var(--sans)">Префронтальная кора</text>
-          <!-- Signal lines -->
-          <line x1="110" y1="86" x2="130" y2="62" stroke="rgba(255,107,157,0.3)" stroke-width="1" stroke-dasharray="4">
-            <animate attributeName="stroke-opacity" values=".05;.5;.05" dur="1.5s" repeatCount="indefinite"/>
-          </line>
-          <line x1="170" y1="86" x2="150" y2="62" stroke="rgba(255,107,157,0.3)" stroke-width="1" stroke-dasharray="4">
-            <animate attributeName="stroke-opacity" values=".05;.5;.05" dur="1.5s" repeatCount="indefinite" begin=".5s"/>
-          </line>
-          <!-- Alert waves -->
-          <circle cx="105" cy="108" r="30" fill="none" stroke="rgba(255,107,157,0.15)" stroke-width="1">
-            <animate attributeName="r" values="26;40;26" dur="3s" repeatCount="indefinite"/>
-            <animate attributeName="opacity" values=".4;0;.4" dur="3s" repeatCount="indefinite"/>
-          </circle>
-          <circle cx="175" cy="108" r="30" fill="none" stroke="rgba(255,107,157,0.15)" stroke-width="1">
-            <animate attributeName="r" values="26;40;26" dur="3s" repeatCount="indefinite" begin=".5s"/>
-            <animate attributeName="opacity" values=".4;0;.4" dur="3s" repeatCount="indefinite" begin=".5s"/>
-          </circle>
-          <text x="140" y="158" text-anchor="middle" fill="rgba(255,107,157,0.6)" font-size="11" font-family="var(--sans)" font-weight="500">Миндалины — сканируют угрозы 24/7</text>
+    <div>
+      <div class="ic" style="text-align:center;padding:36px 28px">
+        <svg width="240" height="170" viewBox="0 0 240 170" style="margin:0 auto;display:block">
+          <ellipse cx="120" cy="75" rx="90" ry="65" fill="none" stroke="rgba(11,125,114,.08)" stroke-width="1"/>
+          <circle cx="88" cy="88" r="16" fill="rgba(184,77,68,.06)" stroke="rgba(184,77,68,.35)" stroke-width="1.5"><animate attributeName="r" values="14;20;14" dur="2s" repeatCount="indefinite"/><animate attributeName="stroke-opacity" values=".2;.6;.2" dur="2s" repeatCount="indefinite"/></circle>
+          <circle cx="152" cy="88" r="16" fill="rgba(184,77,68,.06)" stroke="rgba(184,77,68,.35)" stroke-width="1.5"><animate attributeName="r" values="14;20;14" dur="2s" repeatCount="indefinite" begin=".3s"/></circle>
+          <text x="88" y="92" text-anchor="middle" fill="var(--rose)" font-size="9" font-weight="700" font-family="var(--R)">L</text>
+          <text x="152" y="92" text-anchor="middle" fill="var(--rose)" font-size="9" font-weight="700" font-family="var(--R)">R</text>
+          <ellipse cx="120" cy="32" rx="38" ry="18" fill="rgba(11,125,114,.03)" stroke="rgba(11,125,114,.12)" stroke-width="1" stroke-dasharray="4"/>
+          <text x="120" y="36" text-anchor="middle" fill="rgba(11,125,114,.5)" font-size="9" font-family="var(--R)">Префронтальная кора</text>
+          <line x1="93" y1="72" x2="110" y2="48" stroke="rgba(184,77,68,.2)" stroke-width="1" stroke-dasharray="3"><animate attributeName="stroke-opacity" values=".1;.5;.1" dur="1.5s" repeatCount="indefinite"/></line>
+          <line x1="147" y1="72" x2="130" y2="48" stroke="rgba(184,77,68,.2)" stroke-width="1" stroke-dasharray="3"><animate attributeName="stroke-opacity" values=".1;.5;.1" dur="1.5s" repeatCount="indefinite" begin=".5s"/></line>
+          <text x="120" y="135" text-anchor="middle" fill="var(--rose)" font-size="10" font-weight="600" font-family="var(--R)" opacity=".6">Миндалины — сканируют угрозы 24/7</text>
         </svg>
-        <div class="stat-source" style="margin-top:8px">Tawakol et al., The Lancet, 2017</div>
+        <div class="ss">Tawakol et al., The Lancet, 2017</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============ ФАКТ 5 ============ -->
-<section class="fact reveal">
-  <div class="fact-inner">
-    <div class="fact-text">
-      <div class="fact-num">Факт 05</div>
-      <div class="fact-title">Миндалина уменьшается за 4 недели. Гарвард доказал.</div>
-      <div class="fact-body">
-        <p>Sara Lazar и команда Harvard Medical School провели исследование. Участники 8 недель выполняли структурированную практику. МРТ до и после:</p>
-        <ul class="checklist">
-          <li>Плотность серого вещества в миндалине <strong>уменьшилась</strong></li>
-          <li>Префронтальная кора <strong>стала плотнее</strong> — лучше самоконтроль</li>
-          <li>Гиппокамп <strong>вырос</strong> — лучше память и обучение</li>
-        </ul>
-      </div>
-      <div class="highlight">
-        <p>Мозг перестраивается. Буквально. Физически. За 28 дней. Если знаешь, что делать.</p>
+<!-- ═══ ФАКТ 5 ═══ -->
+<section class="fact rv">
+  <div class="fi">
+    <div>
+      <div class="fn">Факт 05</div>
+      <div class="ft">Мозг перестраивается. Физически. За 28 дней.</div>
+      <div class="fb">
+        <p>Sara Lazar и команда Harvard Medical School провели МРТ-исследование. Участники 8 недель выполняли структурированную практику:</p>
+        <div style="padding:12px 0 4px 18px;border-left:3px solid var(--teal);margin:14px 0">
+          <p style="margin:0 0 6px;font-size:.95rem">✓ Миндалина <strong>уменьшилась</strong> — снижение тревоги</p>
+          <p style="margin:0 0 6px;font-size:.95rem">✓ Префронтальная кора <strong>уплотнилась</strong> — самоконтроль</p>
+          <p style="margin:0;font-size:.95rem">✓ Гиппокамп <strong>вырос</strong> — память и обучение</p>
+        </div>
+        <p>Заметные изменения — уже через <strong>4 недели</strong>.</p>
       </div>
     </div>
-    <div class="fact-visual">
-      <div class="info-card" style="animation:float1 7s ease-in-out infinite">
-        <div style="text-align:center;margin-bottom:28px">
-          <div class="big-stat" style="font-size:72px">28</div>
-          <div class="stat-label">дней до видимых изменений на МРТ</div>
-        </div>
-        <div class="progress-bars">
-          <div class="pbar"><div class="pbar-label"><span>Миндалина (тревога)</span><span>↓ уменьшилась</span></div><div class="pbar-track"><div class="pbar-fill pink" style="--w:35%"></div></div></div>
-          <div class="pbar"><div class="pbar-label"><span>Префронтальная кора (контроль)</span><span>↑ выросла</span></div><div class="pbar-track"><div class="pbar-fill purple" style="--w:65%"></div></div></div>
-          <div class="pbar"><div class="pbar-label"><span>Гиппокамп (память)</span><span>↑ вырос</span></div><div class="pbar-track"><div class="pbar-fill cyan" style="--w:55%"></div></div></div>
-        </div>
-        <div class="stat-source">Lazar et al., Harvard Medical School, 2011</div>
+    <div>
+      <div class="ic glow">
+        <div style="text-align:center;margin-bottom:24px"><div class="bn" style="font-size:5rem">28</div><div class="sl2">дней до видимых изменений на МРТ</div></div>
+        <div class="pb"><div class="pb-l"><span>Миндалина (тревога)</span><span class="rc">↓ уменьшилась</span></div><div class="pb-t"><div class="pb-f rs" style="--w:35%"></div></div></div>
+        <div class="pb"><div class="pb-l"><span>Префронтальная кора (контроль)</span><span class="tc">↑ выросла</span></div><div class="pb-t"><div class="pb-f tl" style="--w:65%"></div></div></div>
+        <div class="pb"><div class="pb-l"><span>Гиппокамп (память)</span><span class="gc">↑ вырос</span></div><div class="pb-t"><div class="pb-f gd" style="--w:55%"></div></div></div>
+        <div class="ss">Lazar et al., Harvard Medical School, 2011</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============ ФАКТ 6 ============ -->
-<section class="fact reveal">
-  <div class="fact-inner reverse">
-    <div class="fact-text">
-      <div class="fact-num">Факт 06</div>
-      <div class="fact-title">Просыпаешься разбитым? DMN работала всю ночь.</div>
-      <div class="fact-body">
-        <p>Ты лёг вовремя. Спал 7–8 часов. Но утром — как не отдыхал.</p>
-        <p><strong>Default Mode Network не выключается во сне.</strong> Если днём ум привык крутить мысли, ночью он продолжает. Мозг застревает в поверхностных фазах сна.</p>
-        <p>Результат: хронический недосып при нормальном количестве сна. Кофе утром. Раздражительность вечером. И так по кругу.</p>
+<!-- ═══ ФАКТ 6 ═══ -->
+<section class="fact rv" style="background:var(--bg2)">
+  <div class="fi rev">
+    <div>
+      <div class="fn">Факт 06</div>
+      <div class="ft">Вы не «плохо спите». Мозг не умеет выключаться.</div>
+      <div class="fb">
+        <p>Легли вовремя. 7–8 часов. Утром — как не отдыхали. Знакомо?</p>
+        <p><strong>DMN не выключается во сне.</strong> Мозг застревает в поверхностных фазах. Не проходит глубокие восстановительные циклы.</p>
+        <p>Кофе утром, раздражительность к вечеру, и так по кругу. Годами.</p>
       </div>
-      <div class="highlight">
-        <p>Проблема не в количестве сна. Проблема — мозг не умеет выключаться.</p>
-      </div>
+      <div class="hl"><p>Проблема не в количестве сна. Проблема — мозг не умеет переключаться в режим восстановления.</p></div>
     </div>
-    <div class="fact-visual">
-      <div class="info-card" style="text-align:center;animation:float2 9s ease-in-out infinite">
-        <svg width="100%" height="160" viewBox="0 0 380 160" style="margin-bottom:16px">
-          <text x="12" y="18" fill="var(--accent2)" font-size="12" font-weight="700" font-family="var(--sans)">Здоровый сон</text>
-          <path d="M12,60 Q55,22 98,60 Q141,98 184,60 Q227,22 270,60 Q313,98 356,60" fill="none" stroke="var(--accent2)" stroke-width="2.5" opacity="0.7">
-            <animate attributeName="d" values="M12,60 Q55,22 98,60 Q141,98 184,60 Q227,22 270,60 Q313,98 356,60;M12,58 Q55,24 98,58 Q141,96 184,58 Q227,24 270,58 Q313,96 356,58;M12,60 Q55,22 98,60 Q141,98 184,60 Q227,22 270,60 Q313,98 356,60" dur="4s" repeatCount="indefinite"/>
-          </path>
-          <text x="12" y="102" fill="var(--accent3)" font-size="12" font-weight="700" font-family="var(--sans)">Сон с активной DMN</text>
-          <path d="M12,135 Q35,125 58,135 Q81,142 104,130 Q127,120 150,135 Q173,142 196,128 Q219,118 242,135 Q265,142 288,128 Q311,120 334,135 Q356,140 370,132" fill="none" stroke="var(--accent3)" stroke-width="2.5" opacity="0.7">
-            <animate attributeName="d" values="M12,135 Q35,125 58,135 Q81,142 104,130 Q127,120 150,135 Q173,142 196,128 Q219,118 242,135 Q265,142 288,128 Q311,120 334,135 Q356,140 370,132;M12,133 Q35,127 58,133 Q81,140 104,132 Q127,122 150,133 Q173,140 196,130 Q219,120 242,133 Q265,140 288,130 Q311,122 334,133 Q356,138 370,134;M12,135 Q35,125 58,135 Q81,142 104,130 Q127,120 150,135 Q173,142 196,128 Q219,118 242,135 Q265,142 288,128 Q311,120 334,135 Q356,140 370,132" dur="5s" repeatCount="indefinite"/>
-          </path>
+    <div>
+      <div class="ic" style="text-align:center;padding:36px 28px">
+        <svg width="100%" height="140" viewBox="0 0 340 140">
+          <text x="10" y="14" fill="var(--teal)" font-size="11" font-weight="700" font-family="var(--R)">Здоровый сон</text>
+          <path d="M10,50 Q48,20 86,50 Q124,80 162,50 Q200,20 238,50 Q276,80 314,50 Q330,37 340,50" fill="none" stroke="url(#cG)" stroke-width="2.5" opacity=".5"/>
+          <text x="10" y="84" fill="var(--rose)" font-size="11" font-weight="700" font-family="var(--R)">Сон с активной DMN</text>
+          <path d="M10,114 Q28,108 48,114 Q68,120 86,112 Q106,106 126,114 Q146,118 166,112 Q186,106 206,114 Q226,120 248,112 Q268,106 288,114 Q308,120 328,112 Q336,110 340,114" fill="none" stroke="var(--rose)" stroke-width="2.5" opacity=".4"/>
         </svg>
-        <p style="font-size:14px;color:var(--text-dim)">DMN не даёт мозгу войти в глубокие восстановительные фазы</p>
+        <p style="font-size:.9rem;color:var(--dim);margin-top:12px">DMN не даёт мозгу войти в глубокие восстановительные фазы</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============ ФАКТ 7 ============ -->
-<section class="fact reveal">
-  <div class="fact-inner">
-    <div class="fact-text">
-      <div class="fact-num">Факт 07</div>
-      <div class="fact-title">Navy SEALs тренируют префронтальную кору. Чтобы голова была пустой.</div>
-      <div class="fact-body">
-        <p>Американские военные тратят миллионы долларов на программы ментальной подготовки. Не на мотивацию — на нейробиологию.</p>
-        <p>Они тренируют <strong>префронтальную кору</strong> — часть мозга, отвечающую за осознанные решения, фокус и подавление импульсов. Элита тренирует мозг так же системно, как тело.</p>
+<!-- ═══ ФАКТ 7 ═══ -->
+<section class="fact rv">
+  <div class="fi">
+    <div>
+      <div class="fn">Факт 07</div>
+      <div class="ft">90% серотонина — в кишечнике. Депрессия начинается в животе.</div>
+      <div class="fb">
+        <p>«Гормон счастья» на 90% вырабатывается не в мозге, а в кишечнике. Кишечник содержит <strong>100 миллионов нейронов</strong> — больше, чем спинной мозг.</p>
+        <p>Когда DMN перегружена — запускается каскад: стресс → кортизол → замедление пищеварения → изменение микрофлоры → падение серотонина → <strong>тревога и подавленность</strong>.</p>
       </div>
-      <div class="highlight">
-        <p>Разница между теми, кто справился с тревогой, и теми, кто нет — не талант. Это система.</p>
+      <div class="hl"><p>Ментальный шум разрушает не только покой — он физически меняет биохимию тела.</p></div>
+    </div>
+    <div>
+      <div class="ic float" style="text-align:center">
+        <svg width="100%" height="160" viewBox="0 0 360 160">
+          <ellipse cx="90" cy="55" rx="52" ry="35" fill="rgba(11,125,114,.04)" stroke="rgba(11,125,114,.18)" stroke-width="1.5"/><text x="90" y="50" text-anchor="middle" fill="var(--text)" font-size="13" font-weight="600" font-family="var(--R)">Мозг</text><text x="90" y="68" text-anchor="middle" fill="var(--dim)" font-size="10" font-family="var(--R)">10% серотонина</text>
+          <ellipse cx="270" cy="55" rx="55" ry="35" fill="rgba(139,107,20,.04)" stroke="rgba(139,107,20,.18)" stroke-width="1.5"/><text x="270" y="50" text-anchor="middle" fill="var(--amber)" font-size="13" font-weight="600" font-family="var(--R)">Кишечник</text><text x="270" y="68" text-anchor="middle" fill="var(--dim)" font-size="10" font-family="var(--R)">90% серотонина</text>
+          <line x1="142" y1="55" x2="215" y2="55" stroke="url(#tP)" stroke-width="2" stroke-dasharray="6 4"><animate attributeName="stroke-dashoffset" values="0;-20" dur="2s" repeatCount="indefinite"/></line>
+          <text x="178" y="48" text-anchor="middle" fill="var(--dim)" font-size="8" font-family="var(--R)">vagus nerve</text>
+          <rect x="50" y="108" width="80" height="38" rx="6" fill="rgba(11,125,114,.03)" stroke="rgba(11,125,114,.1)" stroke-width="1"/><rect x="60" y="118" width="16" height="20" rx="3" fill="rgba(11,125,114,.15)"/><rect x="84" y="108" width="16" height="30" rx="3" fill="rgba(11,125,114,.4)"><animate attributeName="height" values="28;34;28" dur="3s" repeatCount="indefinite"/></rect>
+          <text x="90" y="156" text-anchor="middle" fill="var(--dim)" font-size="8" font-family="var(--R)">серотонин</text>
+          <rect x="230" y="108" width="80" height="38" rx="6" fill="rgba(139,107,20,.03)" stroke="rgba(139,107,20,.1)" stroke-width="1"/><rect x="240" y="122" width="16" height="16" rx="3" fill="rgba(139,107,20,.15)"/><rect x="264" y="114" width="16" height="24" rx="3" fill="rgba(139,107,20,.35)"/><text x="289" y="140" fill="var(--amber)" font-size="8" font-weight="700" font-family="var(--R)">100 млн</text>
+          <text x="270" y="156" text-anchor="middle" fill="var(--dim)" font-size="8" font-family="var(--R)">нейроны</text>
+        </svg>
+        <div class="ss">Yano et al., Cell, 2015 · Gershon, Columbia University</div>
       </div>
     </div>
-    <div class="fact-visual">
-      <div class="info-card" style="animation:float2 8s ease-in-out infinite">
-        <svg width="100%" height="220" viewBox="0 0 360 220">
-          <polygon points="180,15 330,185 30,185" fill="none" stroke="rgba(123,111,255,0.15)" stroke-width="1"/>
-          <line x1="65" y1="140" x2="295" y2="140" stroke="rgba(123,111,255,0.08)" stroke-width="1"/>
-          <line x1="105" y1="95" x2="255" y2="95" stroke="rgba(123,111,255,0.08)" stroke-width="1"/>
-          <!-- Top glow -->
-          <circle cx="180" cy="50" r="28" fill="rgba(123,111,255,0.04)">
-            <animate attributeName="r" values="22;36;22" dur="3s" repeatCount="indefinite"/>
-            <animate attributeName="fill-opacity" values=".02;.08;.02" dur="3s" repeatCount="indefinite"/>
-          </circle>
-          <circle cx="180" cy="50" r="18" fill="rgba(123,111,255,0.06)">
-            <animate attributeName="r" values="14;22;14" dur="2s" repeatCount="indefinite"/>
-          </circle>
-          <text x="180" y="55" text-anchor="middle" fill="var(--accent)" font-size="13" font-weight="800" font-family="var(--sans)">Navy SEALs</text>
-          <text x="180" y="72" text-anchor="middle" fill="var(--text-dim)" font-size="10" font-family="var(--sans)">Ежедневная практика</text>
-          <text x="180" y="120" text-anchor="middle" fill="rgba(123,111,255,0.6)" font-size="13" font-weight="700" font-family="var(--sans)">CEO, топ-атлеты</text>
-          <text x="180" y="136" text-anchor="middle" fill="var(--text-dim)" font-size="10" font-family="var(--sans)">Регулярная практика</text>
-          <text x="180" y="165" text-anchor="middle" fill="rgba(123,111,255,0.35)" font-size="13" font-weight="500" font-family="var(--sans)">95% людей</text>
-          <text x="180" y="180" text-anchor="middle" fill="var(--text-dim)" font-size="10" font-family="var(--sans)">Бросают за неделю</text>
+  </div>
+</section>
+
+<!-- ═══ ФАКТ 8 ═══ -->
+<section class="fact rv" style="background:var(--bg2)">
+  <div class="fi rev">
+    <div>
+      <div class="fn">Факт 08</div>
+      <div class="ft">Система важнее мотивации.</div>
+      <div class="fb">
+        <p>Элита — от Navy SEALs до CEO Кремниевой долины — тренирует мозг <strong>системно</strong>. Не «иногда подышать». А конкретная программа, день за днём, с нарастающей сложностью.</p>
+        <p>Они не «умеют не думать». Они тренируют префронтальную кору так же регулярно, как мышцы.</p>
+        <p><strong>95% людей бросают медитацию</strong>, потому что у них нет системы. Есть только «попробовал — не получилось — забросил».</p>
+      </div>
+      <div class="hl"><p>Разница между теми, кто справился с тревогой, и теми, кто нет — не талант. Это система.</p></div>
+    </div>
+    <div>
+      <div class="ic">
+        <svg width="100%" height="210" viewBox="0 0 300 210" style="display:block;margin:0 auto">
+          <polygon points="150,12 275,170 25,170" fill="none" stroke="rgba(11,125,114,.12)" stroke-width="1"/>
+          <line x1="55" y1="128" x2="245" y2="128" stroke="rgba(11,125,114,.06)" stroke-width="1"/>
+          <line x1="88" y1="82" x2="212" y2="82" stroke="rgba(11,125,114,.06)" stroke-width="1"/>
+          <circle cx="150" cy="42" r="22" fill="rgba(11,125,114,.03)" stroke="rgba(11,125,114,.2)" stroke-width="1.5"><animate attributeName="r" values="18;28;18" dur="3s" repeatCount="indefinite"/><animate attributeName="stroke-opacity" values=".15;.5;.15" dur="3s" repeatCount="indefinite"/></circle>
+          <text x="150" y="48" text-anchor="middle" fill="var(--teal)" font-size="10" font-weight="700" font-family="var(--R)">Navy SEALs</text>
+          <text x="150" y="62" text-anchor="middle" fill="var(--dim)" font-size="8" font-family="var(--R)">Ежедневно. Системно.</text>
+          <text x="150" y="110" text-anchor="middle" fill="var(--amber)" font-size="11" font-weight="600" font-family="var(--R)" opacity=".6">CEO, топ-атлеты</text>
+          <text x="150" y="124" text-anchor="middle" fill="var(--dim)" font-size="8" font-family="var(--R)">Регулярно. По программе.</text>
+          <text x="150" y="155" text-anchor="middle" fill="var(--dim)" font-size="11" font-family="var(--R)" opacity=".5">95% людей</text>
+          <text x="150" y="168" text-anchor="middle" fill="var(--dim)" font-size="8" font-family="var(--R)">Нет системы → нет результата</text>
         </svg>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============ ФАКТ 8 ============ -->
-<section class="fact reveal">
-  <div class="fact-inner reverse">
-    <div class="fact-text">
-      <div class="fact-num">Факт 08</div>
-      <div class="fact-title">95% бросают медитацию за неделю. Нет системы — нет результата.</div>
-      <div class="fact-body">
-        <p>Ты, возможно, пробовал. Скачал приложение. Посидел 10 минут. Ничего не почувствовал. Бросил.</p>
-        <p><strong>Медитация без структуры — как тренажёрный зал без программы.</strong> Случайные упражнения, нет прогрессии, нет результата.</p>
-        <p>Мозг меняется не от «просто сиди и дыши». Он меняется от <strong>конкретных упражнений в конкретной последовательности</strong>.</p>
-      </div>
-      <div class="highlight">
-        <p>Медитация — не цель. Это инструмент. И как любой инструмент, он работает только в системе.</p>
-      </div>
-    </div>
-    <div class="fact-visual">
-      <div class="info-card" style="text-align:center;animation:float1 7s ease-in-out infinite">
-        <div class="circle-chart">
-          <svg width="220" height="220" viewBox="0 0 220 220">
-            <circle class="track" cx="110" cy="110" r="100"/>
-            <circle class="fill" cx="110" cy="110" r="100" style="--offset:31;stroke:var(--accent3)"/>
-          </svg>
-          <div class="circle-center">
-            <div class="num counter" data-target="95">0</div>
-            <div class="unit">% бросают</div>
-          </div>
-        </div>
-        <p style="margin-top:20px;font-size:15px;color:var(--text-dim)">Без системы медитация не работает</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ ФАКТ 9 ============ -->
-<section class="fact reveal">
-  <div class="fact-inner">
-    <div class="fact-text">
-      <div class="fact-num">Факт 09</div>
-      <div class="fact-title">Нейропластичность — суперсила, о которой тебе не рассказали.</div>
-      <div class="fact-body">
+<!-- ═══ ФАКТ 9 ═══ -->
+<section class="fact rv">
+  <div class="fi">
+    <div>
+      <div class="fn">Факт 09</div>
+      <div class="ft">Покой — это навык. Не подарок судьбы.</div>
+      <div class="fb">
         <p>До конца XX века считали: мозг взрослого не меняется. <strong>Это оказалось неправдой.</strong></p>
-        <p>Лондонские таксисты увеличивают гиппокамп, запоминая карту города. Музыканты утолщают моторную кору. А люди, практикующие осознанность — уменьшают миндалину и усиливают префронтальную кору.</p>
+        <p>Нейропластичность работает всю жизнь. Лондонские таксисты увеличивают гиппокамп, запоминая карту города. Музыканты утолщают моторную кору. А люди, практикующие осознанность — <strong>уменьшают миндалину</strong>.</p>
+        <p>Ваш мозг сейчас — результат того, чем вы его кормили последние годы. Но это не приговор. <strong>Это отправная точка.</strong></p>
       </div>
-      <div class="highlight">
-        <p>Твой мозг сейчас — результат того, чем ты его кормил последние годы. Но это не приговор. Это отправная точка.</p>
-      </div>
+      <div class="hl"><p>Мозг перестраивается. Нужна только система и 28 дней.</p></div>
     </div>
-    <div class="fact-visual">
-      <div class="info-card" style="text-align:center;animation:float2 8s ease-in-out infinite">
-        <svg width="100%" height="200" viewBox="0 0 360 200">
-          <text x="90" y="20" text-anchor="middle" fill="var(--text-dim)" font-size="12" font-weight="700" font-family="var(--sans)">Было</text>
-          <circle cx="50" cy="80" r="8" fill="rgba(123,111,255,0.15)" stroke="rgba(123,111,255,0.35)" stroke-width="1"><animate attributeName="opacity" values=".4;.8;.4" dur="3s" repeatCount="indefinite"/></circle>
-          <circle cx="90" cy="50" r="8" fill="rgba(123,111,255,0.15)" stroke="rgba(123,111,255,0.35)" stroke-width="1"><animate attributeName="opacity" values=".4;.8;.4" dur="3s" repeatCount="indefinite" begin=".5s"/></circle>
-          <circle cx="130" cy="90" r="8" fill="rgba(123,111,255,0.15)" stroke="rgba(123,111,255,0.35)" stroke-width="1"/>
-          <circle cx="70" cy="120" r="8" fill="rgba(123,111,255,0.15)" stroke="rgba(123,111,255,0.35)" stroke-width="1"/>
-          <circle cx="110" cy="140" r="8" fill="rgba(123,111,255,0.15)" stroke="rgba(123,111,255,0.35)" stroke-width="1"/>
-          <line x1="50" y1="80" x2="90" y2="50" stroke="rgba(123,111,255,0.15)" stroke-width="1"/>
-          <line x1="90" y1="50" x2="130" y2="90" stroke="rgba(123,111,255,0.15)" stroke-width="1"/>
-          <!-- Arrow -->
-          <text x="180" y="100" text-anchor="middle" fill="var(--accent)" font-size="28" font-family="var(--sans)">→</text>
-          <!-- After -->
-          <text x="270" y="20" text-anchor="middle" fill="var(--accent2)" font-size="12" font-weight="700" font-family="var(--sans)">28 дней спустя</text>
-          <circle cx="230" cy="80" r="9" fill="rgba(0,229,204,0.15)" stroke="rgba(0,229,204,0.5)" stroke-width="1.5"><animate attributeName="r" values="8;11;8" dur="2.5s" repeatCount="indefinite"/></circle>
-          <circle cx="270" cy="50" r="10" fill="rgba(0,229,204,0.15)" stroke="rgba(0,229,204,0.5)" stroke-width="1.5"><animate attributeName="r" values="9;12;9" dur="2.5s" repeatCount="indefinite" begin=".3s"/></circle>
-          <circle cx="310" cy="90" r="9" fill="rgba(0,229,204,0.15)" stroke="rgba(0,229,204,0.5)" stroke-width="1.5"/>
-          <circle cx="250" cy="120" r="8" fill="rgba(0,229,204,0.15)" stroke="rgba(0,229,204,0.5)" stroke-width="1.5"/>
-          <circle cx="290" cy="140" r="10" fill="rgba(0,229,204,0.15)" stroke="rgba(0,229,204,0.5)" stroke-width="1.5"/>
-          <circle cx="330" cy="60" r="7" fill="rgba(0,229,204,0.15)" stroke="rgba(0,229,204,0.5)" stroke-width="1.5"/>
-          <line x1="230" y1="80" x2="270" y2="50" stroke="rgba(0,229,204,0.25)" stroke-width="1.5"/><line x1="270" y1="50" x2="310" y2="90" stroke="rgba(0,229,204,0.25)" stroke-width="1.5"/><line x1="310" y1="90" x2="290" y2="140" stroke="rgba(0,229,204,0.25)" stroke-width="1.5"/><line x1="290" y1="140" x2="250" y2="120" stroke="rgba(0,229,204,0.25)" stroke-width="1.5"/><line x1="250" y1="120" x2="230" y2="80" stroke="rgba(0,229,204,0.25)" stroke-width="1.5"/><line x1="270" y1="50" x2="330" y2="60" stroke="rgba(0,229,204,0.25)" stroke-width="1.5"/><line x1="330" y1="60" x2="310" y2="90" stroke="rgba(0,229,204,0.25)" stroke-width="1.5"/><line x1="230" y1="80" x2="250" y2="120" stroke="rgba(0,229,204,0.25)" stroke-width="1.5"/>
-          <text x="90" y="178" text-anchor="middle" fill="var(--text-dim)" font-size="11" font-family="var(--sans)">Мало связей</text>
-          <text x="270" y="178" text-anchor="middle" fill="var(--text-dim)" font-size="11" font-family="var(--sans)">Новые нейронные пути</text>
+    <div>
+      <div class="ic glow" style="text-align:center">
+        <svg width="100%" height="160" viewBox="0 0 340 160">
+          <text x="85" y="16" text-anchor="middle" fill="var(--dim)" font-size="11" font-weight="700" font-family="var(--R)">Сейчас</text>
+          <circle cx="40" cy="60" r="7" fill="rgba(11,125,114,.04)" stroke="rgba(11,125,114,.18)" stroke-width="1"/>
+          <circle cx="80" cy="40" r="7" fill="rgba(11,125,114,.04)" stroke="rgba(11,125,114,.18)" stroke-width="1"/>
+          <circle cx="120" cy="72" r="7" fill="rgba(11,125,114,.04)" stroke="rgba(11,125,114,.18)" stroke-width="1"/>
+          <circle cx="62" cy="95" r="7" fill="rgba(11,125,114,.04)" stroke="rgba(11,125,114,.18)" stroke-width="1"/>
+          <line x1="40" y1="60" x2="80" y2="40" stroke="rgba(11,125,114,.1)" stroke-width="1"/><line x1="80" y1="40" x2="120" y2="72" stroke="rgba(11,125,114,.1)" stroke-width="1"/>
+          <text x="170" y="70" text-anchor="middle" fill="var(--teal)" font-size="22" font-family="var(--R)">→</text>
+          <text x="258" y="16" text-anchor="middle" fill="var(--amber)" font-size="11" font-weight="700" font-family="var(--R)">28 дней спустя</text>
+          <circle cx="210" cy="60" r="8" fill="rgba(139,107,20,.06)" stroke="rgba(139,107,20,.3)" stroke-width="1.5"/>
+          <circle cx="250" cy="38" r="9" fill="rgba(139,107,20,.06)" stroke="rgba(139,107,20,.3)" stroke-width="1.5"><animate attributeName="r" values="8;11;8" dur="3s" repeatCount="indefinite"/></circle>
+          <circle cx="290" cy="70" r="8" fill="rgba(139,107,20,.06)" stroke="rgba(139,107,20,.3)" stroke-width="1.5"/>
+          <circle cx="232" cy="95" r="8" fill="rgba(139,107,20,.06)" stroke="rgba(139,107,20,.3)" stroke-width="1.5"/>
+          <circle cx="276" cy="102" r="9" fill="rgba(139,107,20,.06)" stroke="rgba(139,107,20,.3)" stroke-width="1.5"/>
+          <circle cx="308" cy="46" r="7" fill="rgba(139,107,20,.06)" stroke="rgba(139,107,20,.3)" stroke-width="1.5"/>
+          <line x1="210" y1="60" x2="250" y2="38" stroke="rgba(139,107,20,.22)" stroke-width="1.5"/><line x1="250" y1="38" x2="290" y2="70" stroke="rgba(139,107,20,.22)" stroke-width="1.5"/><line x1="290" y1="70" x2="276" y2="102" stroke="rgba(139,107,20,.22)" stroke-width="1.5"/><line x1="276" y1="102" x2="232" y2="95" stroke="rgba(139,107,20,.22)" stroke-width="1.5"/><line x1="232" y1="95" x2="210" y2="60" stroke="rgba(139,107,20,.22)" stroke-width="1.5"/><line x1="250" y1="38" x2="308" y2="46" stroke="rgba(139,107,20,.22)" stroke-width="1.5"/><line x1="308" y1="46" x2="290" y2="70" stroke="rgba(139,107,20,.22)" stroke-width="1.5"/>
+          <text x="85" y="130" text-anchor="middle" fill="var(--dim)" font-size="9" font-family="var(--R)">Мало связей</text>
+          <text x="258" y="130" text-anchor="middle" fill="var(--amber)" font-size="9" font-weight="600" font-family="var(--R)">Новые нейронные пути</text>
         </svg>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============ BRIDGE ============ -->
-<div class="divider"><div class="divider-line"><div class="divider-dot"></div></div></div>
-
-<section class="bridge reveal">
-  <div class="bridge-inner">
-    <div class="bridge-label">Итого</div>
-    <h2>Ты знаешь <em>больше, чем 95% людей</em></h2>
-    <p>Твой мозг тратит огромное количество энергии на внутренний шум. Почти половину времени ты не присутствуешь в собственной жизни. Мысли крутятся по кругу. Миндалина держит тело в режиме тревоги. Сон не восстанавливает.</p>
-    <p>И при этом ты знаешь, что всё это <strong>можно изменить за 4 недели</strong>. Это доказано в Гарварде. Это используют Navy SEALs. Это не требует часов медитации.</p>
-    <p class="final-line">Нужна система. Конкретная. Пошаговая. Основанная на нейробиологии.</p>
+<!-- BRIDGE -->
+<div class="dv b2"></div>
+<section class="bridge rv">
+  <div class="bridge-i">
+    <div class="bridge-lb">Итого</div>
+    <h2>Вы теперь знаете <em>больше, чем 95% людей</em></h2>
+    <p>Мозг тратит энергию на шум. Половина жизни на автопилоте. Мысли по кругу. Миндалина в тревоге. Сон не восстанавливает. Серотонин падает.</p>
+    <p>Но всё это <strong>можно изменить за 28 дней</strong>. Доказано в Гарварде. Используется элитой.</p>
+    <p class="fin">Нужна система. Конкретная. Пошаговая. Основанная на нейробиологии.</p>
   </div>
 </section>
 
-<!-- ============ PROTOCOL ============ -->
-<section class="protocol">
-  <div class="wide">
-    <div class="reveal">
-      <div class="protocol-label">Решение</div>
-      <div class="protocol-title">Протокол остановки ума</div>
-      <p class="protocol-sub">28 дней · 16 минут в день · Научный метод перестройки мозга, основанный на принципах, которые ты только что прочитал.</p>
-      <p class="protocol-desc">Не приложение для медитации. Не курс мотивации. Конкретная программа с нарастающей интенсивностью, построенная на нейробиологии.</p>
-    </div>
-
-    <!-- 4 Main Cards -->
-    <div class="proto-grid">
-      <div class="proto-card reveal reveal-d1">
-        <div class="proto-icon">
-          <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 7h6M9 11h6M9 15h4"/></svg>
-        </div>
-        <h3>Научный мануал</h3>
-        <p>Как работает DMN, миндалина и нейропластичность. Всё без воды, с источниками.</p>
-      </div>
-      <div class="proto-card reveal reveal-d2">
-        <div class="proto-icon">
-          <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><polygon points="10,8 16,12 10,16" fill="rgba(123,111,255,0.3)" stroke="var(--accent)"/></svg>
-        </div>
-        <h3>7 видео-практик</h3>
-        <p>Конкретные нейротренировки с нарастающей интенсивностью. День за днём.</p>
-      </div>
-      <div class="proto-card reveal reveal-d3">
-        <div class="proto-icon">
-          <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18"/><circle cx="8" cy="15" r="1.5" fill="var(--accent)" opacity=".3"/><circle cx="12" cy="15" r="1.5" fill="var(--accent)" opacity=".5"/><circle cx="16" cy="15" r="1.5" fill="var(--accent)" opacity=".8"/></svg>
-        </div>
-        <h3>Трекер на 28 дней</h3>
-        <p>Отмечаешь прогресс каждый день. Видишь результат. Не теряешь нить.</p>
-      </div>
-      <div class="proto-card reveal reveal-d4">
-        <div class="proto-icon">
-          <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round"><path d="M4 20V8a4 4 0 014-4h8a4 4 0 014 4v8a4 4 0 01-4 4H8l-4 4z"/><circle cx="10" cy="12" r="1" fill="var(--accent)" opacity=".4"/><circle cx="14" cy="12" r="1" fill="var(--accent)" opacity=".4"/></svg>
-        </div>
-        <h3>Закрытый чат</h3>
-        <p>Поддержка и ответы на вопросы на протяжении всего пути.</p>
-      </div>
-    </div>
-
-    <!-- Additional features -->
-    <div class="proto-features reveal">
-      <div class="proto-feat">
-        <div class="proto-feat-icon">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent2)" stroke-width="2"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4"/></svg>
-        </div>
-        <div>
-          <h4>16 минут в день</h4>
-          <p>Меньше, чем один скролл ленты. Встраивается в утреннюю или вечернюю рутину.</p>
-        </div>
-      </div>
-      <div class="proto-feat">
-        <div class="proto-feat-icon">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent2)" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
-        </div>
-        <div>
-          <h4>Основано на исследованиях</h4>
-          <p>Harvard, Stanford, Yale. Рецензируемые публикации. Ноль эзотерики.</p>
-        </div>
-      </div>
-      <div class="proto-feat">
-        <div class="proto-feat-icon">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent2)" stroke-width="2"><path d="M5 12l5 5L20 7"/></svg>
-        </div>
-        <div>
-          <h4>Доступ навсегда</h4>
-          <p>Разовая покупка. Возвращайся к практикам в любое время.</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- CTA -->
-    <div class="cta-section reveal">
-      <a href="https://thebodymindcode.github.io/protocol/" class="cta-btn">
-        <span>Узнать подробности</span>
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-      </a>
-      <div class="cta-meta">Доступ навсегда · Результат через 28 дней</div>
+<!-- CTA -->
+<section class="cta-w rv">
+  <div class="cta-c">
+    <h2>Протокол остановки ума</h2>
+    <p class="sub">28 дней · 16 минут в день · Научный метод перестройки мозга, основанный на принципах, которые вы только что прочитали.</p>
+    <a href="https://thebodymindcode.github.io/protocol/" class="btn">Узнать подробности →</a>
+    <div class="cta-meta">Доступ навсегда · Результат через 28 дней</div>
+    <div class="cta-ff">
+      <div class="cta-f"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Научный мануал</div>
+      <div class="cta-f"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> 7 видео-практик</div>
+      <div class="cta-f"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Трекер 28 дней</div>
+      <div class="cta-f"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Закрытый чат</div>
     </div>
   </div>
 </section>
 
-<!-- ============ FAQ ============ -->
-<section class="faq">
-  <div class="narrow">
-    <div class="reveal">
-      <div class="faq-label">Вопросы</div>
-      <div class="faq-title">Частые вопросы</div>
-    </div>
-    <div class="faq-list reveal">
-      <div class="faq-item">
-        <div class="faq-q"><span>Мозг правда меняется за 28 дней?</span><span class="faq-arrow">▾</span></div>
-        <div class="faq-a"><p>Да. Исследование Sara Lazar (Harvard, 2011) зафиксировало структурные изменения серого вещества уже через 4 недели. На МРТ. Это не метафора и не маркетинговый ход.</p></div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q"><span>У меня нет времени</span><span class="faq-arrow">▾</span></div>
-        <div class="faq-a"><p>16 минут в день — меньше, чем один скролл ленты. Практики встраиваются в утреннюю или вечернюю рутину. Не нужно ехать в студию или менять график.</p></div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q"><span>Это не эзотерика?</span><span class="faq-arrow">▾</span></div>
-        <div class="faq-a"><p>Ноль эзотерики. Всё основано на рецензируемых научных публикациях: Harvard, Stanford, Queen's University, The Lancet. Каждый факт в этой статье имеет ссылку на исследование.</p></div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q"><span>А если я уже пробовал и бросил?</span><span class="faq-arrow">▾</span></div>
-        <div class="faq-a"><p>Именно поэтому это протокол, а не приложение. Конкретная программа на 28 дней: что делать в какой день, в какой последовательности, с нарастающей сложностью. Не «посиди и подыши».</p></div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q"><span>Чем это отличается от приложений для медитации?</span><span class="faq-arrow">▾</span></div>
-        <div class="faq-a"><p>Приложения дают случайные медитации без прогрессии. Протокол — это пошаговая программа с нарастающей интенсивностью, как тренировочный план в спортзале. Каждый день строится на предыдущем.</p></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ FINAL CTA ============ -->
-<section class="final-cta reveal">
-  <div class="label">Следующий шаг</div>
-  <h2>Ты знаешь, как работает мозг.<br><em>Осталось это применить.</em></h2>
-  <p class="sub">28 дней. 16 минут в день. Видео-практики, научный мануал, трекер и поддержка.</p>
-  <a href="https://thebodymindcode.github.io/protocol/" class="cta-btn" style="font-size:18px;padding:22px 56px">
-    <span>Перейти к протоколу</span>
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-  </a>
-</section>
-
-<!-- FOOTER -->
-<footer>
-  <p>Архитектура Сознания · <a href="https://instagram.com/thebodymindcode" target="_blank">@thebodymindcode</a></p>
-</footer>
+<footer><p>Архитектура Сознания · <a href="https://instagram.com/thebodymindcode" target="_blank">@thebodymindcode</a></p></footer>
 
 <script>
-// ===== PARTICLES NEURAL NETWORK =====
-const c = document.getElementById('particles');
-const ctx = c.getContext('2d');
-let w, h, pts = [];
-
-function resize() {
-  w = c.width = innerWidth;
-  h = c.height = innerHeight;
-  pts = [];
-  const count = Math.min(80, Math.floor(w * h / 15000));
-  for (let i = 0; i < count; i++) {
-    pts.push({
-      x: Math.random() * w,
-      y: Math.random() * h,
-      r: Math.random() * 1.8 + 0.4,
-      dx: (Math.random() - 0.5) * 0.35,
-      dy: (Math.random() - 0.5) * 0.35,
-      o: Math.random() * 0.25 + 0.05
-    });
-  }
-}
-resize();
-window.addEventListener('resize', resize);
-
-function draw() {
-  ctx.clearRect(0, 0, w, h);
-  pts.forEach(p => {
-    p.x += p.dx;
-    p.y += p.dy;
-    if (p.x < 0 || p.x > w) p.dx *= -1;
-    if (p.y < 0 || p.y > h) p.dy *= -1;
-    ctx.beginPath();
-    ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-    ctx.fillStyle = `rgba(123,111,255,${p.o})`;
-    ctx.fill();
-  });
-  // Connect nearby particles
-  for (let i = 0; i < pts.length; i++) {
-    for (let j = i + 1; j < pts.length; j++) {
-      const dx = pts[i].x - pts[j].x;
-      const dy = pts[i].y - pts[j].y;
-      const dist = Math.sqrt(dx * dx + dy * dy);
-      if (dist < 140) {
-        ctx.beginPath();
-        ctx.moveTo(pts[i].x, pts[i].y);
-        ctx.lineTo(pts[j].x, pts[j].y);
-        ctx.strokeStyle = `rgba(123,111,255,${0.04 * (1 - dist / 140)})`;
-        ctx.lineWidth = 0.5;
-        ctx.stroke();
-      }
-    }
-  }
-  requestAnimationFrame(draw);
-}
-draw();
-
-// ===== SCROLL REVEAL =====
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-      entry.target.querySelectorAll('.counter').forEach(animateCounter);
-    }
-  });
-}, { threshold: 0.1 });
-
-document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-// ===== COUNTER =====
-function animateCounter(el) {
-  if (el.dataset.animated) return;
-  el.dataset.animated = '1';
-  const target = parseInt(el.dataset.target);
-  const duration = 2200;
-  const start = performance.now();
-  function update(now) {
-    const elapsed = now - start;
-    const progress = Math.min(elapsed / duration, 1);
-    const eased = 1 - Math.pow(1 - progress, 4);
-    el.textContent = Math.round(eased * target).toLocaleString('ru-RU');
-    if (progress < 1) requestAnimationFrame(update);
-  }
-  requestAnimationFrame(update);
-}
-
-// Hero counters on load
-setTimeout(() => {
-  document.querySelectorAll('.hero-stat .counter').forEach(animateCounter);
-}, 1200);
-
-// ===== FAQ =====
-document.querySelectorAll('.faq-item').forEach(item => {
-  item.querySelector('.faq-q').addEventListener('click', () => {
-    document.querySelectorAll('.faq-item').forEach(x => {
-      if (x !== item) x.classList.remove('open');
-    });
-    item.classList.toggle('open');
-  });
-});
-
-// ===== SMOOTH PARALLAX on orbs =====
-let mouseX = 0, mouseY = 0;
-document.addEventListener('mousemove', e => {
-  mouseX = (e.clientX / innerWidth - 0.5) * 2;
-  mouseY = (e.clientY / innerHeight - 0.5) * 2;
-});
-function parallaxOrbs() {
-  const orbs = document.querySelectorAll('.hero-orb');
-  orbs.forEach((orb, i) => {
-    const speed = (i + 1) * 8;
-    orb.style.transform = `translate(${mouseX * speed}px, ${mouseY * speed}px)`;
-  });
-  requestAnimationFrame(parallaxOrbs);
-}
-parallaxOrbs();
+const obs=new IntersectionObserver(e=>e.forEach(i=>{if(i.isIntersecting){i.target.classList.add('visible');i.target.querySelectorAll('.counter').forEach(animateCounter)}}),{threshold:.1,rootMargin:'0px 0px -30px 0px'});
+document.querySelectorAll('.rv').forEach(el=>obs.observe(el));
+function animateCounter(el){if(el.dataset.done)return;el.dataset.done='1';const t=+el.dataset.target,d=2200,s=performance.now();(function u(n){const p=Math.min((n-s)/d,1),e=1-Math.pow(1-p,4);el.textContent=Math.round(e*t).toLocaleString('ru-RU');if(p<1)requestAnimationFrame(u)})(s)}
+setTimeout(()=>document.querySelectorAll('.hero-stat .val').forEach(animateCounter),800);
 </script>
 </body>
 </html>
