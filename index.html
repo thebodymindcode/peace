@@ -34,7 +34,7 @@
   --R:'Raleway',system-ui,sans-serif;
 }
 *{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;overflow-x:hidden}
 body{font-family:var(--R);background:var(--bg);color:var(--body);font-size:18px;line-height:1.8;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 h1,h2,h3{font-family:var(--S);font-weight:500;line-height:1.15;color:var(--text)}
 body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");opacity:.015;pointer-events:none;z-index:10000}
@@ -71,9 +71,9 @@ nav{padding:20px 0}
 .hero-stat .val{font-family:var(--S);font-size:2.8rem;font-weight:600;background:linear-gradient(135deg,var(--teal),var(--amber));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .hero-stat .lbl{font-size:.8rem;color:var(--dim);margin-top:2px}
 
-.scroll-h{position:absolute;bottom:28px;left:0;right:0;display:flex;flex-direction:column;align-items:center;gap:8px;opacity:0;animation:fadeUp .8s 1.2s forwards}
-.scroll-h span{font-size:.62rem;letter-spacing:.25em;text-transform:uppercase;color:var(--dim)}
-.scroll-l{width:1px;height:30px;background:linear-gradient(to bottom,var(--teal),transparent);animation:sp 2.5s ease infinite}
+.scroll-h{position:absolute;bottom:36px;left:0;right:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;opacity:0;animation:fadeUp .8s 1.2s forwards}
+.scroll-h span{font-size:.62rem;letter-spacing:.28em;text-transform:uppercase;color:var(--dim);text-align:center;display:block}
+.scroll-l{width:1px;height:36px;background:linear-gradient(to bottom,var(--teal),transparent);animation:sp 2.5s ease infinite;margin:0 auto}
 @keyframes sp{0%,100%{opacity:.2}50%{opacity:.8}}
 
 /* ═══ INTRO ═══ */
@@ -189,8 +189,43 @@ footer a{color:var(--teal);text-decoration:none}
 .glow{animation:glowPulse 4s ease-in-out infinite}
 .float{animation:floatY 6s ease-in-out infinite}
 
-@media(max-width:900px){.fi,.fi.rev{grid-template-columns:1fr;direction:ltr;gap:40px}.fi.rev>*{direction:ltr}.hero-stats{grid-template-columns:1fr;max-width:260px}.trans-inner{padding:90px 40px 70px}}
-@media(max-width:600px){.fact{padding:70px 0}.fi{padding:0 20px}.ic{padding:28px 22px}.cta-c{padding:44px 24px}.cta-ff{flex-direction:column;align-items:center;gap:10px}.bridge{padding:90px 20px}.trans-inner{padding:70px 24px 50px}.trans p{font-size:1.05rem;margin-bottom:18px}.trans .t-statement{font-size:1.3rem;padding-left:22px}.trans .t-final{padding:28px 20px}.hero{padding:30px 24px 80px}.hero h1{font-size:clamp(2.2rem,10vw,3.2rem)!important}body{font-size:17px}}
+@media(max-width:900px){.fi,.fi.rev{grid-template-columns:1fr;direction:ltr;gap:40px}.fi.rev>*{direction:ltr}.hero-stats{grid-template-columns:repeat(3,1fr);max-width:100%}.trans-inner{padding:70px 32px 60px}.hero{padding:40px 20px 90px}}
+@media(max-width:600px){
+  html,body{overflow-x:hidden;width:100%}
+  *{max-width:100%;box-sizing:border-box}
+  .fact{padding:60px 0}
+  .fi{padding:0 16px}
+  .ic{padding:24px 18px}
+  .cta-c{padding:40px 20px}
+  .cta-ff{flex-direction:column;align-items:center;gap:10px}
+  .bridge{padding:70px 16px}
+  .trans-inner{padding:60px 20px 44px}
+  .trans p{font-size:1.08rem;margin-bottom:18px;line-height:1.75}
+  .trans .t-statement{font-size:1.28rem;padding-left:20px}
+  .trans .t-final{padding:26px 18px;font-size:1.3rem}
+  .hero{padding:50px 20px 100px;min-height:100svh}
+  .hero h1{font-size:clamp(2.6rem,12vw,4rem)!important;line-height:1.08!important;letter-spacing:-.025em!important;margin-bottom:20px}
+  .hero-badge{font-size:.65rem;padding:9px 20px;margin-bottom:32px}
+  .hero-sub{font-size:1.05rem;line-height:1.75;max-width:100%;padding:0 4px}
+  .hero-stats{grid-template-columns:1fr!important;max-width:260px;margin-top:36px;gap:12px}
+  .hero-stat .val{font-size:2.4rem}
+  .fn{font-size:.65rem}
+  .ft{font-size:clamp(1.65rem,6.5vw,2.2rem)!important;line-height:1.2}
+  .fb{font-size:1rem}
+  .hl p{font-size:1.18rem}
+  .ic svg{width:100%!important;height:auto!important}
+  .bn{font-size:3.5rem}
+  body{font-size:16px}
+  nav{padding:10px 0}
+  .bridge h2{font-size:clamp(1.7rem,7vw,2.4rem)!important}
+  .cta-c h2{font-size:clamp(1.6rem,7vw,2.2rem)!important}
+  .btn{padding:18px 36px;font-size:.75rem;width:100%;text-align:center;display:block}
+  .intro{padding:70px 20px 50px}
+  .intro p{font-size:1.05rem}
+  .intro .bright{font-size:1.12rem}
+  .scroll-h{bottom:24px}
+  .breath{display:none}
+}
 </style>
 </head>
 <body>
@@ -201,7 +236,7 @@ footer a{color:var(--teal);text-decoration:none}
   <linearGradient id="tG" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#0B7D72"/><stop offset="100%" stop-color="#8B6B14"/></linearGradient>
 </defs></svg>
 
-<nav><div class="nav-i"><a href="#" class="nav-logo">Архитектура Сознания</a></div></nav>
+<nav><div class="nav-i"></div></nav>
 
 <!-- ═══ HERO ═══ -->
 <section class="hero">
