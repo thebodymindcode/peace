@@ -11,28 +11,28 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Raleway:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#FAF7F2;
-  --bg2:#F2ECE2;
-  --bg3:#EAE3D7;
+  --bg:#F4F1EB;
+  --bg2:#EBE5D9;
+  --bg3:#E2DACC;
   --card:#FFFFFF;
-  --teal:#0B7D72;
-  --teal-l:#14A899;
-  --teal-d:#06655B;
-  --teal-v:#1EC4B0;
-  --amber:#8B6B14;
-  --amber-l:#A88420;
-  --amber-v:#C49A2E;
-  --amber-pale:rgba(139,107,20,.05);
-  --rose:#B84D44;
-  --rose-l:#D06058;
-  --teal-pale:rgba(11,125,114,.04);
-  --teal-brd:rgba(11,125,114,.14);
-  --amber-brd:rgba(139,107,20,.16);
-  --text:#1F1C17;
-  --body:#36322B;
-  --muted:#56524A;
-  --dim:#7A7670;
-  --border:rgba(11,125,114,.1);
+  --teal:#065E56;
+  --teal-l:#0B8D80;
+  --teal-d:#044A43;
+  --teal-v:#12A694;
+  --amber:#7A5A0A;
+  --amber-l:#97741A;
+  --amber-v:#B08824;
+  --amber-pale:rgba(122,90,10,.06);
+  --rose:#A04038;
+  --rose-l:#C05550;
+  --teal-pale:rgba(6,94,86,.05);
+  --teal-brd:rgba(6,94,86,.18);
+  --amber-brd:rgba(122,90,10,.20);
+  --text:#14120E;
+  --body:#2A2720;
+  --muted:#4A463E;
+  --dim:#6A665F;
+  --border:rgba(6,94,86,.1);
   --S:'Cormorant Garamond',Georgia,serif;
   --R:'Raleway',system-ui,sans-serif;
 }
@@ -50,14 +50,14 @@ nav{padding:18px 0;background:transparent}
 
 /* ═══ HERO ═══ */
 .hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:40px 32px 100px;position:relative;background:linear-gradient(180deg,var(--bg) 0%,var(--bg2) 100%);overflow:hidden}
-.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 50% 30%,rgba(11,125,114,.07),transparent 55%),radial-gradient(ellipse 40% 40% at 70% 60%,rgba(139,107,20,.04),transparent 50%),radial-gradient(circle at 25% 75%,rgba(139,107,20,.03),transparent 40%);pointer-events:none}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 50% 30%,rgba(6,94,86,.07),transparent 55%),radial-gradient(ellipse 40% 40% at 70% 60%,rgba(122,90,10,.04),transparent 50%),radial-gradient(circle at 25% 75%,rgba(122,90,10,.03),transparent 40%);pointer-events:none}
 .breath{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none}
 .br{border-radius:50%;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);animation:breathe 7s ease-in-out infinite}
-.br1{width:280px;height:280px;border:1.5px solid rgba(11,125,114,.1);box-shadow:0 0 30px rgba(11,125,114,.03)}
-.br2{width:400px;height:400px;border:1px solid rgba(139,107,20,.06);animation-delay:-2.3s}
-.br3{width:520px;height:520px;border:1px solid rgba(139,107,20,.04);animation-delay:-4.6s}
+.br1{width:280px;height:280px;border:1.5px solid rgba(6,94,86,.1);box-shadow:0 0 30px rgba(6,94,86,.03)}
+.br2{width:400px;height:400px;border:1px solid rgba(122,90,10,.06);animation-delay:-2.3s}
+.br3{width:520px;height:520px;border:1px solid rgba(122,90,10,.04);animation-delay:-4.6s}
 @keyframes breathe{0%,100%{transform:translate(-50%,-50%) scale(.88);opacity:.15}50%{transform:translate(-50%,-50%) scale(1.12);opacity:.7}}
-.hero-badge{display:inline-flex;align-items:center;gap:8px;font-size:.7rem;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:var(--teal);padding:10px 26px;border:1px solid var(--teal-brd);margin-bottom:44px;background:rgba(11,125,114,.03);opacity:0;animation:fadeUp .8s .2s forwards}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;font-size:.7rem;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:var(--teal);padding:10px 26px;border:1px solid var(--teal-brd);margin-bottom:44px;background:rgba(6,94,86,.03);opacity:0;animation:fadeUp .8s .2s forwards}
 .hero-badge .dot{width:6px;height:6px;border-radius:50%;background:var(--teal-l);animation:pulse 2s infinite}
 @keyframes pulse{0%,100%{opacity:.4;transform:scale(1)}50%{opacity:1;transform:scale(1.4)}}
 .hero h1{font-size:clamp(2.8rem,7.5vw,5.5rem);font-weight:400;color:var(--text);margin-bottom:18px;letter-spacing:-.02em;opacity:0;animation:fadeUp .8s .4s forwards}
@@ -65,7 +65,7 @@ nav{padding:18px 0;background:transparent}
 .hero h1 em::after{content:'';position:absolute;bottom:-6px;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--teal),var(--amber));border-radius:2px;opacity:.45}
 .hero-sub{font-size:clamp(1.1rem,2.2vw,1.32rem);color:var(--muted);max-width:660px;margin:24px auto 0;line-height:1.85;font-weight:400;opacity:0;animation:fadeUp .8s .6s forwards}
 .hero-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;max-width:520px;margin:48px auto 0;opacity:0;animation:fadeUp .8s .8s forwards}
-.hero-stat{padding:24px 16px;border:1px solid var(--teal-brd);background:rgba(11,125,114,.02);text-align:center;border-radius:4px}
+.hero-stat{padding:24px 16px;border:1px solid var(--teal-brd);background:rgba(6,94,86,.02);text-align:center;border-radius:4px}
 .hero-stat .val{font-family:var(--S);font-size:2.8rem;font-weight:600;background:linear-gradient(135deg,var(--teal),var(--amber));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .hero-stat .lbl{font-size:.8rem;color:var(--dim);margin-top:2px}
 .scroll-h{position:absolute;bottom:36px;left:0;right:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;opacity:0;animation:fadeUp .8s 1.2s forwards}
@@ -104,7 +104,7 @@ nav{padding:18px 0;background:transparent}
 .fb strong{color:var(--text);font-weight:600}
 .hl{border-left:3px solid;border-image:linear-gradient(to bottom,var(--teal),var(--amber)) 1;padding:24px 30px;margin:28px 0;background:linear-gradient(135deg,var(--teal-pale),var(--amber-pale));border-radius:0 10px 10px 0}
 .hl p{font-family:var(--S);font-size:1.35rem;font-style:italic;color:var(--text);line-height:1.55;margin:0}
-.ic{background:var(--card);border:1px solid var(--teal-brd);padding:40px;position:relative;overflow:hidden;border-radius:4px;box-shadow:0 8px 40px rgba(11,125,114,.04)}
+.ic{background:var(--card);border:1px solid var(--teal-brd);padding:40px;position:relative;overflow:hidden;border-radius:4px;box-shadow:0 8px 40px rgba(6,94,86,.04)}
 .ic::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--teal),var(--amber));opacity:.6}
 .bn{font-family:var(--S);font-size:4.5rem;font-weight:600;background:linear-gradient(135deg,var(--teal),var(--amber));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1}
 .sl2{font-size:.95rem;color:var(--dim);margin-top:6px;font-weight:500}
@@ -113,7 +113,7 @@ nav{padding:18px 0;background:transparent}
 .pb-l{display:flex;justify-content:space-between;margin-bottom:7px;font-size:.9rem;font-weight:600;color:var(--body)}
 .pb-l span:last-child{font-weight:700}
 .pb-l .tc{color:var(--teal)}.pb-l .pc{color:var(--amber)}.pb-l .rc{color:var(--rose)}.pb-l .gc{color:var(--amber)}
-.pb-t{height:7px;background:rgba(11,125,114,.06);border-radius:7px;overflow:hidden}
+.pb-t{height:7px;background:rgba(6,94,86,.06);border-radius:7px;overflow:hidden}
 .pb-f{height:100%;border-radius:7px;width:0%;transition:width 1.8s cubic-bezier(.22,1,.36,1)}
 .pb-f.tl{background:linear-gradient(90deg,var(--teal),var(--teal-l))}
 .pb-f.pr{background:linear-gradient(90deg,var(--amber),var(--amber-l))}
@@ -123,7 +123,7 @@ nav{padding:18px 0;background:transparent}
 .visible .pb-f{width:var(--w)}
 .cc{position:relative;width:210px;height:210px;margin:0 auto}
 .cc svg{transform:rotate(-90deg)}
-.cc .trk{fill:none;stroke:rgba(11,125,114,.08);stroke-width:9}
+.cc .trk{fill:none;stroke:rgba(6,94,86,.08);stroke-width:9}
 .cc .fl{fill:none;stroke:url(#cG);stroke-width:9;stroke-linecap:round;stroke-dasharray:565;stroke-dashoffset:565;transition:stroke-dashoffset 2.2s cubic-bezier(.22,1,.36,1)}
 .visible .cc .fl{stroke-dashoffset:var(--off)}
 .cc-c{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
@@ -156,11 +156,11 @@ nav{padding:18px 0;background:transparent}
 .sp-sub{font-size:1.1rem;color:var(--muted);max-width:560px;margin:0 auto 52px;line-height:1.8}
 .sp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:1000px;margin:0 auto}
 .sp-card{background:var(--card);border:1px solid var(--teal-brd);padding:36px 28px;text-align:left;position:relative;border-radius:4px;transition:box-shadow .3s}
-.sp-card:hover{box-shadow:0 12px 40px rgba(11,125,114,.08)}
+.sp-card:hover{box-shadow:0 12px 40px rgba(6,94,86,.08)}
 .sp-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--teal),var(--amber));opacity:.4}
 .sp-quote{font-family:var(--S);font-size:1.15rem;font-style:italic;color:var(--text);line-height:1.6;margin-bottom:24px;position:relative;padding-left:20px;border-left:2px solid var(--teal-brd)}
 .sp-author{display:flex;align-items:center;gap:14px}
-.sp-avatar{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,rgba(11,125,114,.1),rgba(139,107,20,.1));display:flex;align-items:center;justify-content:center;font-family:var(--S);font-size:1.2rem;font-weight:600;color:var(--teal)}
+.sp-avatar{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,rgba(6,94,86,.1),rgba(122,90,10,.1));display:flex;align-items:center;justify-content:center;font-family:var(--S);font-size:1.2rem;font-weight:600;color:var(--teal)}
 .sp-meta{text-align:left}
 .sp-name{font-size:.9rem;font-weight:700;color:var(--text)}
 .sp-role{font-size:.8rem;color:var(--dim)}
@@ -203,14 +203,14 @@ nav{padding:18px 0;background:transparent}
 .choice-sub{font-size:1.1rem;color:var(--muted);max-width:620px;margin:0 auto 56px;line-height:1.8}
 .choice-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:1020px;margin:0 auto;align-items:stretch}
 .choice-card{background:var(--card);border:1px solid var(--teal-brd);padding:40px 28px;text-align:center;position:relative;border-radius:4px;display:flex;flex-direction:column;transition:all .4s cubic-bezier(.16,1,.3,1)}
-.choice-card:hover{transform:translateY(-6px);box-shadow:0 20px 60px rgba(11,125,114,.1)}
-.choice-card.featured{border:2px solid var(--teal);box-shadow:0 12px 50px rgba(11,125,114,.1)}
+.choice-card:hover{transform:translateY(-6px);box-shadow:0 20px 60px rgba(6,94,86,.1)}
+.choice-card.featured{border:2px solid var(--teal);box-shadow:0 12px 50px rgba(6,94,86,.1)}
 .choice-card.featured::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--teal),var(--amber))}
 .choice-popular{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,var(--teal),var(--teal-d));color:#fff;font-size:.65rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;padding:5px 20px;border-radius:20px;white-space:nowrap}
 .choice-icon{width:56px;height:56px;margin:0 auto 20px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.5rem}
-.choice-icon.ci1{background:rgba(11,125,114,.06)}
-.choice-icon.ci2{background:rgba(11,125,114,.1)}
-.choice-icon.ci3{background:rgba(139,107,20,.08)}
+.choice-icon.ci1{background:rgba(6,94,86,.06)}
+.choice-icon.ci2{background:rgba(6,94,86,.1)}
+.choice-icon.ci3{background:rgba(122,90,10,.08)}
 .choice-name{font-family:var(--S);font-size:1.4rem;font-weight:500;color:var(--text);margin-bottom:10px}
 .choice-desc{font-size:.95rem;color:var(--muted);line-height:1.7;margin-bottom:24px;flex:1}
 .choice-features{text-align:left;margin-bottom:28px;padding:0 8px}
@@ -222,22 +222,22 @@ nav{padding:18px 0;background:transparent}
 .btn{display:inline-block;padding:18px 44px;background:linear-gradient(135deg,var(--teal),var(--teal-d));color:#fff;font-size:.78rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;font-family:var(--R);transition:all .4s cubic-bezier(.16,1,.3,1);position:relative;overflow:hidden;border-radius:2px;border:none;cursor:pointer}
 .btn::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.2),transparent);transition:left .6s}
 .btn:hover::before{left:100%}
-.btn:hover{transform:translateY(-3px);box-shadow:0 18px 44px rgba(11,125,114,.25)}
+.btn:hover{transform:translateY(-3px);box-shadow:0 18px 44px rgba(6,94,86,.25)}
 .btn-outline{background:transparent;border:1.5px solid var(--teal);color:var(--teal)}
 .btn-outline:hover{background:var(--teal);color:#fff}
 .btn-amber{background:linear-gradient(135deg,var(--amber),var(--amber-l));color:#fff}
-.btn-amber:hover{box-shadow:0 18px 44px rgba(139,107,20,.25)}
+.btn-amber:hover{box-shadow:0 18px 44px rgba(122,90,10,.25)}
 .btn-full{width:100%;text-align:center;display:block}
 
 /* ═══ GUARANTEE ═══ */
-.guarantee{max-width:680px;margin:48px auto 0;display:flex;align-items:flex-start;gap:20px;padding:28px 32px;background:rgba(11,125,114,.03);border:1px solid var(--teal-brd);border-radius:4px;text-align:left}
+.guarantee{max-width:680px;margin:48px auto 0;display:flex;align-items:flex-start;gap:20px;padding:28px 32px;background:rgba(6,94,86,.03);border:1px solid var(--teal-brd);border-radius:4px;text-align:left}
 .guarantee-icon{font-size:1.8rem;flex-shrink:0;margin-top:2px}
 .guarantee-text{font-size:.95rem;color:var(--body);line-height:1.7}
 .guarantee-text strong{color:var(--text)}
 
 /* ═══ SCARCITY ═══ */
 .scarcity{text-align:center;margin-top:32px;font-size:.9rem;color:var(--amber);font-weight:600}
-.scarcity .sc-bar{display:inline-block;width:180px;height:6px;background:rgba(139,107,20,.1);border-radius:6px;vertical-align:middle;margin:0 10px;position:relative;overflow:hidden}
+.scarcity .sc-bar{display:inline-block;width:180px;height:6px;background:rgba(122,90,10,.1);border-radius:6px;vertical-align:middle;margin:0 10px;position:relative;overflow:hidden}
 .scarcity .sc-fill{position:absolute;left:0;top:0;bottom:0;width:72%;background:linear-gradient(90deg,var(--amber),var(--rose));border-radius:6px}
 
 /* ═══ FOOTER CTA ═══ */
@@ -250,7 +250,7 @@ footer a{color:var(--teal);text-decoration:none}
 
 /* Animations */
 @keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
-@keyframes glowPulse{0%,100%{box-shadow:0 8px 40px rgba(11,125,114,.04)}50%{box-shadow:0 8px 50px rgba(11,125,114,.12),0 0 20px rgba(45,212,191,.06)}}
+@keyframes glowPulse{0%,100%{box-shadow:0 8px 40px rgba(6,94,86,.04)}50%{box-shadow:0 8px 50px rgba(6,94,86,.12),0 0 20px rgba(45,212,191,.06)}}
 @keyframes floatY{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
 .rv{opacity:0;transform:translateY(30px);transition:all .8s cubic-bezier(.16,1,.3,1)}
 .rv.visible{opacity:1;transform:translateY(0)}
@@ -322,9 +322,9 @@ footer a{color:var(--teal);text-decoration:none}
 <body>
 
 <svg style="position:absolute;width:0;height:0"><defs>
-  <linearGradient id="cG" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#0B7D72"/><stop offset="100%" stop-color="#8B6B14"/></linearGradient>
-  <linearGradient id="tP" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#14A899"/><stop offset="100%" stop-color="#A88420"/></linearGradient>
-  <linearGradient id="tG" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#0B7D72"/><stop offset="100%" stop-color="#8B6B14"/></linearGradient>
+  <linearGradient id="cG" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#065E56"/><stop offset="100%" stop-color="#7A5A0A"/></linearGradient>
+  <linearGradient id="tP" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#0B8D80"/><stop offset="100%" stop-color="#97741A"/></linearGradient>
+  <linearGradient id="tG" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#065E56"/><stop offset="100%" stop-color="#7A5A0A"/></linearGradient>
 </defs></svg>
 
 <!-- ═══ STICKY NAV ═══ -->
@@ -366,28 +366,28 @@ footer a{color:var(--teal);text-decoration:none}
       </div>
     </div>
     <div style="padding:8px 0">
-      <div style="display:flex;align-items:flex-start;gap:16px;padding:16px 36px;transition:background .2s;border-left:3px solid transparent" onmouseover="this.style.background='rgba(11,125,114,.02)';this.style.borderLeftColor='var(--teal)'" onmouseout="this.style.background='';this.style.borderLeftColor='transparent'">
-        <div style="flex-shrink:0;width:28px;height:28px;border-radius:50%;background:rgba(11,125,114,.07);display:flex;align-items:center;justify-content:center;font-family:var(--S);font-size:.85rem;font-weight:600;color:var(--teal);margin-top:1px">1</div>
+      <div style="display:flex;align-items:flex-start;gap:16px;padding:16px 36px;transition:background .2s;border-left:3px solid transparent" onmouseover="this.style.background='rgba(6,94,86,.02)';this.style.borderLeftColor='var(--teal)'" onmouseout="this.style.background='';this.style.borderLeftColor='transparent'">
+        <div style="flex-shrink:0;width:28px;height:28px;border-radius:50%;background:rgba(6,94,86,.07);display:flex;align-items:center;justify-content:center;font-family:var(--S);font-size:.85rem;font-weight:600;color:var(--teal);margin-top:1px">1</div>
         <div style="font-size:1rem;color:var(--body);line-height:1.55">Почему мозг тратит <strong style="color:var(--text)">80% энергии на шум</strong><br><span style="font-size:.88rem;color:var(--muted)">И как это остановить</span></div>
       </div>
-      <div style="display:flex;align-items:flex-start;gap:16px;padding:16px 36px;transition:background .2s;border-left:3px solid transparent" onmouseover="this.style.background='rgba(11,125,114,.02)';this.style.borderLeftColor='var(--teal)'" onmouseout="this.style.background='';this.style.borderLeftColor='transparent'">
-        <div style="flex-shrink:0;width:28px;height:28px;border-radius:50%;background:rgba(11,125,114,.07);display:flex;align-items:center;justify-content:center;font-family:var(--S);font-size:.85rem;font-weight:600;color:var(--teal);margin-top:1px">2</div>
+      <div style="display:flex;align-items:flex-start;gap:16px;padding:16px 36px;transition:background .2s;border-left:3px solid transparent" onmouseover="this.style.background='rgba(6,94,86,.02)';this.style.borderLeftColor='var(--teal)'" onmouseout="this.style.background='';this.style.borderLeftColor='transparent'">
+        <div style="flex-shrink:0;width:28px;height:28px;border-radius:50%;background:rgba(6,94,86,.07);display:flex;align-items:center;justify-content:center;font-family:var(--S);font-size:.85rem;font-weight:600;color:var(--teal);margin-top:1px">2</div>
         <div style="font-size:1rem;color:var(--body);line-height:1.55">Конкретная структура в мозге, которая <strong style="color:var(--text)">вызывает тревогу</strong><br><span style="font-size:.88rem;color:var(--muted)">И как её физически уменьшить</span></div>
       </div>
-      <div style="display:flex;align-items:flex-start;gap:16px;padding:16px 36px;transition:background .2s;border-left:3px solid transparent" onmouseover="this.style.background='rgba(11,125,114,.02)';this.style.borderLeftColor='var(--teal)'" onmouseout="this.style.background='';this.style.borderLeftColor='transparent'">
-        <div style="flex-shrink:0;width:28px;height:28px;border-radius:50%;background:rgba(11,125,114,.07);display:flex;align-items:center;justify-content:center;font-family:var(--S);font-size:.85rem;font-weight:600;color:var(--teal);margin-top:1px">3</div>
+      <div style="display:flex;align-items:flex-start;gap:16px;padding:16px 36px;transition:background .2s;border-left:3px solid transparent" onmouseover="this.style.background='rgba(6,94,86,.02)';this.style.borderLeftColor='var(--teal)'" onmouseout="this.style.background='';this.style.borderLeftColor='transparent'">
+        <div style="flex-shrink:0;width:28px;height:28px;border-radius:50%;background:rgba(6,94,86,.07);display:flex;align-items:center;justify-content:center;font-family:var(--S);font-size:.85rem;font-weight:600;color:var(--teal);margin-top:1px">3</div>
         <div style="font-size:1rem;color:var(--body);line-height:1.55">Почему 95% людей бросают медитацию<br><span style="font-size:.88rem;color:var(--muted)">И что работает <strong style="color:var(--text)">вместо неё</strong></span></div>
       </div>
-      <div style="display:flex;align-items:flex-start;gap:16px;padding:16px 36px;transition:background .2s;border-left:3px solid transparent" onmouseover="this.style.background='rgba(139,107,20,.02)';this.style.borderLeftColor='var(--amber)'" onmouseout="this.style.background='';this.style.borderLeftColor='transparent'">
-        <div style="flex-shrink:0;width:28px;height:28px;border-radius:50%;background:rgba(139,107,20,.07);display:flex;align-items:center;justify-content:center;font-family:var(--S);font-size:.85rem;font-weight:600;color:var(--amber);margin-top:1px">4</div>
+      <div style="display:flex;align-items:flex-start;gap:16px;padding:16px 36px;transition:background .2s;border-left:3px solid transparent" onmouseover="this.style.background='rgba(122,90,10,.02)';this.style.borderLeftColor='var(--amber)'" onmouseout="this.style.background='';this.style.borderLeftColor='transparent'">
+        <div style="flex-shrink:0;width:28px;height:28px;border-radius:50%;background:rgba(122,90,10,.07);display:flex;align-items:center;justify-content:center;font-family:var(--S);font-size:.85rem;font-weight:600;color:var(--amber);margin-top:1px">4</div>
         <div style="font-size:1rem;color:var(--body);line-height:1.55">Гарвардское исследование: <strong style="color:var(--text)">мозг перестраивается за 28 дней</strong><br><span style="font-size:.88rem;color:var(--muted)">Результат видно на МРТ</span></div>
       </div>
-      <div style="display:flex;align-items:flex-start;gap:16px;padding:16px 36px;transition:background .2s;border-left:3px solid transparent" onmouseover="this.style.background='rgba(139,107,20,.02)';this.style.borderLeftColor='var(--amber)'" onmouseout="this.style.background='';this.style.borderLeftColor='transparent'">
-        <div style="flex-shrink:0;width:28px;height:28px;border-radius:50%;background:rgba(139,107,20,.07);display:flex;align-items:center;justify-content:center;font-family:var(--S);font-size:.85rem;font-weight:600;color:var(--amber);margin-top:1px">5</div>
+      <div style="display:flex;align-items:flex-start;gap:16px;padding:16px 36px;transition:background .2s;border-left:3px solid transparent" onmouseover="this.style.background='rgba(122,90,10,.02)';this.style.borderLeftColor='var(--amber)'" onmouseout="this.style.background='';this.style.borderLeftColor='transparent'">
+        <div style="flex-shrink:0;width:28px;height:28px;border-radius:50%;background:rgba(122,90,10,.07);display:flex;align-items:center;justify-content:center;font-family:var(--S);font-size:.85rem;font-weight:600;color:var(--amber);margin-top:1px">5</div>
         <div style="font-size:1rem;color:var(--body);line-height:1.55"><strong style="color:var(--text)">Точный следующий шаг</strong><br><span style="font-size:.88rem;color:var(--muted)">Что делать с этим знанием прямо сейчас</span></div>
       </div>
     </div>
-    <div style="padding:14px 36px 18px;background:rgba(11,125,114,.025);border-top:1px solid var(--border);display:flex;align-items:center;justify-content:center;gap:8px">
+    <div style="padding:14px 36px 18px;background:rgba(6,94,86,.025);border-top:1px solid var(--border);display:flex;align-items:center;justify-content:center;gap:8px">
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--dim)" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
       <span style="font-size:.82rem;color:var(--dim);font-weight:500">Время чтения · 12 минут</span>
     </div>
@@ -411,7 +411,7 @@ footer a{color:var(--teal);text-decoration:none}
     <div>
       <div class="ic glow" style="text-align:center">
         <svg width="120" height="120" viewBox="0 0 120 120" style="margin:0 auto 16px;display:block">
-          <circle cx="60" cy="60" r="52" fill="none" stroke="rgba(11,125,114,.08)" stroke-width="1.5"/>
+          <circle cx="60" cy="60" r="52" fill="none" stroke="rgba(6,94,86,.08)" stroke-width="1.5"/>
           <circle cx="60" cy="60" r="52" fill="none" stroke="url(#cG)" stroke-width="3" stroke-dasharray="327" stroke-dashoffset="261" stroke-linecap="round" transform="rotate(-90 60 60)" opacity=".7"/>
           <text x="60" y="55" text-anchor="middle" font-family="var(--S)" font-size="28" font-weight="600" fill="var(--teal)">20%</text>
           <text x="60" y="72" text-anchor="middle" font-family="var(--R)" font-size="9" fill="var(--dim)">энергии тела</text>
@@ -472,14 +472,14 @@ footer a{color:var(--teal);text-decoration:none}
         </div>
         <div style="padding-top:16px;border-top:1px solid var(--border)">
           <svg width="100%" height="44" viewBox="0 0 340 44">
-            <circle cx="26" cy="22" r="17" fill="rgba(11,125,114,.04)" stroke="rgba(11,125,114,.15)" stroke-width="1"/><text x="26" y="25" text-anchor="middle" fill="rgba(11,125,114,.4)" font-size="7" font-family="var(--R)">повтор</text>
-            <circle cx="66" cy="22" r="17" fill="rgba(11,125,114,.04)" stroke="rgba(11,125,114,.15)" stroke-width="1"/><text x="66" y="25" text-anchor="middle" fill="rgba(11,125,114,.4)" font-size="7" font-family="var(--R)">повтор</text>
-            <circle cx="106" cy="22" r="17" fill="rgba(11,125,114,.04)" stroke="rgba(11,125,114,.15)" stroke-width="1"/><text x="106" y="25" text-anchor="middle" fill="rgba(11,125,114,.4)" font-size="7" font-family="var(--R)">повтор</text>
-            <circle cx="146" cy="22" r="17" fill="rgba(11,125,114,.04)" stroke="rgba(11,125,114,.15)" stroke-width="1"/><text x="146" y="25" text-anchor="middle" fill="rgba(11,125,114,.4)" font-size="7" font-family="var(--R)">повтор</text>
-            <circle cx="186" cy="22" r="17" fill="rgba(11,125,114,.04)" stroke="rgba(11,125,114,.15)" stroke-width="1"/><text x="186" y="25" text-anchor="middle" fill="rgba(11,125,114,.4)" font-size="7" font-family="var(--R)">повтор</text>
-            <circle cx="226" cy="22" r="17" fill="rgba(11,125,114,.04)" stroke="rgba(11,125,114,.15)" stroke-width="1"/><text x="226" y="25" text-anchor="middle" fill="rgba(11,125,114,.4)" font-size="7" font-family="var(--R)">повтор</text>
+            <circle cx="26" cy="22" r="17" fill="rgba(6,94,86,.04)" stroke="rgba(6,94,86,.15)" stroke-width="1"/><text x="26" y="25" text-anchor="middle" fill="rgba(6,94,86,.4)" font-size="7" font-family="var(--R)">повтор</text>
+            <circle cx="66" cy="22" r="17" fill="rgba(6,94,86,.04)" stroke="rgba(6,94,86,.15)" stroke-width="1"/><text x="66" y="25" text-anchor="middle" fill="rgba(6,94,86,.4)" font-size="7" font-family="var(--R)">повтор</text>
+            <circle cx="106" cy="22" r="17" fill="rgba(6,94,86,.04)" stroke="rgba(6,94,86,.15)" stroke-width="1"/><text x="106" y="25" text-anchor="middle" fill="rgba(6,94,86,.4)" font-size="7" font-family="var(--R)">повтор</text>
+            <circle cx="146" cy="22" r="17" fill="rgba(6,94,86,.04)" stroke="rgba(6,94,86,.15)" stroke-width="1"/><text x="146" y="25" text-anchor="middle" fill="rgba(6,94,86,.4)" font-size="7" font-family="var(--R)">повтор</text>
+            <circle cx="186" cy="22" r="17" fill="rgba(6,94,86,.04)" stroke="rgba(6,94,86,.15)" stroke-width="1"/><text x="186" y="25" text-anchor="middle" fill="rgba(6,94,86,.4)" font-size="7" font-family="var(--R)">повтор</text>
+            <circle cx="226" cy="22" r="17" fill="rgba(6,94,86,.04)" stroke="rgba(6,94,86,.15)" stroke-width="1"/><text x="226" y="25" text-anchor="middle" fill="rgba(6,94,86,.4)" font-size="7" font-family="var(--R)">повтор</text>
             <text x="268" y="25" fill="var(--dim)" font-size="12" font-family="var(--R)">…</text>
-            <circle cx="312" cy="22" r="17" fill="rgba(139,107,20,.06)" stroke="rgba(139,107,20,.35)" stroke-width="1.5"><animate attributeName="r" values="15;20;15" dur="2.5s" repeatCount="indefinite"/></circle><text x="312" y="25" text-anchor="middle" fill="var(--amber)" font-size="7" font-weight="700" font-family="var(--R)">новая!</text>
+            <circle cx="312" cy="22" r="17" fill="rgba(122,90,10,.06)" stroke="rgba(122,90,10,.35)" stroke-width="1.5"><animate attributeName="r" values="15;20;15" dur="2.5s" repeatCount="indefinite"/></circle><text x="312" y="25" text-anchor="middle" fill="var(--amber)" font-size="7" font-weight="700" font-family="var(--R)">новая!</text>
           </svg>
         </div>
         <div class="ss">Queen's University, 2020</div>
@@ -504,15 +504,15 @@ footer a{color:var(--teal);text-decoration:none}
     <div>
       <div class="ic" style="text-align:center;padding:36px 28px">
         <svg width="240" height="170" viewBox="0 0 240 170" style="margin:0 auto;display:block">
-          <ellipse cx="120" cy="75" rx="90" ry="65" fill="none" stroke="rgba(11,125,114,.08)" stroke-width="1"/>
-          <circle cx="88" cy="88" r="16" fill="rgba(184,77,68,.06)" stroke="rgba(184,77,68,.35)" stroke-width="1.5"><animate attributeName="r" values="14;20;14" dur="2s" repeatCount="indefinite"/><animate attributeName="stroke-opacity" values=".2;.6;.2" dur="2s" repeatCount="indefinite"/></circle>
-          <circle cx="152" cy="88" r="16" fill="rgba(184,77,68,.06)" stroke="rgba(184,77,68,.35)" stroke-width="1.5"><animate attributeName="r" values="14;20;14" dur="2s" repeatCount="indefinite" begin=".3s"/></circle>
+          <ellipse cx="120" cy="75" rx="90" ry="65" fill="none" stroke="rgba(6,94,86,.08)" stroke-width="1"/>
+          <circle cx="88" cy="88" r="16" fill="rgba(160,64,56,.06)" stroke="rgba(160,64,56,.35)" stroke-width="1.5"><animate attributeName="r" values="14;20;14" dur="2s" repeatCount="indefinite"/><animate attributeName="stroke-opacity" values=".2;.6;.2" dur="2s" repeatCount="indefinite"/></circle>
+          <circle cx="152" cy="88" r="16" fill="rgba(160,64,56,.06)" stroke="rgba(160,64,56,.35)" stroke-width="1.5"><animate attributeName="r" values="14;20;14" dur="2s" repeatCount="indefinite" begin=".3s"/></circle>
           <text x="88" y="92" text-anchor="middle" fill="var(--rose)" font-size="9" font-weight="700" font-family="var(--R)">L</text>
           <text x="152" y="92" text-anchor="middle" fill="var(--rose)" font-size="9" font-weight="700" font-family="var(--R)">R</text>
-          <ellipse cx="120" cy="32" rx="38" ry="18" fill="rgba(11,125,114,.03)" stroke="rgba(11,125,114,.12)" stroke-width="1" stroke-dasharray="4"/>
-          <text x="120" y="36" text-anchor="middle" fill="rgba(11,125,114,.5)" font-size="9" font-family="var(--R)">Префронтальная кора</text>
-          <line x1="93" y1="72" x2="110" y2="48" stroke="rgba(184,77,68,.2)" stroke-width="1" stroke-dasharray="3"><animate attributeName="stroke-opacity" values=".1;.5;.1" dur="1.5s" repeatCount="indefinite"/></line>
-          <line x1="147" y1="72" x2="130" y2="48" stroke="rgba(184,77,68,.2)" stroke-width="1" stroke-dasharray="3"><animate attributeName="stroke-opacity" values=".1;.5;.1" dur="1.5s" repeatCount="indefinite" begin=".5s"/></line>
+          <ellipse cx="120" cy="32" rx="38" ry="18" fill="rgba(6,94,86,.03)" stroke="rgba(6,94,86,.12)" stroke-width="1" stroke-dasharray="4"/>
+          <text x="120" y="36" text-anchor="middle" fill="rgba(6,94,86,.5)" font-size="9" font-family="var(--R)">Префронтальная кора</text>
+          <line x1="93" y1="72" x2="110" y2="48" stroke="rgba(160,64,56,.2)" stroke-width="1" stroke-dasharray="3"><animate attributeName="stroke-opacity" values=".1;.5;.1" dur="1.5s" repeatCount="indefinite"/></line>
+          <line x1="147" y1="72" x2="130" y2="48" stroke="rgba(160,64,56,.2)" stroke-width="1" stroke-dasharray="3"><animate attributeName="stroke-opacity" values=".1;.5;.1" dur="1.5s" repeatCount="indefinite" begin=".5s"/></line>
           <text x="120" y="135" text-anchor="middle" fill="var(--rose)" font-size="10" font-weight="600" font-family="var(--R)" opacity=".6">Миндалины — сканируют угрозы 24/7</text>
         </svg>
         <div class="ss">Tawakol et al., The Lancet, 2017</div>
@@ -617,13 +617,13 @@ footer a{color:var(--teal);text-decoration:none}
     <div>
       <div class="ic float" style="text-align:center">
         <svg width="100%" height="160" viewBox="0 0 360 160">
-          <ellipse cx="90" cy="55" rx="52" ry="35" fill="rgba(11,125,114,.04)" stroke="rgba(11,125,114,.18)" stroke-width="1.5"/><text x="90" y="50" text-anchor="middle" fill="var(--text)" font-size="13" font-weight="600" font-family="var(--R)">Мозг</text><text x="90" y="68" text-anchor="middle" fill="var(--dim)" font-size="10" font-family="var(--R)">10% серотонина</text>
-          <ellipse cx="270" cy="55" rx="55" ry="35" fill="rgba(139,107,20,.04)" stroke="rgba(139,107,20,.18)" stroke-width="1.5"/><text x="270" y="50" text-anchor="middle" fill="var(--amber)" font-size="13" font-weight="600" font-family="var(--R)">Кишечник</text><text x="270" y="68" text-anchor="middle" fill="var(--dim)" font-size="10" font-family="var(--R)">90% серотонина</text>
+          <ellipse cx="90" cy="55" rx="52" ry="35" fill="rgba(6,94,86,.04)" stroke="rgba(6,94,86,.18)" stroke-width="1.5"/><text x="90" y="50" text-anchor="middle" fill="var(--text)" font-size="13" font-weight="600" font-family="var(--R)">Мозг</text><text x="90" y="68" text-anchor="middle" fill="var(--dim)" font-size="10" font-family="var(--R)">10% серотонина</text>
+          <ellipse cx="270" cy="55" rx="55" ry="35" fill="rgba(122,90,10,.04)" stroke="rgba(122,90,10,.18)" stroke-width="1.5"/><text x="270" y="50" text-anchor="middle" fill="var(--amber)" font-size="13" font-weight="600" font-family="var(--R)">Кишечник</text><text x="270" y="68" text-anchor="middle" fill="var(--dim)" font-size="10" font-family="var(--R)">90% серотонина</text>
           <line x1="142" y1="55" x2="215" y2="55" stroke="url(#tP)" stroke-width="2" stroke-dasharray="6 4"><animate attributeName="stroke-dashoffset" values="0;-20" dur="2s" repeatCount="indefinite"/></line>
           <text x="178" y="48" text-anchor="middle" fill="var(--dim)" font-size="8" font-family="var(--R)">vagus nerve</text>
-          <rect x="50" y="108" width="80" height="38" rx="6" fill="rgba(11,125,114,.03)" stroke="rgba(11,125,114,.1)" stroke-width="1"/><rect x="60" y="118" width="16" height="20" rx="3" fill="rgba(11,125,114,.15)"/><rect x="84" y="108" width="16" height="30" rx="3" fill="rgba(11,125,114,.4)"><animate attributeName="height" values="28;34;28" dur="3s" repeatCount="indefinite"/></rect>
+          <rect x="50" y="108" width="80" height="38" rx="6" fill="rgba(6,94,86,.03)" stroke="rgba(6,94,86,.1)" stroke-width="1"/><rect x="60" y="118" width="16" height="20" rx="3" fill="rgba(6,94,86,.15)"/><rect x="84" y="108" width="16" height="30" rx="3" fill="rgba(6,94,86,.4)"><animate attributeName="height" values="28;34;28" dur="3s" repeatCount="indefinite"/></rect>
           <text x="90" y="156" text-anchor="middle" fill="var(--dim)" font-size="8" font-family="var(--R)">серотонин</text>
-          <rect x="230" y="108" width="80" height="38" rx="6" fill="rgba(139,107,20,.03)" stroke="rgba(139,107,20,.1)" stroke-width="1"/><rect x="240" y="122" width="16" height="16" rx="3" fill="rgba(139,107,20,.15)"/><rect x="264" y="114" width="16" height="24" rx="3" fill="rgba(139,107,20,.35)"/><text x="289" y="140" fill="var(--amber)" font-size="8" font-weight="700" font-family="var(--R)">100 млн</text>
+          <rect x="230" y="108" width="80" height="38" rx="6" fill="rgba(122,90,10,.03)" stroke="rgba(122,90,10,.1)" stroke-width="1"/><rect x="240" y="122" width="16" height="16" rx="3" fill="rgba(122,90,10,.15)"/><rect x="264" y="114" width="16" height="24" rx="3" fill="rgba(122,90,10,.35)"/><text x="289" y="140" fill="var(--amber)" font-size="8" font-weight="700" font-family="var(--R)">100 млн</text>
           <text x="270" y="156" text-anchor="middle" fill="var(--dim)" font-size="8" font-family="var(--R)">нейроны</text>
         </svg>
         <div class="ss">Yano et al., Cell, 2015 · Gershon, Columbia University</div>
@@ -649,10 +649,10 @@ footer a{color:var(--teal);text-decoration:none}
     <div>
       <div class="ic">
         <svg width="100%" height="210" viewBox="0 0 300 210" style="display:block;margin:0 auto">
-          <polygon points="150,12 275,170 25,170" fill="none" stroke="rgba(11,125,114,.12)" stroke-width="1"/>
-          <line x1="55" y1="128" x2="245" y2="128" stroke="rgba(11,125,114,.06)" stroke-width="1"/>
-          <line x1="88" y1="82" x2="212" y2="82" stroke="rgba(11,125,114,.06)" stroke-width="1"/>
-          <circle cx="150" cy="42" r="22" fill="rgba(11,125,114,.03)" stroke="rgba(11,125,114,.2)" stroke-width="1.5"><animate attributeName="r" values="18;28;18" dur="3s" repeatCount="indefinite"/><animate attributeName="stroke-opacity" values=".15;.5;.15" dur="3s" repeatCount="indefinite"/></circle>
+          <polygon points="150,12 275,170 25,170" fill="none" stroke="rgba(6,94,86,.12)" stroke-width="1"/>
+          <line x1="55" y1="128" x2="245" y2="128" stroke="rgba(6,94,86,.06)" stroke-width="1"/>
+          <line x1="88" y1="82" x2="212" y2="82" stroke="rgba(6,94,86,.06)" stroke-width="1"/>
+          <circle cx="150" cy="42" r="22" fill="rgba(6,94,86,.03)" stroke="rgba(6,94,86,.2)" stroke-width="1.5"><animate attributeName="r" values="18;28;18" dur="3s" repeatCount="indefinite"/><animate attributeName="stroke-opacity" values=".15;.5;.15" dur="3s" repeatCount="indefinite"/></circle>
           <text x="150" y="48" text-anchor="middle" fill="var(--teal)" font-size="10" font-weight="700" font-family="var(--R)">Navy SEALs</text>
           <text x="150" y="62" text-anchor="middle" fill="var(--dim)" font-size="8" font-family="var(--R)">Ежедневно. Системно.</text>
           <text x="150" y="110" text-anchor="middle" fill="var(--amber)" font-size="11" font-weight="600" font-family="var(--R)" opacity=".6">CEO, топ-атлеты</text>
@@ -683,20 +683,20 @@ footer a{color:var(--teal);text-decoration:none}
       <div class="ic glow" style="text-align:center">
         <svg width="100%" height="160" viewBox="0 0 340 160">
           <text x="85" y="16" text-anchor="middle" fill="var(--dim)" font-size="11" font-weight="700" font-family="var(--R)">Сейчас</text>
-          <circle cx="40" cy="60" r="7" fill="rgba(11,125,114,.04)" stroke="rgba(11,125,114,.18)" stroke-width="1"/>
-          <circle cx="80" cy="40" r="7" fill="rgba(11,125,114,.04)" stroke="rgba(11,125,114,.18)" stroke-width="1"/>
-          <circle cx="120" cy="72" r="7" fill="rgba(11,125,114,.04)" stroke="rgba(11,125,114,.18)" stroke-width="1"/>
-          <circle cx="62" cy="95" r="7" fill="rgba(11,125,114,.04)" stroke="rgba(11,125,114,.18)" stroke-width="1"/>
-          <line x1="40" y1="60" x2="80" y2="40" stroke="rgba(11,125,114,.1)" stroke-width="1"/><line x1="80" y1="40" x2="120" y2="72" stroke="rgba(11,125,114,.1)" stroke-width="1"/>
+          <circle cx="40" cy="60" r="7" fill="rgba(6,94,86,.04)" stroke="rgba(6,94,86,.18)" stroke-width="1"/>
+          <circle cx="80" cy="40" r="7" fill="rgba(6,94,86,.04)" stroke="rgba(6,94,86,.18)" stroke-width="1"/>
+          <circle cx="120" cy="72" r="7" fill="rgba(6,94,86,.04)" stroke="rgba(6,94,86,.18)" stroke-width="1"/>
+          <circle cx="62" cy="95" r="7" fill="rgba(6,94,86,.04)" stroke="rgba(6,94,86,.18)" stroke-width="1"/>
+          <line x1="40" y1="60" x2="80" y2="40" stroke="rgba(6,94,86,.1)" stroke-width="1"/><line x1="80" y1="40" x2="120" y2="72" stroke="rgba(6,94,86,.1)" stroke-width="1"/>
           <text x="170" y="70" text-anchor="middle" fill="var(--teal)" font-size="22" font-family="var(--R)">→</text>
           <text x="258" y="16" text-anchor="middle" fill="var(--amber)" font-size="11" font-weight="700" font-family="var(--R)">28 дней спустя</text>
-          <circle cx="210" cy="60" r="8" fill="rgba(139,107,20,.06)" stroke="rgba(139,107,20,.3)" stroke-width="1.5"/>
-          <circle cx="250" cy="38" r="9" fill="rgba(139,107,20,.06)" stroke="rgba(139,107,20,.3)" stroke-width="1.5"><animate attributeName="r" values="8;11;8" dur="3s" repeatCount="indefinite"/></circle>
-          <circle cx="290" cy="70" r="8" fill="rgba(139,107,20,.06)" stroke="rgba(139,107,20,.3)" stroke-width="1.5"/>
-          <circle cx="232" cy="95" r="8" fill="rgba(139,107,20,.06)" stroke="rgba(139,107,20,.3)" stroke-width="1.5"/>
-          <circle cx="276" cy="102" r="9" fill="rgba(139,107,20,.06)" stroke="rgba(139,107,20,.3)" stroke-width="1.5"/>
-          <circle cx="308" cy="46" r="7" fill="rgba(139,107,20,.06)" stroke="rgba(139,107,20,.3)" stroke-width="1.5"/>
-          <line x1="210" y1="60" x2="250" y2="38" stroke="rgba(139,107,20,.22)" stroke-width="1.5"/><line x1="250" y1="38" x2="290" y2="70" stroke="rgba(139,107,20,.22)" stroke-width="1.5"/><line x1="290" y1="70" x2="276" y2="102" stroke="rgba(139,107,20,.22)" stroke-width="1.5"/><line x1="276" y1="102" x2="232" y2="95" stroke="rgba(139,107,20,.22)" stroke-width="1.5"/><line x1="232" y1="95" x2="210" y2="60" stroke="rgba(139,107,20,.22)" stroke-width="1.5"/><line x1="250" y1="38" x2="308" y2="46" stroke="rgba(139,107,20,.22)" stroke-width="1.5"/><line x1="308" y1="46" x2="290" y2="70" stroke="rgba(139,107,20,.22)" stroke-width="1.5"/>
+          <circle cx="210" cy="60" r="8" fill="rgba(122,90,10,.06)" stroke="rgba(122,90,10,.3)" stroke-width="1.5"/>
+          <circle cx="250" cy="38" r="9" fill="rgba(122,90,10,.06)" stroke="rgba(122,90,10,.3)" stroke-width="1.5"><animate attributeName="r" values="8;11;8" dur="3s" repeatCount="indefinite"/></circle>
+          <circle cx="290" cy="70" r="8" fill="rgba(122,90,10,.06)" stroke="rgba(122,90,10,.3)" stroke-width="1.5"/>
+          <circle cx="232" cy="95" r="8" fill="rgba(122,90,10,.06)" stroke="rgba(122,90,10,.3)" stroke-width="1.5"/>
+          <circle cx="276" cy="102" r="9" fill="rgba(122,90,10,.06)" stroke="rgba(122,90,10,.3)" stroke-width="1.5"/>
+          <circle cx="308" cy="46" r="7" fill="rgba(122,90,10,.06)" stroke="rgba(122,90,10,.3)" stroke-width="1.5"/>
+          <line x1="210" y1="60" x2="250" y2="38" stroke="rgba(122,90,10,.22)" stroke-width="1.5"/><line x1="250" y1="38" x2="290" y2="70" stroke="rgba(122,90,10,.22)" stroke-width="1.5"/><line x1="290" y1="70" x2="276" y2="102" stroke="rgba(122,90,10,.22)" stroke-width="1.5"/><line x1="276" y1="102" x2="232" y2="95" stroke="rgba(122,90,10,.22)" stroke-width="1.5"/><line x1="232" y1="95" x2="210" y2="60" stroke="rgba(122,90,10,.22)" stroke-width="1.5"/><line x1="250" y1="38" x2="308" y2="46" stroke="rgba(122,90,10,.22)" stroke-width="1.5"/><line x1="308" y1="46" x2="290" y2="70" stroke="rgba(122,90,10,.22)" stroke-width="1.5"/>
           <text x="85" y="130" text-anchor="middle" fill="var(--dim)" font-size="9" font-family="var(--R)">Мало связей</text>
           <text x="258" y="130" text-anchor="middle" fill="var(--amber)" font-size="9" font-weight="600" font-family="var(--R)">Новые нейронные пути</text>
         </svg>
@@ -759,9 +759,9 @@ footer a{color:var(--teal);text-decoration:none}
     <div style="font-size:.7rem;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:var(--rose);margin-bottom:18px">— Что происходит, если ничего не менять —</div>
     <h2 style="font-family:var(--S);font-size:clamp(1.8rem,4.5vw,2.8rem);font-weight:400;color:var(--text);margin-bottom:36px">Цена бездействия — не ноль</h2>
     <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:40px">
-      <div style="background:var(--card);border:1px solid rgba(184,77,68,.12);padding:32px 24px;border-radius:4px;text-align:center;position:relative;overflow:hidden"><div style="position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--rose),var(--amber));opacity:.5"></div><div style="font-family:var(--S);font-size:2.6rem;font-weight:600;color:var(--rose);margin-bottom:6px">5 лет</div><div style="font-size:.92rem;color:var(--body);line-height:1.6">Средний срок до клинической тревоги при хроническом стрессе</div></div>
-      <div style="background:var(--card);border:1px solid rgba(184,77,68,.12);padding:32px 24px;border-radius:4px;text-align:center;position:relative;overflow:hidden"><div style="position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--rose),var(--amber));opacity:.5"></div><div style="font-family:var(--S);font-size:2.6rem;font-weight:600;color:var(--rose);margin-bottom:6px">–23%</div><div style="font-size:.92rem;color:var(--body);line-height:1.6">Снижение продуктивности при нерегулируемой DMN</div></div>
-      <div style="background:var(--card);border:1px solid rgba(184,77,68,.12);padding:32px 24px;border-radius:4px;text-align:center;position:relative;overflow:hidden"><div style="position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--rose),var(--amber));opacity:.5"></div><div style="font-family:var(--S);font-size:2.6rem;font-weight:600;color:var(--rose);margin-bottom:6px">×2</div><div style="font-size:.92rem;color:var(--body);line-height:1.6">Риск сердечно-сосудистых заболеваний при хроническом шуме</div></div>
+      <div style="background:var(--card);border:1px solid rgba(160,64,56,.12);padding:32px 24px;border-radius:4px;text-align:center;position:relative;overflow:hidden"><div style="position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--rose),var(--amber));opacity:.5"></div><div style="font-family:var(--S);font-size:2.6rem;font-weight:600;color:var(--rose);margin-bottom:6px">5 лет</div><div style="font-size:.92rem;color:var(--body);line-height:1.6">Средний срок до клинической тревоги при хроническом стрессе</div></div>
+      <div style="background:var(--card);border:1px solid rgba(160,64,56,.12);padding:32px 24px;border-radius:4px;text-align:center;position:relative;overflow:hidden"><div style="position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--rose),var(--amber));opacity:.5"></div><div style="font-family:var(--S);font-size:2.6rem;font-weight:600;color:var(--rose);margin-bottom:6px">–23%</div><div style="font-size:.92rem;color:var(--body);line-height:1.6">Снижение продуктивности при нерегулируемой DMN</div></div>
+      <div style="background:var(--card);border:1px solid rgba(160,64,56,.12);padding:32px 24px;border-radius:4px;text-align:center;position:relative;overflow:hidden"><div style="position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--rose),var(--amber));opacity:.5"></div><div style="font-family:var(--S);font-size:2.6rem;font-weight:600;color:var(--rose);margin-bottom:6px">×2</div><div style="font-size:.92rem;color:var(--body);line-height:1.6">Риск сердечно-сосудистых заболеваний при хроническом шуме</div></div>
     </div>
     <p style="font-family:var(--S);font-size:clamp(1.3rem,3vw,1.7rem);font-style:italic;color:var(--text);line-height:1.5;max-width:600px;margin:0 auto">Каждый день без системы — мозг укрепляет старые нейронные пути. Не новые. Старые.</p>
   </div>
@@ -805,10 +805,10 @@ footer a{color:var(--teal);text-decoration:none}
     <h2 style="font-family:var(--S);font-size:clamp(1.8rem,4.5vw,3rem);font-weight:400;color:var(--text);margin-bottom:16px">Протокол остановки ума</h2>
     <p style="font-size:1.1rem;color:var(--muted);line-height:1.8;margin-bottom:44px">28 дней · 16 минут в день · Научный метод перестройки мозга, основанный на&nbsp;принципах, которые вы только что прочитали.</p>
     <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:16px;max-width:560px;margin:0 auto 44px;text-align:left">
-      <div style="display:flex;align-items:flex-start;gap:14px;padding:20px;background:var(--card);border:1px solid var(--teal-brd);border-radius:4px"><div style="flex-shrink:0;width:40px;height:40px;border-radius:50%;background:rgba(11,125,114,.06);display:flex;align-items:center;justify-content:center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div><div style="font-size:.95rem;color:var(--body);line-height:1.6"><strong style="color:var(--text);display:block;margin-bottom:2px">Научный мануал</strong>Глубокое понимание, что происходит в мозге</div></div>
-      <div style="display:flex;align-items:flex-start;gap:14px;padding:20px;background:var(--card);border:1px solid var(--teal-brd);border-radius:4px"><div style="flex-shrink:0;width:40px;height:40px;border-radius:50%;background:rgba(11,125,114,.06);display:flex;align-items:center;justify-content:center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg></div><div style="font-size:.95rem;color:var(--body);line-height:1.6"><strong style="color:var(--text);display:block;margin-bottom:2px">7 видео-практик</strong>С нарастающей сложностью — мозг адаптируется постепенно</div></div>
-      <div style="display:flex;align-items:flex-start;gap:14px;padding:20px;background:var(--card);border:1px solid var(--teal-brd);border-radius:4px"><div style="flex-shrink:0;width:40px;height:40px;border-radius:50%;background:rgba(139,107,20,.06);display:flex;align-items:center;justify-content:center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--amber)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20V10"/><path d="M18 20V4"/><path d="M6 20v-4"/></svg></div><div style="font-size:.95rem;color:var(--body);line-height:1.6"><strong style="color:var(--text);display:block;margin-bottom:2px">Трекер 28 дней</strong>Видите прогресс каждый день — невозможно бросить</div></div>
-      <div style="display:flex;align-items:flex-start;gap:14px;padding:20px;background:var(--card);border:1px solid var(--teal-brd);border-radius:4px"><div style="flex-shrink:0;width:40px;height:40px;border-radius:50%;background:rgba(139,107,20,.06);display:flex;align-items:center;justify-content:center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--amber)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><div style="font-size:.95rem;color:var(--body);line-height:1.6"><strong style="color:var(--text);display:block;margin-bottom:2px">Закрытое сообщество</strong>Люди на том же пути — поддержка и мотивация</div></div>
+      <div style="display:flex;align-items:flex-start;gap:14px;padding:20px;background:var(--card);border:1px solid var(--teal-brd);border-radius:4px"><div style="flex-shrink:0;width:40px;height:40px;border-radius:50%;background:rgba(6,94,86,.06);display:flex;align-items:center;justify-content:center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div><div style="font-size:.95rem;color:var(--body);line-height:1.6"><strong style="color:var(--text);display:block;margin-bottom:2px">Научный мануал</strong>Глубокое понимание, что происходит в мозге</div></div>
+      <div style="display:flex;align-items:flex-start;gap:14px;padding:20px;background:var(--card);border:1px solid var(--teal-brd);border-radius:4px"><div style="flex-shrink:0;width:40px;height:40px;border-radius:50%;background:rgba(6,94,86,.06);display:flex;align-items:center;justify-content:center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg></div><div style="font-size:.95rem;color:var(--body);line-height:1.6"><strong style="color:var(--text);display:block;margin-bottom:2px">7 видео-практик</strong>С нарастающей сложностью — мозг адаптируется постепенно</div></div>
+      <div style="display:flex;align-items:flex-start;gap:14px;padding:20px;background:var(--card);border:1px solid var(--teal-brd);border-radius:4px"><div style="flex-shrink:0;width:40px;height:40px;border-radius:50%;background:rgba(122,90,10,.06);display:flex;align-items:center;justify-content:center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--amber)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20V10"/><path d="M18 20V4"/><path d="M6 20v-4"/></svg></div><div style="font-size:.95rem;color:var(--body);line-height:1.6"><strong style="color:var(--text);display:block;margin-bottom:2px">Трекер 28 дней</strong>Видите прогресс каждый день — невозможно бросить</div></div>
+      <div style="display:flex;align-items:flex-start;gap:14px;padding:20px;background:var(--card);border:1px solid var(--teal-brd);border-radius:4px"><div style="flex-shrink:0;width:40px;height:40px;border-radius:50%;background:rgba(122,90,10,.06);display:flex;align-items:center;justify-content:center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--amber)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><div style="font-size:.95rem;color:var(--body);line-height:1.6"><strong style="color:var(--text);display:block;margin-bottom:2px">Закрытое сообщество</strong>Люди на том же пути — поддержка и мотивация</div></div>
     </div>
     <a href="https://thebodymindcode.github.io/protocol/" class="btn">Узнать подробности о Протоколе →</a>
     <div style="font-size:.88rem;color:var(--dim);margin-top:18px">Доступ навсегда · Результат через 28 дней · Гарантия возврата</div>
@@ -894,7 +894,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
 });
 
 // Checklist
-function toggleCheck(el){el.classList.toggle('checked');el.style.background=el.classList.contains('checked')?'rgba(11,125,114,.05)':'';el.style.borderColor=el.classList.contains('checked')?'rgba(11,125,114,.14)':'transparent';var box=el.querySelector('.cl-box');if(el.classList.contains('checked')){box.style.background='var(--teal)';box.style.borderColor='var(--teal)';box.style.color='#fff'}else{box.style.background='';box.style.borderColor='';box.style.color='transparent'}updateResult()}
+function toggleCheck(el){el.classList.toggle('checked');el.style.background=el.classList.contains('checked')?'rgba(6,94,86,.05)':'';el.style.borderColor=el.classList.contains('checked')?'rgba(6,94,86,.14)':'transparent';var box=el.querySelector('.cl-box');if(el.classList.contains('checked')){box.style.background='var(--teal)';box.style.borderColor='var(--teal)';box.style.color='#fff'}else{box.style.background='';box.style.borderColor='';box.style.color='transparent'}updateResult()}
 function updateResult(){var c=document.querySelectorAll('.cl-item.checked').length,r=document.getElementById('clResult'),t=document.getElementById('clResultTitle'),x=document.getElementById('clResultText');if(c===0){r.style.display='none';return}r.style.display='block';if(c<=2){t.textContent='Лёгкий уровень шума';x.innerHTML='DMN периодически перехватывает контроль. <strong style="color:var(--teal)">Системная практика закрепит тишину за 28 дней</strong> — пока не перешло в хроническую форму.'}else if(c<=4){t.textContent='Средний уровень — мозг перегружен';x.innerHTML='DMN работает активнее нормы. Это объясняет усталость и тревогу. <strong style="color:var(--teal)">Именно на этом уровне система даёт самый быстрый результат.</strong> Первые изменения — через 7 дней.'}else{t.textContent='Высокий уровень — DMN доминирует';x.innerHTML='Вы отметили '+c+' из 7 симптомов. Мозг застрял в режиме «шума». <strong style="color:var(--teal)">Это не приговор — это отправная точка. Мозг перестраивается за 28 дней.</strong> Вам нужна система.'}}
 </script>
 </body>
