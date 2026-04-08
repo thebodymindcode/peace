@@ -8,7 +8,9 @@
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600;700&family=Instrument+Serif:ital@0;1&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'IBM Plex Sans',sans-serif;background:#C4C0B0;color:#1C2534;font-size:17px;line-height:1.8}
+html{overflow-x:hidden;-webkit-text-size-adjust:100%}
+body{font-family:'IBM Plex Sans',sans-serif;background:#C4C0B0;color:#1C2534;font-size:17px;line-height:1.8;overflow-x:hidden;word-wrap:break-word;overflow-wrap:break-word}
+img,svg,video,canvas,audio,iframe,embed,object{max-width:100%;height:auto;display:block}
 body::before{content:'';position:fixed;inset:0;background:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");opacity:.04;pointer-events:none;z-index:10000}
 
 .page{max-width:720px;margin:0 auto;background:#F8F7F3;border:1px solid #C8C4B8;box-shadow:0 4px 50px rgba(30,30,20,.1);position:relative;z-index:1;overflow:hidden}
@@ -122,17 +124,17 @@ strong{font-weight:600;color:#1C2534}
 .product-item{display:flex;align-items:flex-start;gap:10px;margin-bottom:10px;position:relative;z-index:1}
 .product-item::before{content:'✦';color:#7DC4FF;font-size:.8rem;margin-top:2px;flex-shrink:0}
 .product-item span{color:#C8D8E8;font-size:.92rem;line-height:1.6}
-.product-price{margin:28px 0 8px;text-align:center}
-.product-price .amount{font-family:'IBM Plex Mono',monospace;font-size:2.8rem;font-weight:700;color:#fff;line-height:1}
-.product-price .currency{font-family:'IBM Plex Mono',monospace;font-size:1rem;color:rgba(125,196,255,.7);margin-left:4px}
-.product-social{text-align:center;font-family:'IBM Plex Mono',monospace;font-size:.6rem;color:rgba(200,216,232,.45);letter-spacing:.08em;margin:12px 0 24px}
+.product-social{text-align:center;font-family:'IBM Plex Mono',monospace;font-size:.65rem;color:rgba(200,216,232,.55);letter-spacing:.08em;margin:20px 0 24px}
 .product-note{font-size:.85rem;color:rgba(200,216,232,.6);line-height:1.7;margin:20px 0;position:relative;z-index:1}
 
 /* CTA BUTTON */
-.cta-wrap{text-align:center;margin:28px 0}
-.cta-btn{display:inline-block;padding:16px 48px;background:linear-gradient(135deg,#2E6090,#4DA6E8);color:#fff;text-decoration:none;font-family:'IBM Plex Sans',sans-serif;font-size:1rem;font-weight:600;letter-spacing:.03em;border:none;cursor:pointer;transition:all .3s;position:relative;z-index:1}
-.cta-btn:hover{background:linear-gradient(135deg,#4DA6E8,#2E6090);transform:translateY(-1px);box-shadow:0 4px 20px rgba(46,96,144,.3)}
-.cta-btn-sub{display:block;margin-top:8px;font-family:'IBM Plex Mono',monospace;font-size:.52rem;color:#8A8878;letter-spacing:.1em;text-transform:uppercase}
+.cta-wrap{text-align:center;margin:32px 0}
+.cta-btn{display:inline-block;padding:20px 56px;background:linear-gradient(135deg,#2E6090,#4DA6E8);color:#fff;text-decoration:none;font-family:'IBM Plex Sans',sans-serif;font-size:1.1rem;font-weight:600;letter-spacing:.04em;border:none;cursor:pointer;transition:all .3s;position:relative;z-index:1;border-radius:2px;box-shadow:0 4px 20px rgba(46,96,144,.25)}
+.cta-btn:hover{background:linear-gradient(135deg,#4DA6E8,#2E6090);transform:translateY(-2px);box-shadow:0 8px 36px rgba(46,96,144,.45)}
+.cta-btn:active{transform:translateY(0)}
+.cta-btn-large{padding:24px 60px;font-size:1.2rem;letter-spacing:.05em;animation:ctaPulse 2.5s ease-in-out infinite;box-shadow:0 6px 28px rgba(46,96,144,.3)}
+@keyframes ctaPulse{0%,100%{box-shadow:0 6px 28px rgba(46,96,144,.3)}50%{box-shadow:0 8px 44px rgba(77,166,232,.55)}}
+.cta-btn-sub{display:block;margin-top:10px;font-family:'IBM Plex Mono',monospace;font-size:.55rem;color:#8A8878;letter-spacing:.1em;text-transform:uppercase}
 
 /* FINAL */
 .final-line{margin:40px 0 20px;padding:24px 28px;background:#F0EDE5;border-top:2px solid #1C2534;border-bottom:2px solid #1C2534;font-family:'IBM Plex Sans',sans-serif;font-size:.9rem;font-style:italic;color:#5A5E52;line-height:1.8;text-align:center}
@@ -142,23 +144,134 @@ strong{font-weight:600;color:#1C2534}
 /* HEART IMAGE SPECIAL */
 .photo-block.square{max-width:380px;margin-left:auto;margin-right:auto}
 
-@media(max-width:600px){
-  .class-bar{padding:8px 18px 8px 24px;font-size:.48rem}
-  .header{padding:24px 20px 22px 28px}
-  .content{padding:24px 20px 44px 28px}
+/* ═══ MOBILE — BULLETPROOF ═══ */
+html{overflow-x:hidden}
+body{word-wrap:break-word;overflow-wrap:break-word;-webkit-text-size-adjust:100%}
+img{max-width:100%;height:auto}
+
+@media(max-width:768px){
+  body{font-size:16px;line-height:1.75}
+  .page{border:none;box-shadow:none}
+  .class-bar{padding:8px 16px 8px 22px;font-size:.46rem;gap:6px;flex-wrap:wrap;justify-content:center}
+  .class-bar .level{padding:2px 6px}
+  .header{padding:20px 18px 18px 24px}
+  .header-top{flex-wrap:wrap;gap:8px}
+  .header-id{font-size:.5rem}
+  .header-stamp{font-size:.5rem;padding:2px 10px}
+  .masthead-label{font-size:.48rem;letter-spacing:.2em;gap:8px}
+  .masthead-label::before,.masthead-label::after{width:24px}
+  .masthead h1{font-size:1.65rem;line-height:1.15;padding:0 4px}
+  .masthead-sub{font-size:.8rem;padding:0 4px}
+  .content{padding:22px 18px 40px 24px}
+  h2{font-size:1.2rem;line-height:1.35;margin:6px 0 14px}
+  p{margin-bottom:14px;font-size:.95rem}
   .page::before{width:4px}
-  .info-grid{grid-template-columns:repeat(3,1fr)}
-  .stat-row{flex-direction:column;gap:8px}
-  .data-panel{margin:28px -2px;padding:22px 16px}
-  .masthead h1{font-size:1.75rem}
-  .part-header{padding:12px 16px}
-  .puppet-block{flex-direction:column;text-align:center;gap:12px}
-  .photo-block{margin:24px -2px}
-  .product-block{margin:36px -2px;padding:28px 20px}
-  .checklist{padding:20px 16px}
-  .testimonial{padding:20px 16px}
-  .cta-btn{padding:14px 32px;font-size:.95rem}
-  .footer{padding:16px 20px}
+
+  /* INFOGRAPHIC */
+  .info-grid{grid-template-columns:repeat(3,1fr);gap:6px;margin:20px 0}
+  .info-cell{padding:14px 6px}
+  .info-cell svg{width:24px;height:24px;margin-bottom:6px}
+  .info-cell-label{font-size:.46rem}
+  .info-cell-val{font-size:.42rem}
+
+  /* PUPPET */
+  .puppet-block{flex-direction:column;text-align:center;gap:10px;padding:16px 18px;margin:20px 0}
+  .puppet-block p{font-size:1rem}
+
+  /* SECTIONS */
+  .section-tab{font-size:.52rem;margin:32px 0 14px;flex-wrap:wrap;gap:4px}
+  .section-tab .num{font-size:.48rem;padding:2px 10px}
+  .section-tab .status{font-size:.48rem}
+  .part-header{padding:10px 14px;font-size:.52rem;margin:36px 0 22px;flex-wrap:wrap;gap:6px}
+  .part-header .classified{font-size:.44rem;padding:2px 8px}
+
+  /* PULLQUOTE */
+  .pullquote{padding:16px 18px;font-size:1rem;margin:22px 0}
+  .pullquote cite{font-size:.52rem}
+
+  /* STATS */
+  .stat-row{flex-direction:column;gap:8px;margin:22px 0}
+  .stat{padding:16px 10px}
+  .stat-num{font-size:1.8rem}
+  .stat-label{font-size:.5rem}
+
+  /* DATA PANEL */
+  .data-panel{margin:24px -2px;padding:20px 16px}
+  .data-panel .label{font-size:.44rem}
+  .data-panel p{font-size:.9rem}
+  .data-panel .stat-row{gap:6px}
+  .data-panel .stat{padding:14px 8px}
+  .data-panel .stat-num{font-size:1.6rem}
+
+  /* SIDEBAR */
+  .sidebar{padding:14px 16px;margin:22px 0;font-size:.85rem}
+  .sidebar-title{font-size:.52rem}
+
+  /* PHOTOS */
+  .photo-block{margin:22px -2px}
+  .photo-caption{padding:6px 12px;font-size:.44rem;flex-wrap:wrap;gap:4px}
+  .photo-caption .tag{font-size:.4rem;padding:1px 6px}
+  .photo-block.square{max-width:100%}
+
+  /* ARROW LIST */
+  .arrow-list p{padding-left:20px;font-size:.9rem}
+
+  /* REF */
+  .ref{font-size:.5rem}
+
+  /* SEPARATOR */
+  .sep{margin:32px 0}
+
+  /* CHECKLIST */
+  .checklist{padding:18px 14px;margin:24px 0}
+  .checklist-title{font-size:.52rem}
+  .checklist label{font-size:.88rem;gap:8px;margin-bottom:10px}
+  .checklist input[type="checkbox"]{width:18px;height:18px;margin-top:3px}
+  .checklist-result{padding:12px;font-size:.85rem}
+
+  /* TESTIMONIALS */
+  .testimonial{padding:18px 16px;margin:22px 0}
+  .testimonial blockquote{font-size:.9rem}
+  .testimonial .author{font-size:.48rem}
+
+  /* PRODUCT BLOCK */
+  .product-block{margin:32px -2px;padding:24px 18px}
+  .product-block h2{font-size:1.4rem}
+  .product-block .product-sub{font-size:.52rem;margin-bottom:18px}
+  .product-item span{font-size:.85rem}
+  .product-social{font-size:.52rem}
+  .product-note{font-size:.8rem}
+
+  /* CTA — LARGE TAP TARGET */
+  .cta-wrap{margin:24px 0}
+  .cta-btn{padding:16px 28px;font-size:.95rem;width:100%;max-width:340px;text-align:center;-webkit-tap-highlight-color:transparent}
+  .cta-btn-large{padding:20px 28px;font-size:1.05rem}
+  .cta-btn-sub{font-size:.48rem;margin-top:8px}
+
+  /* FINAL LINE */
+  .final-line{padding:18px 16px}
+  .final-line p{font-size:.85rem}
+
+  /* FOOTER */
+  .footer{padding:14px 16px;font-size:.44rem}
+}
+
+/* ═══ EXTRA SMALL — iPhone SE, Galaxy S ═══ */
+@media(max-width:380px){
+  .class-bar{padding:6px 12px 6px 18px;font-size:.42rem}
+  .header{padding:16px 14px 14px 20px}
+  .content{padding:18px 14px 32px 20px}
+  .masthead h1{font-size:1.4rem}
+  .masthead-sub{font-size:.75rem}
+  .info-grid{grid-template-columns:repeat(2,1fr);gap:5px}
+  .data-panel{padding:16px 12px}
+  .product-block{padding:20px 14px}
+  .cta-btn{padding:16px 20px;font-size:.9rem;max-width:100%}
+  .cta-btn-large{padding:18px 20px;font-size:.95rem}
+  h2{font-size:1.1rem}
+  .stat-num{font-size:1.6rem}
+  .checklist label{font-size:.82rem}
+  .pullquote{padding:14px 12px;font-size:.92rem}
 }
 </style>
 </head>
@@ -720,9 +833,6 @@ strong{font-weight:600;color:#1C2534}
   <div class="product-item"><span>Закрытый чат участников</span></div>
   <div class="product-item"><span>Вечный доступ</span></div>
 
-  <div class="product-price">
-    <span class="amount">2 990</span><span class="currency">₽</span>
-  </div>
   <div class="product-social">173 человека прошли · 92% отмечают результат в первую неделю</div>
 
   <div class="product-note">Этой системы нет больше нигде. Засекреченные военные протоколы + нейробиология + работа с гормонами + 10 лет практики — собранные в ежедневную 15-минутную систему. Этого не даст ни психолог, ни коуч, ни приложение для медитации. Потому что они работают с содержанием мыслей. <strong style="color:#7DC4FF">А здесь — работа с самим механизмом. С тем, что стоит за всеми мыслями.</strong></div>
@@ -730,7 +840,7 @@ strong{font-weight:600;color:#1C2534}
   <p style="text-align:center;color:rgba(200,216,232,.5);font-size:.85rem;margin:16px 0 4px;position:relative;z-index:1"><strong style="color:#C8D8E8">Те, кто берут это сейчас — получают то, что большинство людей не получат никогда.</strong> Просто потому что не узнают, что это существует.</p>
 
   <div class="cta-wrap">
-    <a href="https://payform.ru/poa2szv/" target="_blank" class="cta-btn">Получить доступ к Протоколу</a>
+    <a href="https://payform.ru/poa2szv/" target="_blank" class="cta-btn">Узнать подробнее о Протоколе →</a>
   </div>
 </div>
 
@@ -743,8 +853,8 @@ strong{font-weight:600;color:#1C2534}
 </div>
 
 <div class="cta-wrap">
-  <a href="https://payform.ru/poa2szv/" target="_blank" class="cta-btn">Получить доступ к Протоколу → 2 990 ₽</a>
-  <span class="cta-btn-sub">Вечный доступ · 28 дней · 15 минут в день</span>
+  <a href="https://payform.ru/poa2szv/" target="_blank" class="cta-btn cta-btn-large">Узнать подробнее →</a>
+  <span class="cta-btn-sub">28 дней · 15 минут в день · Вечный доступ</span>
 </div>
 
 </div><!-- .content -->
