@@ -2,441 +2,767 @@
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Почему твой мозг никогда не замолкает</title>
-<meta name="description" content="9 нейробиологических фактов, после которых вы поймёте свой мозг лучше, чем 95% людей.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Special+Elite&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Рычаг, который управляет деньгами, здоровьем и судьбой</title>
+<meta name="description" content="Что на самом деле стоит за успехом, здоровьем, уверенностью и деньгами — и почему без этого знания ничего не работает">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600;700&family=Instrument+Serif:ital@0;1&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-html,body{overflow-x:hidden}
-:root{--bg:#d4c9a8;--paper:#efe6cc;--paper2:#e8dfc4;--ink:#1a1a18;--ink2:#3a3528;--ink3:#5a5040;--ink4:#8a8070;--red:#B42414;--teal:#065E56;--teal2:#044A43;--amber:#7A5A0A;--line:rgba(26,26,24,.1)}
-body{font-family:'Source Serif 4',Georgia,serif;background:var(--bg);color:var(--ink2);font-size:17px;line-height:1.8;-webkit-font-smoothing:auto}
-::selection{background:var(--teal);color:#fff}
-body::before{content:'';position:fixed;inset:0;background:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");opacity:.05;pointer-events:none;z-index:10000}
-.page{max-width:720px;margin:0 auto;padding:48px 40px 60px;background:linear-gradient(135deg,var(--paper),var(--paper2),var(--paper));box-shadow:0 4px 40px rgba(60,50,20,.15);border:1px solid rgba(100,80,40,.15);position:relative;overflow:hidden}
+body{font-family:'IBM Plex Sans',sans-serif;background:#C4C0B0;color:#1C2534;font-size:17px;line-height:1.8}
+body::before{content:'';position:fixed;inset:0;background:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");opacity:.04;pointer-events:none;z-index:10000}
 
-.stamp{position:absolute;font-family:'Special Elite','Courier Prime',monospace;color:rgba(180,30,20,.65);font-weight:700;text-transform:uppercase;border:3px solid rgba(180,30,20,.5);padding:6px 18px;transform:rotate(-8deg);font-size:clamp(.85rem,2.5vw,1.2rem);letter-spacing:.12em;z-index:100;pointer-events:none;background:rgba(239,230,204,.3);top:40px;right:24px}
-.stamp-decl{position:relative;display:inline-block;font-family:'Special Elite','Courier Prime',monospace;color:rgba(180,30,20,.7);font-weight:700;text-transform:uppercase;border:3px solid rgba(180,30,20,.5);padding:4px 16px;font-size:.85rem;letter-spacing:.15em;transform:rotate(-3deg);margin:20px 0 8px}
+.page{max-width:720px;margin:0 auto;background:#F8F7F3;border:1px solid #C8C4B8;box-shadow:0 4px 50px rgba(30,30,20,.1);position:relative;z-index:1;overflow:hidden}
+.page::before{content:'';position:absolute;top:0;bottom:0;left:0;width:5px;background:linear-gradient(180deg,#1A3A5C,#2E6090,#1A3A5C);z-index:10}
 
-.masthead{text-align:center;padding:20px 0 28px;border-bottom:3px double var(--ink);margin-bottom:32px}
-.masthead-ed{font-family:'Courier Prime',monospace;font-size:.65rem;color:var(--ink4);letter-spacing:.2em;text-transform:uppercase;margin-bottom:16px}
-.masthead h1{font-family:'Playfair Display',Georgia,serif;font-size:clamp(2rem,5.5vw,3rem);font-weight:900;line-height:1.08;color:var(--ink);margin-bottom:14px}
-.masthead h1 em{font-style:italic;color:var(--teal);font-weight:400}
-.masthead-sub{font-size:1.05rem;font-style:italic;color:var(--ink3);max-width:540px;margin:0 auto}
-.masthead::after{content:'';display:block;width:100%;height:1px;background:var(--ink);margin-top:28px;opacity:.2}
+.class-bar{padding:9px 44px 9px 48px;background:#E0DCD0;border-bottom:1px solid #C8C4B8;display:flex;justify-content:space-between;align-items:center;font-family:'IBM Plex Mono',monospace;font-size:.55rem;letter-spacing:.16em;text-transform:uppercase;color:#6A6658}
+.class-bar .level{color:rgba(180,40,30,.6);font-weight:700;letter-spacing:.1em;border:1.5px solid rgba(180,40,30,.3);padding:2px 10px}
+.class-bar .open{color:#2E6090;font-weight:600}
 
-h2{font-family:'Playfair Display',Georgia,serif;font-size:clamp(1.3rem,3.5vw,1.65rem);font-weight:900;line-height:1.2;text-transform:uppercase;letter-spacing:.04em;margin:32px 0 16px;color:var(--ink)}
-p{margin-bottom:16px;text-align:left}
-strong{font-weight:700;color:var(--ink)}
-.sep{width:50px;height:1px;background:linear-gradient(90deg,rgba(6,94,86,.3),transparent);margin:36px 0}
-.file-tab{font-family:'Courier Prime',monospace;font-size:.68rem;text-transform:uppercase;letter-spacing:.18em;color:var(--ink4);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:8px 0;margin:40px 0 20px;display:flex;justify-content:space-between}
-.file-tab .num{color:var(--teal);font-weight:700}
-.file-tab .redacted{background:#1a1a18;color:#1a1a18;padding:0 20px;font-size:.6rem}
-.pullquote{border-top:2px solid var(--ink);border-bottom:2px solid var(--ink);padding:18px 0;margin:28px 0;text-align:center;font-family:'Playfair Display',Georgia,serif;font-size:1.2rem;font-weight:700;font-style:italic;line-height:1.4;color:var(--ink)}
-.hl{border-left:3px solid var(--teal);padding:16px 22px;margin:24px 0;background:rgba(6,94,86,.03);font-family:'Playfair Display',Georgia,serif;font-size:1.05rem;font-style:italic;color:var(--ink);line-height:1.55}
-.sidebar{background:rgba(180,36,20,.04);border:1px solid rgba(180,36,20,.15);padding:18px 20px;margin:24px 0;font-size:.92rem}
-.sidebar-title{font-family:'Special Elite','Courier Prime',monospace;font-size:.75rem;text-transform:uppercase;letter-spacing:.15em;color:rgba(180,30,20,.7);margin-bottom:8px;font-weight:700}
-.stat-row{display:flex;gap:16px;margin:24px 0;flex-wrap:wrap}
-.stat{text-align:center;flex:1;min-width:80px;padding:18px;background:rgba(6,94,86,.04);border:1px solid rgba(6,94,86,.1)}
-.stat-num{font-family:'Playfair Display',Georgia,serif;font-size:2rem;font-weight:900;color:var(--teal);line-height:1}
-.stat-label{font-family:'Courier Prime',monospace;font-size:.6rem;text-transform:uppercase;letter-spacing:.08em;color:var(--ink4);margin-top:4px}
-.ref{font-family:'Courier Prime',monospace;font-size:.72rem;color:var(--ink4)}
-.voice{padding:18px 22px;background:rgba(6,94,86,.03);border-left:2px solid var(--teal);margin:16px 0;font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:1rem;line-height:1.7;color:var(--ink2)}
-.voice-author{font-family:'Courier Prime',monospace;font-size:.72rem;color:var(--ink4);margin-top:8px;font-style:normal}
-.voice-result{font-size:.82rem;font-weight:700;color:var(--teal);font-style:normal;margin-top:4px}
-.cost-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:24px 0}
-.cost-card{padding:20px;text-align:center;border:1px solid rgba(180,36,20,.15);background:rgba(180,36,20,.03)}
-.cost-num{font-family:'Playfair Display',Georgia,serif;font-size:2rem;font-weight:900;color:var(--red);line-height:1}
-.cost-text{font-size:.8rem;color:var(--ink3);margin-top:6px;line-height:1.5}
-.photo{background:var(--paper2);border:1px solid rgba(100,80,40,.15);padding:8px;margin:28px 0}
-.photo img{width:100%;display:block}
-.photo-caption{font-family:'Courier Prime',monospace;font-size:.66rem;color:var(--ink4);text-transform:uppercase;letter-spacing:.1em;margin-top:6px;text-align:center}
-.photo-caption .classified{background:rgba(180,30,20,.12);border:1px solid rgba(180,30,20,.3);padding:1px 8px;font-size:.6rem;color:rgba(180,30,20,.7);margin-left:6px}
-.cta-box{background:var(--ink);color:var(--paper);padding:40px;margin:36px 0;text-align:center}
-.cta-box h2{color:var(--paper);margin-top:0}
-.cta-btn{display:inline-block;padding:14px 40px;background:var(--teal);color:#fff;font-family:'Courier Prime',monospace;font-size:.75rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;transition:all .3s}
-.cta-btn:hover{background:var(--teal2);transform:translateY(-2px);box-shadow:0 12px 32px rgba(6,94,86,.3)}
-.checklist{margin:24px 0}
-.cl-item{display:flex;align-items:flex-start;gap:14px;padding:12px 16px;margin-bottom:6px;cursor:pointer;border:1px solid transparent;transition:all .3s;user-select:none}
-.cl-item:hover{background:rgba(6,94,86,.02)}
-.cl-box{width:20px;height:20px;border:2px solid rgba(6,94,86,.2);flex-shrink:0;margin-top:2px;display:flex;align-items:center;justify-content:center;font-size:11px;color:transparent;transition:all .3s}
-.cl-item.checked .cl-box{background:var(--teal);border-color:var(--teal);color:#fff}
-.cl-result{margin-top:20px;padding:20px;background:rgba(6,94,86,.04);border:1px solid rgba(6,94,86,.12);display:none}
-.foot{text-align:center;padding:32px 0;border-top:1px solid var(--line);margin-top:40px;font-family:'Courier Prime',monospace;font-size:.68rem;color:var(--ink4);line-height:2.2}
-.foot a{color:var(--ink4);text-decoration:underline;text-underline-offset:2px}
-@media(max-width:700px){
-  .page{padding:24px 16px 48px}
-  body{font-size:16px}
-  .cost-grid{grid-template-columns:1fr}
-  .stat-row{gap:6px;flex-wrap:wrap}
-  .stat{min-width:calc(50% - 6px);padding:14px 10px}
-  .stat-num{font-size:1.6rem}
-  .stat-label{font-size:.52rem}
-  .stamp{top:14px;right:10px;font-size:.65rem;padding:3px 10px;border-width:2px}
-  .stamp-decl{font-size:.65rem;padding:3px 10px;border-width:2px}
-  .cta-box{padding:24px 16px}
-  .masthead h1{font-size:1.9rem}
-  .masthead-sub{font-size:.92rem}
-  .masthead-ed{font-size:.55rem}
-  h2{font-size:1.2rem;margin:24px 0 12px}
-  .pullquote{font-size:1rem;padding:14px 0;margin:20px 0}
-  .hl{padding:12px 14px;font-size:.92rem;margin:18px 0}
-  .sidebar{padding:14px 14px;font-size:.86rem}
-  .sidebar-title{font-size:.65rem}
-  .voice{padding:14px 14px;font-size:.9rem}
-  .voice-author{font-size:.65rem}
-  .photo[style*="margin:24px -40px"]{margin:16px -16px 20px!important}
-  .photo-caption{font-size:.55rem!important;padding:4px 8px 0!important;letter-spacing:.06em}
-  .file-tab{font-size:.55rem;letter-spacing:.12em;padding:6px 0;margin:32px 0 14px}
-  .file-tab .redacted{padding:0 10px;font-size:.5rem}
-  .counter-row{gap:6px;margin:20px 0}
-  .counter{padding:16px 8px}
-  .counter-num{font-size:1.5rem}
-  .counter-label{font-size:.48rem;letter-spacing:.06em}
-  .cl-item{padding:10px 12px;gap:10px}
-  .cl-item div:last-child{font-size:.9rem}
-  .cl-box{width:18px;height:18px;font-size:10px}
-  .cl-result{padding:16px 14px}
-  .cost-card{padding:16px}
-  .cost-num{font-size:1.5rem}
-  .cost-text{font-size:.72rem}
-  .cta-btn{padding:14px 24px;font-size:.65rem;letter-spacing:.1em;width:100%;text-align:center;display:block}
-  .ref{font-size:.6rem}
-  .sep{margin:28px 0}
-  p{margin-bottom:14px;font-size:.94rem}
-  .foot{font-size:.6rem}
+.header{background:linear-gradient(180deg,#F0EDE5,#F8F7F3);padding:32px 44px 28px 50px;border-bottom:2px solid #1C2534;position:relative}
+.header-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}
+.header-id{font-family:'IBM Plex Mono',monospace;font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;color:#7A7A6E}
+.header-stamp{font-family:'IBM Plex Mono',monospace;font-size:.6rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(180,40,30,.6);border:2px solid rgba(180,40,30,.4);padding:3px 14px;transform:rotate(-3deg)}
+
+.masthead{text-align:center}
+.masthead-label{font-family:'IBM Plex Mono',monospace;font-size:.55rem;letter-spacing:.3em;text-transform:uppercase;color:#2E6090;margin-bottom:18px;display:flex;align-items:center;justify-content:center;gap:14px}
+.masthead-label::before,.masthead-label::after{content:'';width:40px;height:1px;background:linear-gradient(90deg,transparent,#2E6090,transparent);opacity:.4}
+.masthead h1{font-family:'Instrument Serif',Georgia,serif;font-size:clamp(2rem,5.5vw,2.9rem);font-weight:400;line-height:1.1;color:#1C2534;margin-bottom:14px}
+.masthead h1 em{font-style:italic;color:#2E6090}
+.masthead-sub{font-family:'IBM Plex Sans',sans-serif;font-size:.85rem;color:#5A5E52;font-weight:300;max-width:500px;margin:0 auto;line-height:1.65;font-style:italic}
+.masthead-line{display:flex;align-items:center;justify-content:center;gap:10px;margin-top:20px}
+.masthead-line::before,.masthead-line::after{content:'';width:50px;height:1px;background:linear-gradient(90deg,transparent,#C8C4B8)}
+.masthead-dot{width:6px;height:6px;border-radius:50%;border:1.5px solid #2E6090}
+
+.content{padding:32px 44px 56px 48px}
+h2{font-family:'Instrument Serif',Georgia,serif;font-size:clamp(1.2rem,3.5vw,1.55rem);font-weight:400;line-height:1.3;margin:8px 0 18px;color:#1C2534}
+p{margin-bottom:16px}
+strong{font-weight:600;color:#1C2534}
+
+/* PHOTO */
+.photo-block{margin:28px -6px;position:relative;overflow:hidden}
+.photo-block img{width:100%;display:block;filter:grayscale(30%)}
+.photo-block.bw img{filter:grayscale(100%) contrast(1.1)}
+.photo-block.color img{filter:none}
+.photo-caption{background:#E0DCD0;padding:8px 16px;font-family:'IBM Plex Mono',monospace;font-size:.52rem;letter-spacing:.08em;color:#6A6658;display:flex;justify-content:space-between;align-items:center;text-transform:uppercase}
+.photo-caption .tag{color:rgba(180,40,30,.5);font-weight:600;font-size:.48rem;border:1px solid rgba(180,40,30,.25);padding:1px 8px}
+
+/* INFOGRAPHIC GRID */
+.info-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin:28px 0}
+.info-cell{padding:18px 8px;text-align:center;background:#F0EDE5;border:1px solid #D8D4C8;border-bottom:3px solid #2E6090;transition:border-color .3s}
+.info-cell:hover{border-bottom-color:#1A3A5C}
+.info-cell svg{width:28px;height:28px;margin:0 auto 8px;display:block;stroke:#2E6090;fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.info-cell-label{font-family:'IBM Plex Mono',monospace;font-size:.52rem;text-transform:uppercase;letter-spacing:.06em;color:#5A5E52;margin-bottom:4px;font-weight:600}
+.info-cell-val{font-family:'IBM Plex Mono',monospace;font-size:.48rem;color:#2E6090;font-weight:600;line-height:1.3}
+
+.puppet-block{display:flex;align-items:center;gap:20px;padding:20px 24px;margin:24px 0;border:1px solid rgba(180,40,30,.12);background:rgba(180,40,30,.02);border-left:3px solid rgba(180,40,30,.4)}
+.puppet-block svg{width:36px;height:36px;flex-shrink:0;stroke:rgba(180,40,30,.5);fill:none;stroke-width:1.5;stroke-linecap:round}
+.puppet-block p{margin:0;font-family:'Instrument Serif',Georgia,serif;font-size:1.1rem;color:#1C2534;line-height:1.5}
+
+.section-tab{font-family:'IBM Plex Mono',monospace;font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:#8A8878;padding:10px 0;margin:40px 0 18px;border-top:1px solid #D8D4C8;display:flex;justify-content:space-between;align-items:center}
+.section-tab .num{background:linear-gradient(135deg,#1A3A5C,#2E6090);color:#fff;padding:3px 12px;font-weight:700;font-size:.55rem;letter-spacing:.08em}
+.section-tab .status{color:rgba(180,40,30,.5);font-weight:600;font-size:.55rem}
+
+.part-header{background:linear-gradient(135deg,#EBE7DC,#E4E0D4);padding:14px 24px;margin:48px 0 28px;font-family:'IBM Plex Mono',monospace;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:#5A5E52;display:flex;justify-content:space-between;align-items:center;border-top:2px solid #1C2534;border-bottom:1px solid #D8D4C8}
+.part-header .classified{font-size:.5rem;color:rgba(180,40,30,.45);font-weight:700;letter-spacing:.12em;border:1.5px solid rgba(180,40,30,.25);padding:2px 10px}
+
+.pullquote{margin:28px 0;padding:20px 28px;background:#F0EDE5;border-top:2px solid #1C2534;border-bottom:2px solid #1C2534;text-align:center;font-family:'Instrument Serif',Georgia,serif;font-size:1.15rem;font-weight:400;font-style:italic;color:#1C2534}
+.pullquote cite{display:block;font-size:.6rem;font-family:'IBM Plex Mono',monospace;font-style:normal;color:#8A8878;margin-top:8px}
+
+.stat-row{display:flex;gap:12px;margin:28px 0;flex-wrap:wrap}
+.stat{flex:1;min-width:100px;padding:20px 12px;text-align:center;background:#F0EDE5;border-bottom:3px solid #2E6090}
+.stat-num{font-family:'IBM Plex Mono',monospace;font-size:2rem;font-weight:700;color:#1A3A5C;line-height:1}
+.stat-label{font-family:'IBM Plex Mono',monospace;font-size:.55rem;text-transform:uppercase;letter-spacing:.06em;color:#8A8878;margin-top:6px}
+
+.data-panel{background:linear-gradient(135deg,#1A3A5C,#243E5C);color:#C8D8E8;padding:28px;margin:32px -6px 32px 0;position:relative;overflow:hidden}
+.data-panel::after{content:'';position:absolute;top:0;right:0;bottom:0;width:4px;background:linear-gradient(180deg,#4DA6E8,#2E6090,#4DA6E8)}
+.data-panel::before{content:'';position:absolute;inset:0;opacity:.05;background:url("data:image/svg+xml,%3Csvg width='200' height='200' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='40' cy='100' r='30' fill='none' stroke='%23fff' stroke-width='.4'/%3E%3Ccircle cx='40' cy='100' r='18' fill='none' stroke='%23fff' stroke-width='.3'/%3E%3Cline x1='70' y1='100' x2='130' y2='80' stroke='%23fff' stroke-width='.3'/%3E%3Ccircle cx='130' cy='80' r='14' fill='none' stroke='%23fff' stroke-width='.3'/%3E%3C/svg%3E")}
+.data-panel .label{font-family:'IBM Plex Mono',monospace;font-size:.5rem;text-transform:uppercase;letter-spacing:.2em;color:rgba(77,166,232,.45);margin-bottom:12px}
+.data-panel p{color:#C8D8E8;margin-bottom:10px;position:relative;z-index:1}
+.data-panel strong{color:#7DC4FF}
+.data-panel .stat-row{margin:16px 0;gap:8px}
+.data-panel .stat{background:rgba(255,255,255,.05);border-bottom:2px solid rgba(77,166,232,.3)}
+.data-panel .stat-num{color:#7DC4FF}
+.data-panel .stat-label{color:rgba(200,216,232,.4)}
+
+.sidebar{background:rgba(200,40,30,.03);border:1px solid rgba(200,40,30,.1);border-left:3px solid rgba(200,40,30,.35);padding:18px 22px;margin:28px 0;font-size:.9rem}
+.sidebar-title{font-family:'IBM Plex Mono',monospace;font-size:.6rem;text-transform:uppercase;letter-spacing:.18em;color:rgba(200,40,30,.55);margin-bottom:8px;font-weight:700}
+
+.sep{display:flex;align-items:center;gap:12px;margin:40px 0}
+.sep::before,.sep::after{content:'';flex:1;height:1px;background:#D8D4C8}
+.sep-icon{width:8px;height:8px;border:1.5px solid #2E6090;border-radius:50%;position:relative}
+.sep-icon::after{content:'';position:absolute;inset:2px;background:#2E6090;border-radius:50%}
+
+.ref{font-family:'IBM Plex Mono',monospace;font-size:.6rem;color:#A0A098;margin-top:-8px;margin-bottom:16px}
+
+/* ARROW LIST */
+.arrow-list{margin:20px 0}
+.arrow-list p{padding-left:24px;position:relative;margin-bottom:10px}
+.arrow-list p::before{content:'→';position:absolute;left:0;color:#2E6090;font-weight:600}
+
+/* CHECKLIST */
+.checklist{margin:28px 0;padding:24px 28px;background:#F0EDE5;border:1px solid #D8D4C8}
+.checklist-title{font-family:'IBM Plex Mono',monospace;font-size:.6rem;text-transform:uppercase;letter-spacing:.2em;color:#2E6090;margin-bottom:16px;font-weight:700}
+.checklist label{display:flex;align-items:flex-start;gap:10px;margin-bottom:12px;cursor:pointer;font-size:.95rem;line-height:1.6}
+.checklist input[type="checkbox"]{margin-top:5px;accent-color:#2E6090;flex-shrink:0;width:16px;height:16px}
+.checklist-result{display:none;margin-top:20px;padding:16px;background:#fff;border-left:3px solid #2E6090;font-size:.9rem}
+.checklist-result.show{display:block}
+.checklist-result strong{color:#1A3A5C}
+
+/* TESTIMONIAL */
+.testimonial{margin:28px 0;padding:24px 28px;background:#F0EDE5;border-left:3px solid #2E6090;position:relative}
+.testimonial::before{content:'"';position:absolute;top:8px;left:12px;font-family:'Instrument Serif',serif;font-size:3rem;color:rgba(46,96,144,.15);line-height:1}
+.testimonial blockquote{font-family:'IBM Plex Sans',sans-serif;font-size:.95rem;font-style:italic;line-height:1.7;color:#3A3E34;margin-bottom:10px;padding-left:0}
+.testimonial .author{font-family:'IBM Plex Mono',monospace;font-size:.55rem;text-transform:uppercase;letter-spacing:.1em;color:#8A8878}
+
+/* PRODUCT BLOCK */
+.product-block{margin:40px -6px;background:linear-gradient(135deg,#1A3A5C,#1E3450);color:#C8D8E8;padding:36px 32px;position:relative;overflow:hidden}
+.product-block::before{content:'';position:absolute;inset:0;opacity:.03;background:url("data:image/svg+xml,%3Csvg width='300' height='300' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='150' cy='150' r='80' fill='none' stroke='%23fff' stroke-width='.3'/%3E%3Ccircle cx='150' cy='150' r='50' fill='none' stroke='%23fff' stroke-width='.2'/%3E%3Ccircle cx='150' cy='150' r='20' fill='none' stroke='%23fff' stroke-width='.2'/%3E%3C/svg%3E")}
+.product-block h2{color:#fff;font-size:clamp(1.4rem,4vw,1.8rem);margin-bottom:6px}
+.product-block .product-sub{font-family:'IBM Plex Mono',monospace;font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(125,196,255,.5);margin-bottom:24px}
+.product-item{display:flex;align-items:flex-start;gap:10px;margin-bottom:10px;position:relative;z-index:1}
+.product-item::before{content:'✦';color:#7DC4FF;font-size:.8rem;margin-top:2px;flex-shrink:0}
+.product-item span{color:#C8D8E8;font-size:.92rem;line-height:1.6}
+.product-price{margin:28px 0 8px;text-align:center}
+.product-price .amount{font-family:'IBM Plex Mono',monospace;font-size:2.8rem;font-weight:700;color:#fff;line-height:1}
+.product-price .currency{font-family:'IBM Plex Mono',monospace;font-size:1rem;color:rgba(125,196,255,.7);margin-left:4px}
+.product-social{text-align:center;font-family:'IBM Plex Mono',monospace;font-size:.6rem;color:rgba(200,216,232,.45);letter-spacing:.08em;margin:12px 0 24px}
+.product-note{font-size:.85rem;color:rgba(200,216,232,.6);line-height:1.7;margin:20px 0;position:relative;z-index:1}
+
+/* CTA BUTTON */
+.cta-wrap{text-align:center;margin:28px 0}
+.cta-btn{display:inline-block;padding:16px 48px;background:linear-gradient(135deg,#2E6090,#4DA6E8);color:#fff;text-decoration:none;font-family:'IBM Plex Sans',sans-serif;font-size:1rem;font-weight:600;letter-spacing:.03em;border:none;cursor:pointer;transition:all .3s;position:relative;z-index:1}
+.cta-btn:hover{background:linear-gradient(135deg,#4DA6E8,#2E6090);transform:translateY(-1px);box-shadow:0 4px 20px rgba(46,96,144,.3)}
+.cta-btn-sub{display:block;margin-top:8px;font-family:'IBM Plex Mono',monospace;font-size:.52rem;color:#8A8878;letter-spacing:.1em;text-transform:uppercase}
+
+/* FINAL */
+.final-line{margin:40px 0 20px;padding:24px 28px;background:#F0EDE5;border-top:2px solid #1C2534;border-bottom:2px solid #1C2534;font-family:'IBM Plex Sans',sans-serif;font-size:.9rem;font-style:italic;color:#5A5E52;line-height:1.8;text-align:center}
+
+.footer{padding:20px 48px;border-top:1px solid #D8D4C8;font-family:'IBM Plex Mono',monospace;font-size:.5rem;color:#A0A098;letter-spacing:.1em;text-transform:uppercase;text-align:center}
+
+/* HEART IMAGE SPECIAL */
+.photo-block.square{max-width:380px;margin-left:auto;margin-right:auto}
+
+@media(max-width:600px){
+  .class-bar{padding:8px 18px 8px 24px;font-size:.48rem}
+  .header{padding:24px 20px 22px 28px}
+  .content{padding:24px 20px 44px 28px}
+  .page::before{width:4px}
+  .info-grid{grid-template-columns:repeat(3,1fr)}
+  .stat-row{flex-direction:column;gap:8px}
+  .data-panel{margin:28px -2px;padding:22px 16px}
+  .masthead h1{font-size:1.75rem}
+  .part-header{padding:12px 16px}
+  .puppet-block{flex-direction:column;text-align:center;gap:12px}
+  .photo-block{margin:24px -2px}
+  .product-block{margin:36px -2px;padding:28px 20px}
+  .checklist{padding:20px 16px}
+  .testimonial{padding:20px 16px}
+  .cta-btn{padding:14px 32px;font-size:.95rem}
+  .footer{padding:16px 20px}
 }
-
 </style>
 </head>
 <body>
 <div class="page">
 
-<div class="stamp">TOP SECRET</div>
-
-<div class="masthead">
-  <div class="masthead-ed">Документ &#8470; НС-2026-0325 &middot; Гриф снят</div>
-  <h1>Почему твой мозг<br><em>никогда</em> не замолкает</h1>
-  <div class="masthead-sub">9 фактов из нейробиологии, которые намеренно не преподают. И что с этим делают те, кто знает.</div>
+<!-- ═══ TOP BAR ═══ -->
+<div class="class-bar">
+  <span>Протокол &#8470; NB-2026-0407</span>
+  <span class="level">Restricted</span>
+  <span class="open">Рассекречено</span>
 </div>
 
-<div class="stamp-decl">&#9608; РАССЕКРЕЧЕНО</div>
-
-<div class="photo" style="margin:24px -40px 32px;padding:0;border:none;background:none">
-  <img src="https://raw.githubusercontent.com/thebodymindcode/peace/main/306a1879bbf2b594fa028ff1b84ff90f_56ff44d3-3e19-495e-a95f-26261b7e9692.png" alt="" style="width:100%">
-  <div class="photo-caption" style="padding:6px 40px 0">Досье: механика мозга, DMN, МРТ-снимки <span class="classified">рассекречено</span></div>
+<!-- ═══ HEADER ═══ -->
+<div class="header">
+  <div class="header-top">
+    <span class="header-id">Архитектура сознания · @thebodymindcode</span>
+    <span class="header-stamp">Declassified</span>
+  </div>
+  <div class="masthead">
+    <div class="masthead-label">Нейробиология · Рассекреченные данные</div>
+    <h1>Рычаг, который управляет деньгами, здоровьем и&nbsp;<em>судьбой</em></h1>
+    <p class="masthead-sub">Что на самом деле стоит за успехом, здоровьем, уверенностью и деньгами — и почему без этого знания ничего не работает</p>
+    <div class="masthead-line"><div class="masthead-dot"></div></div>
+  </div>
 </div>
 
-<p>Вы можете быть успешным, продуктивным, всё успевать. Но если вечером голова не выключается, значит, внутри работает система, которую вы <strong>не контролируете</strong>.</p>
+<!-- ═══ HERO IMAGE ═══ -->
+<div class="photo-block bw">
+  <img src="https://raw.githubusercontent.com/thebodymindcode/peace/main/306a1879bbf2b594fa028ff1b84ff90f_56ff44d3-3e19-495e-a95f-26261b7e9692%20%281%29.png" alt="Рассекреченное досье — исследования мозга" loading="lazy">
+  <div class="photo-caption">
+    <span>Досье · Исследование DMN · Динамика мозговой активности · рассекречено</span>
+    <span class="tag">Classified</span>
+  </div>
+</div>
 
-<p>Это не лень. Не слабая воля. Не &laquo;много думаете&raquo;.</p>
+<!-- ═══ CONTENT ═══ -->
+<div class="content">
 
-<p><strong>Это нейробиология.</strong> И о ней намеренно молчат. Потому что человек, который понимает, как работает его мозг, перестаёт нуждаться в том, что ему продают.</p>
+<!-- ═══ ВСТУПЛЕНИЕ ═══ -->
 
-<p>Вот 9 фактов, которые объяснят всё. Читайте внимательно. Эту информацию вы больше нигде не встретите в таком виде.</p>
+<p>Мозг — это операционная система жизни.</p>
+<p>Не мотивация. Не дисциплина. Не привычки. <strong>Мозг.</strong></p>
+<p>Когда им не управляешь — <strong>он управляет тобой</strong>. И делает это жёстко.</p>
+
+<p>Это он решает, сколько денег на счёте — потому что именно он генерирует тревогу, из-за которой откладываются решения, упускаются возможности и выбирается «безопасное» вместо правильного.</p>
+<p>Это он решает, как себя чувствует тело — потому что именно он запускает гормоны стресса, подавляет иммунитет, разгоняет воспаление и удерживает лишний вес. Каждую секунду. Без спроса.</p>
+<p>Это он решает, какие решения принимаются — в бизнесе, в отношениях, в жизни. И пока он в режиме шума — решения будут из страха, а не из ясности.</p>
+<p>Это он решает, есть ли энергия — или к вечеру не остаётся сил даже на разговор. Потому что он сжигает 20% всей энергии на бессмысленный внутренний монолог.</p>
+<p>Это он решает, есть ли уверенность — или бесконечные «а вдруг», «а что подумают», «а вдруг не получится».</p>
+
+<!-- INFOGRAPHIC — SVG icons -->
+<div class="info-grid">
+  <div class="info-cell">
+    <svg viewBox="0 0 32 32"><circle cx="16" cy="12" r="6"/><path d="M8 28c0-4.4 3.6-8 8-8s8 3.6 8 8"/><line x1="16" y1="8" x2="16" y2="4"/><line x1="16" y1="4" x2="14" y2="2"/><line x1="16" y1="4" x2="18" y2="2"/></svg>
+    <div class="info-cell-label">Деньги</div>
+    <div class="info-cell-val">Решения из тревоги</div>
+  </div>
+  <div class="info-cell">
+    <svg viewBox="0 0 32 32"><path d="M16 4v10l6 4"/><circle cx="16" cy="16" r="12"/><path d="M4 16h2M26 16h2M16 4v2M16 26v2" stroke-dasharray="1 3"/></svg>
+    <div class="info-cell-label">Энергия</div>
+    <div class="info-cell-val">20% на шум</div>
+  </div>
+  <div class="info-cell">
+    <svg viewBox="0 0 32 32"><path d="M16 4c-2 4-6 6-6 12a6 6 0 0012 0c0-6-4-8-6-12z"/><path d="M13 20c0 1.7 1.3 3 3 3s3-1.3 3-3"/><line x1="16" y1="28" x2="16" y2="25"/></svg>
+    <div class="info-cell-label">Здоровье</div>
+    <div class="info-cell-val">Кортизол 24/7</div>
+  </div>
+  <div class="info-cell">
+    <svg viewBox="0 0 32 32"><path d="M6 16h8l2-6 4 12 2-6h4"/><circle cx="16" cy="16" r="13" stroke-dasharray="2 2"/></svg>
+    <div class="info-cell-label">Решения</div>
+    <div class="info-cell-val">Страх вместо ясности</div>
+  </div>
+  <div class="info-cell">
+    <svg viewBox="0 0 32 32"><rect x="10" y="14" width="12" height="10" rx="2"/><path d="M12 14v-3a4 4 0 018 0v3"/><circle cx="16" cy="20" r="1.5"/><line x1="16" y1="21.5" x2="16" y2="23"/></svg>
+    <div class="info-cell-label">Уверенность</div>
+    <div class="info-cell-val">Заблокирована</div>
+  </div>
+</div>
+
+<!-- PUPPET BLOCK -->
+<div class="puppet-block">
+  <svg viewBox="0 0 40 40"><circle cx="20" cy="10" r="5"/><line x1="20" y1="15" x2="20" y2="28"/><line x1="12" y1="22" x2="28" y2="22"/><line x1="16" y1="28" x2="12" y2="36"/><line x1="24" y1="28" x2="28" y2="36"/><line x1="20" y1="5" x2="20" y2="1" stroke-dasharray="1.5 1.5"/><line x1="12" y1="22" x2="8" y2="18" stroke-dasharray="1.5 1.5"/><line x1="28" y1="22" x2="32" y2="18" stroke-dasharray="1.5 1.5"/></svg>
+  <p><strong>Неуправляемый мозг — это кукловод. А человек — марионетка.</strong> Которая думает, что принимает решения сама. Но на самом деле — выполняет программу, записанную годами тревоги, страха и автоматических реакций.</p>
+</div>
+
+<p><strong>Человек, который управляет мозгом — управляет всем.</strong> Деньгами. Здоровьем. Временем. Отношениями. Собой.</p>
+
+<p>Но есть рычаг, который эту способность <strong>блокирует</strong>. У 90% людей. Прямо сейчас. Конкретный нейробиологический механизм. Открыт в 2001 году. Изучался военными с 1970-х. DARPA потратило на него $2 миллиарда. ЦРУ засекречивало результаты до 2003 года.</p>
+
+<p>А вам о нём не рассказали. Потому что человек, который знает, как работает этот рычаг — <strong>перестаёт быть управляемым</strong>. Перестаёт покупать лишнее. Тревожиться по расписанию. Откладывать жизнь на понедельник.</p>
+
+<p>Те, кто этот рычаг нашли и переключили — живут иначе. Не потому что умнее или удачливее. Потому что <strong>перестали быть марионетками своего мозга</strong>.</p>
+
+<p>В этой статье — 7 фактов. Что это за рычаг. Как он работает. Что отнимает. И как его переключить.</p>
+
+<p><strong>Читайте внимательно. Эта информация меняет всё.</strong></p>
+
+<!-- ═══════════════════════════════════ -->
+<!-- ЧАСТЬ I -->
+<!-- ═══════════════════════════════════ -->
+
+<div class="part-header"><span>Часть I · Сбой в системе, о котором молчат</span><span class="classified">Classified</span></div>
+
+<!-- ФАКТ 01 -->
+<div class="section-tab"><span class="num">ФАКТ №01</span><span class="status">Рассекречено</span></div>
+
+<h2>Счастье заблокировано. На уровне мозга. И ни деньги, ни отношения, ни успех — не разблокируют.</h2>
+
+<p>Есть вещь, о которой почти никто не говорит вслух. Но именно она — фундамент, на котором строится всё остальное.</p>
+<p><strong>Счастье.</strong></p>
+<p>Не то, которое «когда-нибудь потом». А то, которое прямо сейчас, в этом теле, в эту секунду. Ощущение: я на месте. Я — это я. Жизнь — хорошая.</p>
+<p>Это не «приятный бонус». Это <strong>база, от которой зависит буквально всё</strong>.</p>
+
+<p>Когда человек в состоянии внутреннего покоя и наполненности — мозг работает принципиально иначе. <strong>Неокортекс</strong> — пространство идей, стратегий, видения — активен. Человек видит возможности, принимает точные решения, действует из ясности. <strong>Рептильный мозг</strong> — центр выживания — спокоен. Не орёт «опасность!», не запускает панику, не заставляет спасаться от угроз, которых нет.</p>
+
+<p>В этом состоянии <strong>гормональный фон здоровый</strong>: кортизол низкий, серотонин и дофамин в балансе, DHEA активен. Тело восстанавливается. Иммунитет работает. Вес нормализуется сам. Энергии хватает на всё.</p>
+
+<p>В этом состоянии <strong>деньги приходят</strong> — потому что ясный ум видит то, что тревожный пропускает. <strong>Отношения выстраиваются</strong> — потому что рядом со спокойным человеком хорошо. <strong>Цели реализуются</strong> — не через насилие над собой, а через ресурс. Спокойно. Точно. Вовремя.</p>
+
+<p>Это не теория и не «мышление изобилия». Это нейробиология. <strong>Счастье — это операционная среда, в которой всё работает.</strong> Без неё — ничего не работает. Как бы ни старался.</p>
+
+<p>И вот в чём ловушка: <strong>почти у всех эта среда заблокирована</strong>.</p>
+
+<!-- ФОТО — МРТ сканер -->
+<div class="photo-block bw">
+  <img src="https://raw.githubusercontent.com/thebodymindcode/peace/main/7651efc4366b602c3bf1d767ad2a0e96_137b1a02-d465-49e0-a9e7-a65337fcf497.png" alt="МРТ-сканирование мозга — Гарвардское исследование" loading="lazy">
+  <div class="photo-caption">
+    <span>Сканирование мозга · Гарвардское исследование · 2010</span>
+    <span class="tag">Neuroscience</span>
+  </div>
+</div>
+
+<p>В 2010 году <strong>Киллингсворт и Гилберт</strong> из Гарварда опубликовали в <strong>Science</strong> исследование, которое объясняет почему.</p>
+
+<p><strong>46,9% времени бодрствования</strong> мозг уносит человека из настоящего момента. В тревогу о будущем. В пережёвывание прошлого. В бесконечное «а что если».</p>
+
+<p>Половина жизни проходит <strong>не здесь</strong>. А в месте, которого не существует — в прошлом, которое уже прошло, или в будущем, которое ещё не наступило.</p>
+
+<p>И в эти моменты — а это половина жизни — <strong>люди были глубоко несчастны</strong>. Не потому что думали о плохом. А потому что <strong>их не было там, где они были</strong>.</p>
+
+<div class="pullquote">
+  «Блуждающий ум — несчастный ум»
+  <cite>Killingsworth &amp; Gilbert · Science, 2010</cite>
+</div>
+
+<p><strong>Счастье физически невозможно, когда человека нет в настоящем.</strong> Мозг не может одновременно тревожиться о завтра — и наслаждаться тем, что есть. Не может прокручивать вчера — и чувствовать покой. И пока он в этом режиме — неокортекс выключен, рептильный мозг рулит, гормоны стресса хлещут.</p>
+
+<p>Ребёнок обнимает — а голова на работе. Партнёр говорит «люблю» — а внутри список дел. Достигнута мечта — а радости нет. Потому что <strong>некому радоваться. Хозяина нет дома.</strong></p>
+
+<p>И никакие деньги это не починят. Никакой партнёр. Никакая карьера. Потому что <strong>сначала нужно вернуться в собственную голову</strong>. И забрать управление у машины, которая давно решает за вас.</p>
+
+<p>У этой машины есть имя.</p>
+
+<p class="ref">Killingsworth M.A., Gilbert D.T. (2010). Science, 330(6006), 932.</p>
+
+<div class="sep"><div class="sep-icon"></div></div>
+
+<!-- ФАКТ 02 -->
+<div class="section-tab"><span class="num">ФАКТ №02</span><span class="status">Рассекречено</span></div>
+
+<h2>Внутри живёт паразит, который питается энергией, сном и радостью. И его кормят каждый день — не зная об этом.</h2>
+
+<p>Сделайте одну вещь прямо сейчас. Серьёзно.</p>
+<p>Закройте глаза. Тридцать секунд. Ничего не делайте. Просто заметьте: что происходит внутри?</p>
+<p>Тишина?</p>
+<p>Нет. Там <strong>толпа</strong>. Мысли лезут одна поверх другой. «Что на ужин.» «Я забыл перезвонить.» «А если не успею?» «Какой курс доллара.» «Почему она не ответила.» «Зря я тогда не…» «Господи, когда это кончится.»</p>
+
+<!-- ФОТО — DMN визуализация -->
+<div class="photo-block">
+  <img src="https://raw.githubusercontent.com/thebodymindcode/peace/main/39039d915b7ec42ec9b993704018733b_cfcfbb14-a201-418c-9428-06d2eaac50de%20%283%29.png" alt="Default Mode Network — карта активности мозга" loading="lazy">
+  <div class="photo-caption">
+    <span>Карта активности Default Mode Network · визуализация</span>
+    <span class="tag">Neuroscience</span>
+  </div>
+</div>
+
+<p>Это ваш мозг — который фоново, каждую минуту, изо дня в день является <strong>тем самым кукловодом</strong>. Система, которую открыл в 2001 году нейробиолог <strong>Маркус Рейчл</strong> и назвал <strong>Default Mode Network (DMN)</strong> — сеть пассивного режима мозга.</p>
+
+<p>И вот что нужно понять раз и навсегда: DMN — это <strong>не просто фоновый шум</strong>. Это система, которая <strong>формирует состояние</strong>. Каждую секунду.</p>
+
+<div class="data-panel">
+  <div class="label">Neuroscience · Default Mode Network</div>
+  <p>Каждое «а вдруг?» — микроинъекция <strong>страха</strong>.<br>
+  Каждое «зря я так сказал» — микроинъекция <strong>стыда</strong>.<br>
+  Каждое «что обо мне подумают» — микроинъекция <strong>тревоги</strong>.<br>
+  Каждое «у других получается, а у меня нет» — микроинъекция <strong>отчаяния</strong>.</p>
+  <p><strong>Тысячи инъекций. Каждый день. Годами.</strong></p>
+  <div class="stat-row">
+    <div class="stat"><div class="stat-num">46.9%</div><div class="stat-label">времени бодрствования<br>мозг «не здесь»</div></div>
+    <div class="stat"><div class="stat-num">20%</div><div class="stat-label">энергии мозга<br>на DMN</div></div>
+    <div class="stat"><div class="stat-num">−40%</div><div class="stat-label">DMN<br>после 8 недель</div></div>
+  </div>
+</div>
+
+<p>Вот откуда ощущение, что жизнь тяжёлая — хотя объективно «всё нормально».</p>
+<p>Вот откуда «просыпаюсь уже уставшим» — DMN потребляет <strong>20% всей энергии мозга</strong>. Двадцать процентов. Даже ночью. Даже «на отдыхе».</p>
+<p>Вот откуда «отпуск не помогает» — потому что DMN едет с вами. На море, в горы, на Бали. Везде.</p>
+<p>Вот откуда «нет сил вообще ни на что» — мозг разряжается к обеду, потому что с утра его выжимает шум.</p>
+<p>Вот откуда «всё раздражает» — не плохой характер, а пустой бак.</p>
+
+<p>И вот что убивает: <strong>люди привыкают</strong>. Думают, что так и должно быть. «Я просто тревожный.» «Такой характер.» «Наверное, надо больше спать.»</p>
+
+<p>Нет. <strong>Гиперактивная DMN.</strong> Тот самый кукловод. Он пожирает энергию, сон, радость, решения, жизнь — и дёргает за ниточки каждую секунду. Пока его не выключат.</p>
+
+<p>Но сначала — что он делает с телом. Потому что тревога и бессонница — это только начало.</p>
+
+<p class="ref">Raichle M.E. et al. (2001). PNAS, 98(2), 676-682.</p>
+
+<div class="sep"><div class="sep-icon"></div></div>
+
+<!-- ФАКТ 03 -->
+<div class="section-tab"><span class="num">ФАКТ №03</span><span class="status">Рассекречено</span></div>
+
+<h2>Прямо сейчас мысли разрушают тело, ускоряют старение, формируют и удерживают болезни. Без преувеличений. Это биохимия.</h2>
+
+<p>Каждый раз, когда DMN прокручивает тревожную мысль, мозг отправляет телу команду: <strong>«Опасность!»</strong></p>
+
+<p>Тело не умеет отличить мысль об угрозе от реальной угрозы. Для него «а вдруг меня уволят» и «за мной бежит медведь» — <strong>один и тот же сигнал</strong>. Кортизол. Адреналин. Мобилизация. Сжатие. Готовность к бою.</p>
+
+<p>Бой не наступает. Потому что его не было. Была мысль. Но тело уже отреагировало.</p>
+
+<p>И вот что происходит, когда этот режим не выключается <strong>месяцами, годами, десятилетиями</strong>:</p>
+
+<div class="arrow-list">
+<p><strong>Хроническое воспаление</strong> — тихий пожар внутри, который не чувствуется. Основа 80% всех серьёзных болезней. Сердце, суставы, кишечник, кожа, щитовидка — всё горит на медленном огне</p>
+<p><strong>Иммунитет перестаёт защищать.</strong> Болеете каждый сезон. Восстанавливаетесь неделями. Аллергии из ниоткуда. Аутоиммунные реакции — тело атакует само себя</p>
+<p><strong>Лишний вес, который не уходит</strong> — кортизол блокирует жиросжигание физически. Тело запасает жир «на случай катастрофы». Никакая диета не победит биохимию хронического стресса</p>
+<p><strong>Память разрушается</strong> — гиппокамп деградирует от кортизола. «Забываю всё», «не могу сосредоточиться», «где мои ключи» — это не рассеянность. Это повреждение</p>
+<p><strong>Кожа стареет, волосы выпадают, гормоны съезжают</strong> — и кажется, что это «возраст». Нет. Это режим нервной системы</p>
+</div>
+
+<!-- ФОТО — лаборатория -->
+<div class="photo-block bw">
+  <img src="https://raw.githubusercontent.com/thebodymindcode/peace/main/4f129f0aa2418d3982aed1800577fa1c_f96bfb7d-f2ba-4997-bad4-3cb7a0fc45a5.png" alt="Исследование теломер — лаборатория" loading="lazy">
+  <div class="photo-caption">
+    <span>Теломеры хромосом · Блэкбёрн, Эпель · Нобелевская премия 2009</span>
+    <span class="tag">Nobel Prize</span>
+  </div>
+</div>
+
+<p>Походы к врачам. Анализы. Витамины. БАДы за бешеные деньги. Очередная диета. Поиск «хорошего специалиста». А причина сидит внутри — <strong>и никто её не трогает</strong>. Потому что фармацевтический рынок — $1,6 триллиона в год. Им выгодно, чтобы лечились следствия. Вечно.</p>
+
+<p>А теперь — то, от чего по-настоящему становится не по себе.</p>
+
+<p>Нобелевский лауреат <strong>Элизабет Блэкбёрн</strong> и <strong>Элисса Эпель</strong> из UCSF обнаружили: хроническая руминация — то самое бесконечное пережёвывание мыслей — <strong>физически укорачивает теломеры</strong>. Защитные колпачки хромосом. Биологические часы клетки.</p>
+
+<p>У людей с неутихающим умом клетки были <strong>биологически старше на 10 лет</strong>. Не месяцев. Лет. При том же возрасте по паспорту.</p>
 
 <div class="stat-row">
-  <div class="stat"><div class="stat-num">20%</div><div class="stat-label">энергии тела<br>уходит на шум</div></div>
-  <div class="stat"><div class="stat-num">47%</div><div class="stat-label">жизни<br>на автопилоте</div></div>
-  <div class="stat"><div class="stat-num">28</div><div class="stat-label">дней до<br>перестройки мозга</div></div>
+  <div class="stat"><div class="stat-num">80%</div><div class="stat-label">болезней связаны<br>с воспалением</div></div>
+  <div class="stat"><div class="stat-num">−10</div><div class="stat-label">лет на уровне<br>клеток</div></div>
+  <div class="stat"><div class="stat-num">+43%</div><div class="stat-label">теломераза<br>при тихом уме</div></div>
 </div>
 
+<p><strong>Мысли прямо сейчас решают — с какой скоростью идёт старение.</strong> Как часто болеть. Сколько лет осталось. Это не метафора. Это Нобелевская премия 2009 года.</p>
 
-<!-- ФАКТ 1 -->
-<div class="file-tab"><span>Факт <span class="num">01</span></span><span class="redacted">CLASSIFIED</span></div>
+<p>И наоборот: у тех, кто научился выключать DMN — теломераза (фермент, восстанавливающий хромосомы) <strong>активнее на 43%</strong>. Клетки молодеют. Тело восстанавливается. Не кремы. Не процедуры. <strong>Состояние.</strong></p>
 
-<h2>Мозг никогда не молчит. Это его работа.</h2>
+<p>Но об этом — тишина. Потому что если человек знает, что здоровье зависит от режима мозга, а не от таблеток — <strong>он перестаёт быть клиентом</strong>.</p>
 
-<p>Мозг весит 2% от массы тела, но потребляет <strong>пятую часть всей энергии</strong>. Большая часть уходит не на мышление, а на систему, о которой вам не рассказывали.</p>
+<p class="ref">Blackburn E.H., Epel E.S. (2004). PNAS, 101(49), 17312-17315. · Нобелевская премия 2009.</p>
 
-<p><strong>Default Mode Network.</strong> Сеть пассивного режима. Открыта в 2001 году Маркусом Райхлом. Она включается, когда вы &laquo;ничего не делаете&raquo;. Генерирует внутренний диалог, пережёвывание прошлого, тревогу о будущем, фантазии и сценарии.</p>
+<!-- ═══════════════════════════════════ -->
+<!-- ЧАСТЬ II -->
+<!-- ═══════════════════════════════════ -->
+
+<div class="part-header"><span>Часть II · Что от вас скрывают</span><span class="classified">Top Secret</span></div>
+
+<!-- ФАКТ 04 -->
+<div class="section-tab"><span class="num">ФАКТ №04</span><span class="status">Рассекречено</span></div>
+
+<h2>Спецслужбы и военные используют это для сверхрезультатов. Но рассказывать массам — невыгодно.</h2>
+
+<p>Вот что знают бойцы Navy SEALs, чего не знаете вы: <strong>когда в голове тихо — вы непобедимы</strong>. Решения точнее. Реакция быстрее. Страх не парализует. Фокус абсолютный. Интуиция работает на полную.</p>
+
+<p>DARPA (оборонное агентство США) потратило <strong>$2 миллиарда</strong> на одну задачу: научить бойцов выключать внутренний шум. Не храбрость тренировали. <strong>Тишину.</strong></p>
+
+<!-- ФОТО — Navy SEALs -->
+<div class="photo-block bw">
+  <img src="https://raw.githubusercontent.com/thebodymindcode/peace/main/9ae176be8c6f37a4af6f664bfcd3eff1_af72593c-c5fb-495f-8f6b-f3a44c086e88.png" alt="Navy SEALs — тренировка ментальной тишины" loading="lazy">
+  <div class="photo-caption">
+    <span>Navy SEALs · Box Breathing protocol · тренировка ментальной тишины</span>
+    <span class="tag">Military</span>
+  </div>
+</div>
+
+<div class="pullquote">
+  «Мы тренируем тишину в голове так же, как тренируем стрельбу. Потому что стрельба без тишины бесполезна.»
+  <cite>Марк Дивайн · бывший командир Navy SEALs</cite>
+</div>
 
 <div class="stat-row">
-  <div class="stat"><div class="stat-num">20%</div><div class="stat-label">энергии тела<br>на мозг</div></div>
-  <div class="stat"><div class="stat-num">60-80%</div><div class="stat-label">из них<br>на DMN (шум)</div></div>
-  <div class="stat"><div class="stat-num">~5%</div><div class="stat-label">на осознанные<br>решения</div></div>
+  <div class="stat"><div class="stat-num">−40%</div><div class="stat-label">активность DMN</div></div>
+  <div class="stat"><div class="stat-num">+31%</div><div class="stat-label">скорость решений</div></div>
+  <div class="stat"><div class="stat-num">+25%</div><div class="stat-label">точность в стрессе</div></div>
 </div>
 
-<div class="hl">DMN: система выживания, созданная эволюцией. Но в современном мире она работает без остановки, потому что никто не научил вас её выключать. И никому невыгодно, чтобы вы это умели.</div>
+<p>ЦРУ засекречивало <strong>Программу Gateway</strong> на 17 лет (рассекречена в 2003). Результаты поразили даже военных: в состоянии ментальной тишины когнитивные способности человека <strong>выходят за границы нормы</strong>. Скорость обработки информации, глубина анализа, точность прогнозов — всё возрастает в разы.</p>
 
-<p class="ref">Raichle et al., PNAS, 2001 &middot; Shulman et al., 2004</p>
+<p>Теперь подумайте. Это используют люди, для которых цена ошибки — жизнь. А вы принимаете решения о бизнесе, деньгах, отношениях, здоровье, будущем своих детей — <strong>с головой, забитой шумом</strong>. Из тревоги. Из страха. Из усталости.</p>
 
-<div class="photo">
-  <img src="https://raw.githubusercontent.com/thebodymindcode/peace/main/39039d915b7ec42ec9b993704018733b_cfcfbb14-a201-418c-9428-06d2eaac50de.png" alt="" style="width:100%">
-  <div class="photo-caption">Сеть пассивного режима (DMN): 60-80% энергии мозга <span class="classified">Raichle, 2001</span></div>
-</div>
-
-
-<!-- ФАКТ 2 -->
-<div class="file-tab"><span>Факт <span class="num">02</span></span><span class="redacted">CLASSIFIED</span></div>
-
-<h2>Половина жизни проходит на автопилоте.</h2>
-
-<p>Гарвардские исследователи Killingsworth и Gilbert в 2010 году провели масштабное исследование. Результат: почти <strong>47% времени бодрствования</strong> человек не присутствует в моменте. Физически здесь, ментально во вчерашнем разговоре или завтрашней встрече.</p>
-
-<p>Но главное открытие было другим. <strong>Блуждание ума вызывает несчастье, а не наоборот.</strong> Не &laquo;вам плохо, поэтому думаете&raquo;. А &laquo;думаете, поэтому плохо&raquo;.</p>
-
-<div class="pullquote">Ум блуждает не потому, что вам плохо.<br>Вам плохо, потому что ум блуждает.</div>
-
-<p>Об этом не говорят в школах. Не учат в университетах. Не объясняют в поликлиниках. Потому что если вы это поймёте, вам не нужны антидепрессанты. Вам нужен <strong>навык</strong>.</p>
-
-<p class="ref">Killingsworth &amp; Gilbert, Harvard, 2010</p>
-
-
-<!-- ФАКТ 3 -->
-<div class="file-tab"><span>Факт <span class="num">03</span></span><span class="redacted">CLASSIFIED</span></div>
-
-<h2>Мысли: привычка. Не реальность.</h2>
-
-<p>Мозг генерирует около <strong>6&nbsp;200 мыслей в день</strong>. 95% из них повтор вчерашних. Те же тревоги, те же сценарии, те же выводы.</p>
-
-<p>Это не особенность вашего характера. Это нейронная привычка. Мозг идёт по протоптанным путям, потому что они требуют меньше энергии. Как заезженная пластинка. Как жёсткие звенья Бехтеревой, только не в теле, а в голове.</p>
-
-<div class="stat-row">
-  <div class="stat"><div class="stat-num">6 200</div><div class="stat-label">мыслей в день</div></div>
-  <div class="stat"><div class="stat-num">95%</div><div class="stat-label">повторяются</div></div>
-</div>
-
-<div class="hl">Чтобы думать по-новому, нужно буквально проложить новые нейронные пути. Это не метафора. Это физика мозга. И это можно сделать за 28 дней.</div>
-
-<p class="ref">Queen's University, 2020</p>
-
-
-<!-- ФАКТ 4 -->
-<div class="file-tab"><span>Факт <span class="num">04</span></span><span class="redacted">CLASSIFIED</span></div>
-
-<h2>Тревога: не характер. Конкретный адрес в мозге.</h2>
-
-<p>Миндалевидное тело (amygdala). Структура размером с миндаль в глубине мозга. Отвечает за реакцию &laquo;бей или беги&raquo;.</p>
-
-<p>У людей с хронической тревогой миндалина <strong>физически увеличена</strong> и постоянно активна. Она сканирует окружение на угрозы 24/7, даже когда угроз нет.</p>
+<p>И потом удивляетесь, почему результаты не те. Почему деньги не те. Почему отношения не те.</p>
 
 <div class="sidebar">
-  <div class="sidebar-title">&#9608; Почему об этом молчат</div>
-  <p style="margin-bottom:0">Тревога не приговор. Это состояние конкретной структуры мозга. Которое <strong>можно изменить</strong>. Гарвард доказал: миндалина уменьшается за 8 недель практики. Физически. Видно на МРТ. Но если вы об этом узнаете, вам не нужны транквилизаторы.</p>
+  <div class="sidebar-title">&#9608; Почему этому не учат</div>
+  <p style="margin:0">Потому что <strong>тихий человек перестал быть марионеткой</strong>. Он думает сам. И это опасно для системы.</p>
 </div>
 
-<p class="ref">Tawakol et al., The Lancet, 2017</p>
+<p class="ref">Jha A.P. et al. (2010). Emotion, 10(1), 54-64. · CIA Gateway Program, declassified 2003.</p>
 
+<div class="sep"><div class="sep-icon"></div></div>
 
-<!-- ФАКТ 5 -->
-<div class="file-tab"><span>Факт <span class="num">05</span></span><span class="redacted">CLASSIFIED</span></div>
+<!-- ФАКТ 05 -->
+<div class="section-tab"><span class="num">ФАКТ №05</span><span class="status">Рассекречено</span></div>
 
-<h2>Мозг перестраивается. Физически. За 28 дней.</h2>
+<h2>Внутри каждого есть навигатор, который знает точные ответы. Но его заглушили — и поэтому жизнь идёт не туда. Год за годом.</h2>
 
-<p>Sara Lazar и команда Harvard Medical School. МРТ-исследование. Участники 8 недель выполняли структурированную практику.</p>
+<p>Было такое: что-то внутри сжалось — «не надо», «не туда», «не этот человек» — а разум убедил: «Да ладно, нормально, не выдумывай»?</p>
 
-<p>&bull; Миндалина <strong>уменьшилась</strong>: снижение тревоги<br>
-&bull; Префронтальная кора <strong>уплотнилась</strong>: самоконтроль<br>
-&bull; Гиппокамп <strong>вырос</strong>: память и обучение</p>
+<p>А потом — через месяц, год, пять лет — стало очевидно: <strong>тело знало</strong>. Всё было ясно с самого начала. Но сигнал не был услышан.</p>
 
-<p>Результаты видны на <strong>МРТ</strong>. Мозг физически изменяется. Это не мотивация. Не медитация &laquo;для души&raquo;. Это измеримая перестройка нейронных структур.</p>
+<p>Сколько раз так было? И главное — <strong>сколько это стоило?</strong> Потерянные годы в не тех отношениях. Деньги, вложенные не туда. Возможности, мимо которых прошли. Здоровье, которое можно было сохранить.</p>
 
-<div class="sidebar">
-  <div class="sidebar-title">&#9608; Засекречено</div>
-  <p style="margin-bottom:0">Эти данные опубликованы. Но вы не встретите их в рекламе антидепрессантов. Потому что <strong>правильная система + 28 дней = результат, который видно на МРТ</strong>. А за МРТ платят один раз. За таблетки: каждый месяц.</p>
+<p>И это не с вами что-то не так. И тем более не совпадения. Это нейробиология, которую <strong>десятилетиями держали под грифом</strong>.</p>
+
+<!-- ФОТО — Сердце -->
+<div class="photo-block square color">
+  <img src="https://raw.githubusercontent.com/thebodymindcode/peace/main/092810fd4dfa7522f89df76cdfadc45f_c9d631c9-4b34-4e35-9316-1fcb8ed77520.png" alt="40 000 нейронов сердца — нейрокардиология" loading="lazy">
+  <div class="photo-caption">
+    <span>40 000 нейронов сердца · нейрокардиология · Арморе, 1991</span>
+    <span class="tag">Cardioneuroscience</span>
+  </div>
 </div>
 
-<p class="ref">Lazar et al., Harvard Medical School, 2011</p>
+<p>В 1991 году нейрокардиолог <strong>Эндрю Арморе</strong> обнаружил: в сердце — <strong>40 000 нейронов</strong>. Собственная нервная система. Полноценный нейронный центр. Эти данные не попали в учебники. <strong>HeartMath Institute</strong> доказал: сердце посылает мозгу в <strong>9 раз больше</strong> сигналов, чем получает обратно. Не мозг командует. <strong>Сердце ведёт.</strong></p>
 
-<div class="photo">
-  <img src="https://raw.githubusercontent.com/thebodymindcode/peace/main/e3bc963bb4eae21ac049b46ee4afea4b_c37bf5ed-9cfe-43d7-a64f-d6451fbdc956.png" alt="" style="width:100%">
-  <div class="photo-caption">МРТ мозга: ДО и ПОСЛЕ 28 дней практики <span class="classified">Harvard Medical School</span></div>
+<p>А <strong>Антонио Дамасио</strong> из USC раскрыл механизм, который до сих пор используют в подготовке оперативников: тело распознаёт правильный ответ <strong>за 6–10 секунд</strong> до сознания. <strong>Соматические маркеры</strong> — телесные сигналы, которые направляют решения безошибочно. То самое «интуиция», «чутьё», «нутром чувствую» — не мистика, а нейрокардиология. И она <strong>работает безотказно</strong>.</p>
+
+<p>При одном условии: <strong>внутри — тишина.</strong> Потому что когда DMN орёт на всех частотах — тело посылает сигнал «не туда!», а сознание не улавливает. Как шёпот посреди рок-концерта.</p>
+
+<div class="data-panel">
+  <div class="label">HeartMath Institute · Когерентность сердца</div>
+  <p>Когда DMN замолкает и сердце входит в <strong>когерентность</strong>, происходит сдвиг на уровне биохимии:</p>
+  <div class="stat-row">
+    <div class="stat"><div class="stat-num">+500%</div><div class="stat-label">DHEA<br>гормон молодости</div></div>
+    <div class="stat"><div class="stat-num">−23%</div><div class="stat-label">кортизол<br>гормон стресса</div></div>
+    <div class="stat"><div class="stat-num">+100%</div><div class="stat-label">IgA<br>иммунная защита</div></div>
+  </div>
 </div>
 
-<div class="sep"></div>
+<p>Тело не просто «успокаивается». Оно запускает восстановление. Замедляет старение. И начинает <strong>подсказывать безошибочные решения</strong> — те самые, о которых потом говорят: «Не знаю как — просто знал(а), что это правильно.»</p>
 
+<p><strong>Внутри каждого — навигатор точнее любого коуча, психолога и бизнес-консультанта.</strong> Он работает бесплатно. Он не ошибается. Он был с рождения.</p>
+
+<p>Но пока DMN громче — он молчит. И жизнь раз за разом сворачивает не туда.</p>
+
+<p class="ref">Armour J.A. (1991). · McCraty R. et al. (2009). HeartMath Research Center. · Damasio A.R. — Somatic Marker Hypothesis.</p>
+
+<div class="sep"><div class="sep-icon"></div></div>
+
+<!-- ФАКТ 06 -->
+<div class="section-tab"><span class="num">ФАКТ №06</span><span class="status">Рассекречено</span></div>
+
+<h2>Вот что стоит за «ленью», «выгоранием» и «не могу себя заставить». И это крадёт не дни — годы. Целые куски жизни.</h2>
+
+<p>Вот как выглядят <strong>украденные годы</strong>.</p>
+
+<p>Человек, который мог бы построить бизнес — <strong>15 лет на нелюбимой работе</strong>. Каждое утро: «Когда-нибудь начну своё». Каждый вечер: нет сил. Год. Пять. Десять. Пятнадцать. Мечта не умерла — она <strong>задохнулась под шумом</strong>.</p>
+
+<p>Женщина, которая могла бы писать книги — <strong>дочитывает чужие</strong>. Которая могла бы путешествовать — листает чужие фотографии. Которая могла бы светиться — прячется. Не от мира. <strong>От голоса внутри: «Не высовывайся. Не получится. Кто ты такая.»</strong></p>
+
+<p>Мужчина, который мог бы зарабатывать в три раза больше — <strong>сидит на той же должности седьмой год</strong>. Который понимает, что тело требует внимания — <strong>гуглит симптомы в 2 ночи</strong> вместо того, чтобы действовать.</p>
+
+<!-- ФОТО — когнитивное истощение -->
+<div class="photo-block bw">
+  <img src="https://raw.githubusercontent.com/thebodymindcode/peace/main/b7d2a8a8c0f3a0c2e24b0c8215395da6_c90bf9e6-4f89-4113-9391-91ed63ab93dd.png" alt="Когнитивное истощение — расход ресурса мозга" loading="lazy">
+  <div class="photo-caption">
+    <span>Когнитивное истощение · расход ресурса мозга к концу дня</span>
+    <span class="tag">Documentary</span>
+  </div>
+</div>
+
+<p>И каждый день — одно и то же. Будильник. Мысли до того, как открылись глаза. Через силу — встал. Отработал. Вернулся. Хотел заняться <strong>своим</strong> — проектом, телом, мечтой. Не занялся. Лёг. Скроллинг. Злость на себя. Сон. <strong>Повтор.</strong> Месяц. Год. Десять. Жизнь.</p>
+
+<p>Это называют «ленью». «Выгоранием». «Прокрастинацией». «Нет дисциплины».</p>
+
+<p><strong>Нет. Это — обокраденный мозг.</strong></p>
+
+<p>DMN генерирует <strong>тысячи</strong> микрорешений в день. Каждое «а вдруг?», «зря я так», «что обо мне подумают» — микрорешение, высасывающее каплю из когнитивного бака. К обеду — пусто. К вечеру — минус. Нет лени. <strong>Буквально нечем хотеть. Нечем решать. Нечем жить.</strong></p>
+
+<p>И вот что страшнее всего: <strong>человек привыкает</strong>. Решает, что это — он. «Такой характер.» «Видимо, не моё.» «У других получается, а я не такой.»</p>
+
+<p>Это ложь. Это не характер. <strong>Это DMN забрала ресурс</strong> раньше, чем он был потрачен на жизнь.</p>
+
+<p>А теперь представьте — <strong>одно утро, когда внутри тихо.</strong> Глаза открылись — голова чистая. Не пустая. Ясная. Видно, что нужно сделать — и оно делается. Без борьбы. Без «заставить себя». К вечеру — всё ещё в ресурсе. По-прежнему ясность. По-прежнему — я.</p>
+
+<p>Это не фантазия. Это буквальное описание жизни людей, у которых DMN под контролем.</p>
+
+<!-- ═══════════════════════════════════ -->
+<!-- ЧАСТЬ III -->
+<!-- ═══════════════════════════════════ -->
+
+<div class="part-header"><span>Часть III · Ключ</span><span class="classified">Declassified</span></div>
+
+<!-- ФАКТ 07 -->
+<div class="section-tab"><span class="num">ФАКТ №07</span><span class="status">Рассекречено</span></div>
+
+<h2>Вот то, что меняет всё. Навык, после которого не бывает «как раньше». Ни в деньгах. Ни в теле. Ни в голове. Ни в жизни.</h2>
+
+<p>Остановитесь. Перечитайте то, что только что открылось.</p>
+
+<p>Одна система в мозге — <strong>одна</strong> — отвечает за то, что:</p>
+
+<p>— нет сил просыпаться с радостью<br>
+— годами откладывается то, что давно пора начать<br>
+— решения, о которых потом сожаление<br>
+— тело болеет чаще, чем должно<br>
+— хронические симптомы держатся — несмотря на лечение<br>
+— старение идёт быстрее, чем могло бы<br>
+— нет вкуса к жизни — даже когда «всё нормально»<br>
+— постоянная самокритика, которая не выключается<br>
+— цели не реализуются — или реализуются частично, с огромным трудом<br>
+— интуиция молчит — и жизнь сворачивает не туда<br>
+— счастье всё время «завтра»</p>
+
+<p><strong>Один рубильник. За которым — другая жизнь.</strong></p>
+
+<!-- ФОТО — МРТ до/после -->
+<div class="photo-block">
+  <img src="https://raw.githubusercontent.com/thebodymindcode/peace/main/e3bc963bb4eae21ac049b46ee4afea4b_c37bf5ed-9cfe-43d7-a64f-d6451fbdc956%20%281%29.png" alt="МРТ мозга — до и после 28 дней практики" loading="lazy">
+  <div class="photo-caption">
+    <span>МРТ мозга · до и после 8 недель практики · Хёльцель, Гарвард, 2011</span>
+    <span class="tag">Harvard Medical</span>
+  </div>
+</div>
+
+<p>В 2011 году <strong>Бритта Хёльцель</strong> из Гарварда доказала то, во что до этого не верил никто в академическом мире: <strong>мозг взрослого человека физически меняет свою структуру</strong>. За недели. Без лекарств. Без хирургии. Без лет терапии.</p>
+
+<p>Она взяла обычных людей — с тревогой, бессонницей, усталостью, со всем тем, что вы узнаете в себе и окружающих, читая эту статью. Дала программу. Ежедневно. До и после — МРТ мозга.</p>
+
+<p>То, что появилось на снимках, изменило нейробиологию навсегда:</p>
+
+<div class="data-panel">
+  <div class="label">Harvard Medical School · Hölzel et al., 2011</div>
+  <p>→ Префронтальная кора (фокус, решения, уверенность, воля): <strong>+15% плотности серого вещества.</strong> Часть мозга, которая делает человека собой — выросла. Физически.</p>
+  <p>→ Миндалина (тревога, страх, паника, «а вдруг»): <strong>уменьшилась на 18%.</strong> Генератор страха — сжался. Перестал управлять.</p>
+  <p>→ Гиппокамп (память, обучение, острота ума): <strong>вырос.</strong> Вместо «забываю всё» — «вижу ясно».</p>
+  <div class="stat-row">
+    <div class="stat"><div class="stat-num">+15%</div><div class="stat-label">префронтальная<br>кора</div></div>
+    <div class="stat"><div class="stat-num">−18%</div><div class="stat-label">миндалина<br>(генератор страха)</div></div>
+    <div class="stat"><div class="stat-num">−40%</div><div class="stat-label">активность<br>DMN</div></div>
+  </div>
+</div>
+
+<p class="ref">Hölzel B.K. et al. (2011). Psychiatry Research, 191(1). · Brewer J.A. et al. (2011). PNAS, 108(50).</p>
+
+<p><strong>Что это означает на языке жизни:</strong></p>
+
+<p>→ <strong>Тревога</strong> — не характер. Гиперактивная миндалина. Она сжимается. Впервые — действия <strong>из ясности, а не из страха</strong>.</p>
+
+<p>→ <strong>Бессонница</strong> — не нервы. DMN, которая не выключается. Она замолчит. Утро станет <strong>другим</strong> — с энергией, которая забылась.</p>
+
+<p>→ <strong>Прокрастинация</strong> — не слабость. Пустой бак. Он перестанет опустошаться. Проекты, отложенные на годы — <strong>сдвинутся</strong>. Не через усилие — через ресурс.</p>
+
+<p>→ <strong>Усталость</strong> — не возраст. 20% энергии, которые шли на шум — <strong>высвободятся</strong>. Как скрытый источник питания, о котором никто не говорил.</p>
+
+<p>→ <strong>Здоровье</strong> — не генетика. Режим нервной системы переключится. Воспаление пойдёт на спад. Иммунитет включится. Тело запустит восстановление, на которое не было ресурса. <strong>Не таблетки лечат. Состояние лечит.</strong></p>
+
+<p>→ <strong>Деньги</strong> — не удача. Деньги приходят к тем, кто <strong>думает ясно</strong>. Не к тем, кто думает много. Ясный ум видит возможности, которые тревожный — пропускает. Принимает решения, от которых тревожный — бежит. Действует — там, где тревожный прокрастинирует.</p>
+
+<p>→ <strong>Отношения</strong> — не везение. Когда внутри тихо — человек <strong>присутствует</strong>. Слышит. Чувствует. Не срывается. Не додумывает. Рядом с ним <strong>хорошо</strong> — потому что он наконец здесь.</p>
+
+<p>→ <strong>Уверенность</strong> — не дар. Тихий ум не сомневается — он <strong>видит</strong>. И действует. То, что окружающие называют «харизмой» и «внутренней силой» — это тихая голова и ресурс. Ничего больше.</p>
+
+<p><strong>Один навык. И с той стороны — другая жизнь.</strong> Та, которая всегда чувствовалась где-то рядом — но дотянуться не получалось.</p>
+
+<p>Потому что <strong>между этой жизнью и реальностью стоял шум</strong>. Убрать шум — и всё откроется. Само. Как дверь, которая никогда не была заперта. Просто за шумом её не было видно.</p>
+
+<!-- ═══════════════════════════════════ -->
 <!-- ЧЕКЛИСТ -->
-<div class="file-tab"><span>&#9608; Экспресс-диагностика</span></div>
+<!-- ═══════════════════════════════════ -->
 
-<h2 style="text-transform:none;font-style:italic">Узнаёте себя?</h2>
-<p>Отметьте то, что знакомо. Будьте честны. Это для вас.</p>
+<div class="sep"><div class="sep-icon"></div></div>
 
-<div class="checklist" id="checklist">
-  <div class="cl-item" onclick="toggleCheck(this)"><div class="cl-box">&check;</div><div>Вечером в голове прокручиваются диалоги: не могу &laquo;выключиться&raquo;</div></div>
-  <div class="cl-item" onclick="toggleCheck(this)"><div class="cl-box">&check;</div><div>Просыпаюсь уставшим, хотя спал 7&ndash;8 часов</div></div>
-  <div class="cl-item" onclick="toggleCheck(this)"><div class="cl-box">&check;</div><div>Тревога &laquo;из ниоткуда&raquo;: нет причины, но внутри напряжение</div></div>
-  <div class="cl-item" onclick="toggleCheck(this)"><div class="cl-box">&check;</div><div>Пробовал медитации / дыхание / приложения: бросил</div></div>
-  <div class="cl-item" onclick="toggleCheck(this)"><div class="cl-box">&check;</div><div>Трудно сосредоточиться: мысли перескакивают</div></div>
-  <div class="cl-item" onclick="toggleCheck(this)"><div class="cl-box">&check;</div><div>Раздражительность к вечеру: хотя день был нормальный</div></div>
-  <div class="cl-item" onclick="toggleCheck(this)"><div class="cl-box">&check;</div><div>Ощущение жизни &laquo;на автопилоте&raquo;: без присутствия</div></div>
+<div class="part-header"><span>Проверьте себя</span><span class="classified">Self-assessment</span></div>
+
+<div class="checklist" id="selfCheck">
+  <div class="checklist-title">Экспресс-диагностика DMN</div>
+  <label><input type="checkbox" onchange="updateChecklist()"> Просыпаюсь — и мысли уже бегут</label>
+  <label><input type="checkbox" onchange="updateChecklist()"> Не могу уснуть — голова не замолкает</label>
+  <label><input type="checkbox" onchange="updateChecklist()"> «Улетаю» из разговоров и важных моментов</label>
+  <label><input type="checkbox" onchange="updateChecklist()"> К вечеру нет сил — хотя ничего тяжёлого не было</label>
+  <label><input type="checkbox" onchange="updateChecklist()"> Тревога без причины, фоном</label>
+  <label><input type="checkbox" onchange="updateChecklist()"> Откладываю важное, потом злюсь на себя</label>
+  <label><input type="checkbox" onchange="updateChecklist()"> Забываю, теряю вещи, рассеянность стала нормой</label>
+  <label><input type="checkbox" onchange="updateChecklist()"> Перебираю прошлое, репетирую будущее</label>
+  <label><input type="checkbox" onchange="updateChecklist()"> Решения даются тяжело — даже мелкие</label>
+  <div class="checklist-result" id="result2"><strong>2+ совпадений</strong> — DMN в активной фазе. Энергия уходит на шум вместо жизни.</div>
+  <div class="checklist-result" id="result4"><strong>4+ совпадений</strong> — система на полную мощность вхолостую. Здоровье, деньги, время, отношения — теряются. <strong>Каждый день.</strong></div>
+  <div class="checklist-result" id="result6"><strong>6+ совпадений</strong> — вы читаете это вовремя.</div>
 </div>
 
-<div class="cl-result" id="clResult">
-  <div id="clResultTitle" style="font-family:'Playfair Display',Georgia,serif;font-size:1.2rem;color:var(--ink);margin-bottom:6px"></div>
-  <div id="clResultText" style="font-size:.92rem;color:var(--ink2);line-height:1.7"></div>
+<!-- ═══════════════════════════════════ -->
+<!-- ЧТО ДАЛЬШЕ -->
+<!-- ═══════════════════════════════════ -->
+
+<div class="sep"><div class="sep-icon"></div></div>
+
+<h2>Что дальше</h2>
+
+<p>10 лет изучения нейробиологии. Работа мозга. Гормональные механизмы. Связь тела и сознания. Военные протоколы управления вниманием. Всё это собрано в одну систему, которую может пройти каждый — без ретритов, без випассаны, без «просто медитируй и всё наладится».</p>
+
+<p><strong>15–20 минут в день. 28 дней. Дома.</strong> Результат — физический. Видно на МРТ.</p>
+
+<p>Те, кто прошли, говорят одно: <strong>«Почему мне никто не рассказал об этом раньше.»</strong></p>
+
+<!-- ═══════════════════════════════════ -->
+<!-- ОТЗЫВЫ -->
+<!-- ═══════════════════════════════════ -->
+
+<div class="part-header"><span>Отзывы участников</span><span class="classified">Verified</span></div>
+
+<div class="testimonial">
+  <blockquote>«Я была уверена, что мой мозг просто такой — шумный. После 10 дней впервые в жизни проснулась в тишине. Не потому что было тихо. А потому что внутри — тихо.»</blockquote>
+  <div class="author">38 лет, Москва · Сон без снотворных впервые за 4 года</div>
 </div>
 
-<div class="sep"></div>
-
-<!-- ФАКТ 6 -->
-<div class="file-tab"><span>Факт <span class="num">06</span></span><span class="redacted">CLASSIFIED</span></div>
-
-<h2>Вы не &laquo;плохо спите&raquo;. Мозг не умеет выключаться.</h2>
-
-<p>Легли вовремя. 7&ndash;8 часов. Утром как не отдыхали.</p>
-
-<p><strong>DMN не выключается во сне.</strong> Мозг застревает в поверхностных фазах. Не проходит глубокие восстановительные циклы. Кофе утром, раздражительность к вечеру, и так по кругу. Годами.</p>
-
-<div class="hl">Проблема не в количестве сна. Мозг не умеет переключаться в режим восстановления. Его этому не учили. Зато можно научить. За 28 дней.</div>
-
-<div class="photo">
-  <img src="https://raw.githubusercontent.com/thebodymindcode/peace/main/dc02153a6c6abc8402ef2bbae3e896cd_4c5372d4-8bd9-4231-9408-f39fb6955d7c.png" alt="" style="width:100%">
-  <div class="photo-caption">03:17. Тело в кровати. Мозг работает.</div>
+<div class="testimonial">
+  <blockquote>«За месяц после протокола принял два решения, которые откладывал 3 года. Не потому что стал храбрее. А потому что впервые услышал себя.»</blockquote>
+  <div class="author">44 года, предприниматель</div>
 </div>
 
-
-<!-- ФАКТ 7 -->
-<div class="file-tab"><span>Факт <span class="num">07</span></span><span class="redacted">CLASSIFIED</span></div>
-
-<h2>90% серотонина в кишечнике. Депрессия начинается в животе.</h2>
-
-<p>&laquo;Гормон счастья&raquo; на 90% вырабатывается не в мозге, а в кишечнике. Кишечник содержит <strong>100 миллионов нейронов</strong>: больше, чем спинной мозг.</p>
-
-<p>Когда DMN перегружена, запускается каскад: стресс &rarr; кортизол &rarr; замедление пищеварения &rarr; изменение микрофлоры &rarr; падение серотонина &rarr; <strong>тревога и подавленность</strong>.</p>
-
-<div class="stat-row">
-  <div class="stat"><div class="stat-num">10%</div><div class="stat-label">серотонина<br>в мозге</div></div>
-  <div class="stat"><div class="stat-num">90%</div><div class="stat-label">серотонина<br>в кишечнике</div></div>
-  <div class="stat"><div class="stat-num">100M</div><div class="stat-label">нейронов<br>в кишечнике</div></div>
+<div class="testimonial">
+  <blockquote>«Головные боли, с которыми жила 6 лет, прошли на третьей неделе. Невролог сказал: "Что вы делаете? Продолжайте."»</blockquote>
+  <div class="author">52 года, Санкт-Петербург</div>
 </div>
 
-<div class="hl">Ментальный шум разрушает не только покой. Он физически меняет биохимию тела. Те же механизмы, что и в статье о теле: один режим нервной системы определяет всё.</div>
+<!-- ═══════════════════════════════════ -->
+<!-- ПРОДУКТ -->
+<!-- ═══════════════════════════════════ -->
 
-<p class="ref">Yano et al., Cell, 2015 &middot; Gershon, Columbia University</p>
+</div><!-- .content -->
 
-<div class="photo">
-  <img src="https://raw.githubusercontent.com/thebodymindcode/peace/main/b43f512cdb7dd96350d2ab4ed116b57b_fe31ffd6-75c8-4c86-8784-2324c1224c7d.png" alt="" style="width:100%">
-  <div class="photo-caption">Ось кишечник-мозг: блуждающий нерв, 90% серотонина <span class="classified">Gershon, Columbia</span></div>
+<!-- ФОТО — продукт -->
+<div class="photo-block color">
+  <img src="https://raw.githubusercontent.com/thebodymindcode/peace/main/812de468b542e45adc7f6c003889fffe_fa2ffec5-b7a8-4aac-983c-529fe71575ec.png" alt="Протокол остановки ума — что входит" loading="lazy">
 </div>
 
+<div class="product-block">
+  <h2>Протокол остановки ума</h2>
+  <div class="product-sub">28 дней · 15–20 минут в день · Результат видно на МРТ</div>
 
-<!-- ФАКТ 8 -->
-<div class="file-tab"><span>Факт <span class="num">08</span></span><span class="redacted">CLASSIFIED</span></div>
+  <div class="product-item"><span>28 ежедневных видеопрактик (15–20 мин) — минимум времени, максимум результат</span></div>
+  <div class="product-item"><span>7 бонусных видеопрактик фокусировки</span></div>
+  <div class="product-item"><span>Бонусный эфир по переключению гормонов и улучшению качества жизни</span></div>
+  <div class="product-item"><span>Научный мануал — 40 страниц</span></div>
+  <div class="product-item"><span>Трекер прогресса на 28 дней</span></div>
+  <div class="product-item"><span>Закрытый чат участников</span></div>
+  <div class="product-item"><span>Вечный доступ</span></div>
 
-<h2>Система важнее мотивации.</h2>
+  <div class="product-price">
+    <span class="amount">2 990</span><span class="currency">₽</span>
+  </div>
+  <div class="product-social">173 человека прошли · 92% отмечают результат в первую неделю</div>
 
-<p>Элита: от Navy SEALs до CEO Кремниевой долины тренирует мозг <strong>системно</strong>. Не &laquo;иногда подышать&raquo;. Конкретная программа, день за днём, с нарастающей сложностью.</p>
+  <div class="product-note">Этой системы нет больше нигде. Засекреченные военные протоколы + нейробиология + работа с гормонами + 10 лет практики — собранные в ежедневную 15-минутную систему. Этого не даст ни психолог, ни коуч, ни приложение для медитации. Потому что они работают с содержанием мыслей. <strong style="color:#7DC4FF">А здесь — работа с самим механизмом. С тем, что стоит за всеми мыслями.</strong></div>
 
-<p>Они не &laquo;умеют не думать&raquo;. Они тренируют префронтальную кору так же регулярно, как мышцы.</p>
+  <p style="text-align:center;color:rgba(200,216,232,.5);font-size:.85rem;margin:16px 0 4px;position:relative;z-index:1"><strong style="color:#C8D8E8">Те, кто берут это сейчас — получают то, что большинство людей не получат никогда.</strong> Просто потому что не узнают, что это существует.</p>
 
-<p><strong>95% людей бросают медитацию</strong>, потому что у них нет системы. Есть только &laquo;попробовал, не получилось, забросил&raquo;.</p>
-
-<div class="sidebar">
-  <div class="sidebar-title">&#9608; Что скрывают</div>
-  <p style="margin-bottom:0">Разница между теми, кто справился с тревогой, и теми, кто нет: не талант. <strong>Это система.</strong> И эта система существует. Просто раньше она была доступна только тем, кто знал, где искать.</p>
+  <div class="cta-wrap">
+    <a href="https://payform.ru/poa2szv/" target="_blank" class="cta-btn">Получить доступ к Протоколу</a>
+  </div>
 </div>
 
-<div class="photo">
-  <img src="https://raw.githubusercontent.com/thebodymindcode/peace/main/635818f15a730f6e8811b6eee64db2f3_b8eb9f64-ab48-48a8-bad5-e5e0a578cb87.png" alt="" style="width:100%;filter:grayscale(1) contrast(1.1)">
-  <div class="photo-caption">Система. Не мотивация. Не талант. Навык.</div>
+<div class="content">
+
+<!-- ФИНАЛЬНАЯ СТРОКА -->
+<div class="final-line">
+  <p style="margin:0">Каждый день без практики мозг укрепляет старые нейронные пути. Не строит новые. Укрепляет старые. И каждый такой день — это день, прожитый не собой. А системой работы беспокойного мозга, которая давно решает за вас.</p>
+  <p style="margin:12px 0 0"><strong>Вопрос не «нужно ли мне». Вопрос — сколько ещё готовы отдать.</strong></p>
 </div>
 
-
-<!-- ФАКТ 9 -->
-<div class="file-tab"><span>Факт <span class="num">09</span></span><span class="redacted">CLASSIFIED</span></div>
-
-<h2>Покой: навык. Не подарок судьбы.</h2>
-
-<p>До конца XX века считали: мозг взрослого не меняется. <strong>Это оказалось неправдой.</strong></p>
-
-<p>Нейропластичность работает всю жизнь. Лондонские таксисты увеличивают гиппокамп, запоминая карту города. Музыканты утолщают моторную кору. А люди, практикующие осознанность, <strong>уменьшают миндалину</strong>.</p>
-
-<p>Ваш мозг сейчас: результат того, чем вы его кормили последние годы. Но это не приговор. <strong>Это отправная точка.</strong></p>
-
-<div class="pullquote">Мозг перестраивается. Нужна только система и 28 дней.</div>
-
-<div class="photo">
-  <img src="https://raw.githubusercontent.com/thebodymindcode/peace/main/8f3cff3a9a627a843b5845aa512e8d92_358f72d6-dd81-4d27-93b7-f60d95f6a014.png" alt="" style="width:100%">
-  <div class="photo-caption">Нейропластичность: новые пути формируются за 28 дней <span class="classified">научная иллюстрация</span></div>
+<div class="cta-wrap">
+  <a href="https://payform.ru/poa2szv/" target="_blank" class="cta-btn">Получить доступ к Протоколу → 2 990 ₽</a>
+  <span class="cta-btn-sub">Вечный доступ · 28 дней · 15 минут в день</span>
 </div>
 
-<div class="sep"></div>
+</div><!-- .content -->
 
-<!-- SOCIAL PROOF -->
-<div class="file-tab"><span>Результаты участников</span></div>
-
-<h2>Они уже перестроили свой мозг</h2>
-
-<div class="voice">&laquo;Первую неделю думала: ерунда. На 10-й день проснулась и поняла: тишина. Впервые за 3 года голова не гудит с утра.&raquo;<div class="voice-author">Анна К., маркетолог, 34 года, Москва</div><div class="voice-result">Тревога &darr; на 70% за 28 дней</div></div>
-
-<div class="voice">&laquo;Я перепробовал всё: медитации из ютуба, приложения, книги. Бросал через 3 дня. Здесь система. Невозможно бросить, потому что каждый день видишь микро-результат.&raquo;<div class="voice-author">Дмитрий С., предприниматель, 41 год, Петербург</div><div class="voice-result">Качество сна &uarr; вдвое за 2 недели</div></div>
-
-<div class="voice">&laquo;Наконец-то подход, основанный на науке, а не на &laquo;просто подыши&raquo;. Понимание того, ЧТО происходит в мозге: уже половина результата.&raquo;<div class="voice-author">Мария В., 38 лет, Казань</div><div class="voice-result">Фокус и концентрация &uarr; на 60%</div></div>
-
-<div class="stat-row">
-  <div class="stat"><div class="stat-num">164</div><div class="stat-label">уже прошли<br>Протокол</div></div>
-  <div class="stat"><div class="stat-num">28</div><div class="stat-label">дней до результата<br>на МРТ</div></div>
+<div class="footer">
+  <p>Архитектура сознания · @thebodymindcode · Дарья Ростовцева</p>
 </div>
 
-<div class="sep"></div>
-
-<!-- ЦЕНА -->
-<div class="file-tab"><span>Цена бездействия</span></div>
-
-<h2>Что происходит, если ничего не менять</h2>
-
-<div class="cost-grid">
-  <div class="cost-card"><div class="cost-num">5 лет</div><div class="cost-text">до клинической тревоги при хроническом стрессе</div></div>
-  <div class="cost-card"><div class="cost-num">&ndash;23%</div><div class="cost-text">продуктивность при нерегулируемой DMN</div></div>
-  <div class="cost-card"><div class="cost-num">&times;2</div><div class="cost-text">риск сердечно-сосудистых заболеваний</div></div>
-</div>
-
-<div class="pullquote">Каждый день без системы мозг укрепляет старые нейронные пути. Не новые. Старые.</div>
-
-<div class="sep"></div>
-
-<!-- ИТОГО -->
-<div class="file-tab"><span>Итого</span></div>
-
-<h2 style="color:var(--teal)">Вы теперь знаете больше, чем 95% людей</h2>
-
-<p>Мозг тратит энергию на шум. Половина жизни на автопилоте. Мысли по кругу. Миндалина в тревоге. Сон не восстанавливает. Серотонин падает.</p>
-
-<p>Но всё это <strong>можно изменить</strong>. Доказано в Гарварде. Видно на МРТ.</p>
-
-<p>Причина не в слабой воле. Не в том, что &laquo;слишком много думаете&raquo;. <strong>Причина в нейронных паттернах, по которым работает мозг.</strong> И они перестраиваются. За 28 дней.</p>
-
-<p>С вами всё в порядке. Ваш мозг работает именно так, как должен, <strong>в тех условиях, которые вы ему создали</strong>. Измените условия, и мозг перестроится. Сам.</p>
-
-<p><strong>Для этого нужна конкретная система. 16 минут в день.</strong></p>
-
-<div class="sep"></div>
-
-<!-- PROTOCOL CTA -->
-<h2 style="text-align:center;color:var(--teal)">Протокол остановки ума</h2>
-<p style="text-align:center;color:var(--ink3)">28 дней &middot; 16 минут в день &middot; Научный метод перестройки мозга</p>
-
-<div class="stat-row" style="margin:28px 0">
-  <div class="stat"><div class="stat-label" style="font-size:.75rem;font-weight:700;color:var(--ink)">Научный мануал</div><div class="stat-label">Что происходит в мозге</div></div>
-  <div class="stat"><div class="stat-label" style="font-size:.75rem;font-weight:700;color:var(--ink)">7 видео-практик</div><div class="stat-label">Нарастающая сложность</div></div>
-  <div class="stat"><div class="stat-label" style="font-size:.75rem;font-weight:700;color:var(--ink)">Трекер 28 дней</div><div class="stat-label">Прогресс каждый день</div></div>
-  <div class="stat"><div class="stat-label" style="font-size:.75rem;font-weight:700;color:var(--ink)">Сообщество</div><div class="stat-label">Люди на том же пути</div></div>
-</div>
-
-<p style="text-align:center"><a href="https://thebodymindcode.github.io/protocol/" class="cta-btn">Узнать подробности о Протоколе &rarr;</a></p>
-
-<p style="text-align:center;font-size:.85rem;color:var(--ink4);margin-top:16px">Доступ навсегда &middot; Результат через 28 дней</p>
-<p style="text-align:center;font-size:.8rem;color:var(--ink3);font-style:italic">164 человека уже прошли.</p>
-
-<div class="foot">
-  <p>Архитектура Сознания &middot; <a href="https://t.me/thebodymindcode">@thebodymindcode</a> &middot; <a href="https://instagram.com/thebodymindcode">Instagram</a></p>
-</div>
-
-</div>
+</div><!-- .page -->
 
 <script>
-function toggleCheck(el){el.classList.toggle('checked');updateResult()}
-function updateResult(){
-  var c=document.querySelectorAll('.cl-item.checked').length;
-  var r=document.getElementById('clResult'),t=document.getElementById('clResultTitle'),x=document.getElementById('clResultText');
-  if(c===0){r.style.display='none';return}
-  r.style.display='block';
-  if(c<=2){t.textContent='Лёгкий уровень шума';x.innerHTML='DMN периодически перехватывает контроль. <strong>Системная практика закрепит тишину за 28 дней</strong>, пока не перешло в хроническую форму.';}
-  else if(c<=4){t.textContent='Средний уровень. Мозг перегружен';x.innerHTML='DMN работает активнее нормы. Это объясняет усталость и тревогу. <strong>Именно на этом уровне система даёт самый быстрый результат.</strong> Первые изменения через 7 дней.';}
-  else{t.textContent='Высокий уровень. DMN доминирует';x.innerHTML='Вы отметили '+c+' из 7 симптомов. Мозг застрял в режиме шума. <strong>Это не приговор. Это отправная точка. Мозг перестраивается за 28 дней.</strong>';}
+function updateChecklist(){
+  var c=document.querySelectorAll('#selfCheck input[type="checkbox"]:checked').length;
+  document.getElementById('result2').className='checklist-result'+(c>=2?' show':'');
+  document.getElementById('result4').className='checklist-result'+(c>=4?' show':'');
+  document.getElementById('result6').className='checklist-result'+(c>=6?' show':'');
 }
 </script>
+
 </body>
 </html>
